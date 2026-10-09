@@ -52,6 +52,7 @@ async function create(source,state,logo){
  }
  function total(el){ensure(42);const h=31,w=246,x=W-M-w;page.drawRectangle({x,y:y-h,width:w,height:h,color:pale,borderColor:blue,borderWidth:.8});page.drawRectangle({x:W-M-4,y:y-h,width:4,height:h,color:blue});const value=el.querySelector('strong').textContent;const right=W-M-13;draw('Total programme',x+10,y-10,10,bold,navy);draw(value,right-bold.widthOfTextAtSize(value,17),y-6,17,bold,navy);y-=h+9;}
  function walk(el){
+  if(el.classList?.contains('print-submission')){ensure(70);paragraph(txt(el),{size:8,space:4});const a=el.querySelector('a');if(a){ensure(16);link(a.href,a.href,M,y);y-=19;}return;}
   if(el.dataset?.pdfField==='admissions_decision'){const val='';const h=Math.max(62,Math.min(170,lines(val,9,width-12).length*12+14));field('admissions_decision','Admission board decision (to be filled in by admission board)',val,h,true);return;}
   if(el.classList?.contains('print-total')){total(el);return;}
   if(el.classList?.contains('signature-table')){signatures();return;}

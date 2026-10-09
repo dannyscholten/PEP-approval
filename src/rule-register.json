@@ -1,5 +1,5 @@
 {
-  "status": "Version 0.7.0: one approval PDF route, draft controls and help at both ends of the form, and PDF-only admission-board decisions.",
+  "status": "Version 0.7.1: PDF submission instructions and link, explicit VU Principles restriction, and simplified Compulsory courses heading.",
   "analysis_date": "2026-10-10",
   "sources": {
     "TER": "M Drug Discovery Sciences TER 2026-2027 (1).pdf",
@@ -953,5 +953,10 @@
     "Admission-board decision is blank and editable only in the PDF; remove its reference field. Older drafts receive a notice when obsolete board text is removed, with no effect on course selections or EC from that removal.",
     "Use the requested coordinator and examination-board submission instructions and add the issue-report link.",
     "Retain old draft formats and verify imported selections, PDF form fields and both cryptographic signatures."
+  ],
+  "changes_0_7_1": [
+    "Share the exact submission instructions between web form and PDF, including a clickable examination-board submission link.",
+    "State explicitly that VU bachelor Farmaceutische Wetenschappen are not allowed to follow any of the Principles courses.",
+    "Rename Major programme to Compulsory courses and remove the repeated subtitle in web form, navigation and PDF."
   ]
 }
