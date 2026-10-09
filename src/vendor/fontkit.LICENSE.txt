@@ -1,0 +1,6 @@
+Fontkit upstream license statement
+Source: https://raw.githubusercontent.com/foliojs/fontkit/master/README.md
+
+## License
+
+MIT

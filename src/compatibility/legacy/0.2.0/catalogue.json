@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 1,
+  "appVersion": "0.2.0",
+  "ruleVersion": "DDS-2026-2027.2",
+  "cohort": 2026,
+  "total": 120,
+  "alphaLimit": 18,
+  "courses": [
+    {
+      "code": "XM_0136",
+      "name": "ADME",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0107",
+      "name": "Advanced Bioanalytical Approaches",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0114",
+      "name": "Advanced Course in Molecular Toxicology",
+      "ec": 6,
+      "level": 500,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XMU_0074",
+      "name": "Advanced Mass Spectrometry",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0112",
+      "name": "Advanced Pharmacology",
+      "ec": 6,
+      "level": 500,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0069",
+      "name": "Advanced Radiopharmaceutical Chemistry",
+      "ec": 6,
+      "level": 600,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XMU_0075",
+      "name": "Advanced Separation Science",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0108",
+      "name": "Biopharmaceuticals & Biopharma Proteomics",
+      "ec": 6,
+      "level": 500,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "AM_470584",
+      "name": "Business Management",
+      "ec": 6,
+      "level": 500,
+      "category": "alpha",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "AM_470572",
+      "name": "Communication, Organisation and Management",
+      "ec": 6,
+      "level": 500,
+      "category": "alpha",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0199",
+      "name": "Computational Design and Synthesis of Drugs",
+      "ec": 6,
+      "level": 500,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "X_432673",
+      "name": "Computer-Aided Drug Design and Virtual Screening",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0080",
+      "name": "Concepts in Chemical Biology",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0201",
+      "name": "Data Analysis in Drug Discovery",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0197",
+      "name": "Didactics of Science Supervision",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0111",
+      "name": "Drug Target Biochemistry & Signalling",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XMU_0076",
+      "name": "Enzymes in Organic Chemistry",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "AM_1332",
+      "name": "Epidemiology and Clinical Trials",
+      "ec": 6,
+      "level": 500,
+      "category": "alpha",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "AM_1333",
+      "name": "Ethics and Science in Dialogue",
+      "ec": 6,
+      "level": 500,
+      "category": "alpha",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "X_405052",
+      "name": "Fundamentals of Bioinformatics",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "X_435047",
+      "name": "High-Throughput Screening",
+      "ec": 6,
+      "level": 500,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0198",
+      "name": "Literature Thesis DDS",
+      "ec": 12,
+      "level": 600,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "AM_1181",
+      "name": "Management of Innovative Technologies",
+      "ec": 6,
+      "level": 500,
+      "category": "alpha",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "AM_470586",
+      "name": "Managing Science and Technology",
+      "ec": 6,
+      "level": 600,
+      "category": "alpha",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "X_435604",
+      "name": "Mass Spectrometry",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0113",
+      "name": "Molecular and Cellular Toxicology",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XMU_0059",
+      "name": "Molecular Modelling",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "X_435663",
+      "name": "Physical Organic Chemistry",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "X_435045",
+      "name": "Protein Analysis",
+      "ec": 6,
+      "level": 500,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "AM_470145",
+      "name": "Protein Science",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0148",
+      "name": "Replacement, Refinement and Reduction of Animal Experiments Applying Human Cells in Culture",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "AM_1182",
+      "name": "Research Methods for Analyzing Problems",
+      "ec": 6,
+      "level": 400,
+      "category": "alpha",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "AM_1334",
+      "name": "Science Journalism and Exhibition Design",
+      "ec": 6,
+      "level": 500,
+      "category": "alpha",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "X_435609",
+      "name": "Separation Sciences",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XMU_0039",
+      "name": "Spectroscopic Analysis",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0109",
+      "name": "Spectroscopic Approaches in Medicinal Chemistry",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XMU_0077",
+      "name": "Statistical Theory of Complex Molecular Systems",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "X_418156",
+      "name": "Statistics with R",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0110",
+      "name": "Synthetic Approaches in Medicinal Chemistry",
+      "ec": 6,
+      "level": 500,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XMU_0016",
+      "name": "Synthetic Strategies",
+      "ec": 6,
+      "level": 500,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "AM_1335",
+      "name": "The Art of Science Communication",
+      "ec": 6,
+      "level": 500,
+      "category": "alpha",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0067",
+      "name": "Translational Radiopharmaceutical Sciences",
+      "ec": 6,
+      "level": 400,
+      "category": "general",
+      "source": "TER 10.3, pp. 23–24"
+    },
+    {
+      "code": "XM_0105",
+      "name": "Principles of Drug Targets",
+      "ec": 6,
+      "level": 400,
+      "category": "core",
+      "source": "TER 10.2, p. 19"
+    },
+    {
+      "code": "XM_0106",
+      "name": "Principles of Drug Discovery",
+      "ec": 6,
+      "level": 400,
+      "category": "core",
+      "source": "TER 10.2, p. 19"
+    },
+    {
+      "code": "XM_0196",
+      "name": "Research and Academic Skills",
+      "ec": 6,
+      "level": 400,
+      "category": "core",
+      "source": "TER 10.2, p. 19"
+    }
+  ],
+  "specializations": {
+    "BADD": {
+      "compulsory": [
+        "XM_0107",
+        "XM_0108"
+      ],
+      "constrained": [
+        "XM_0136",
+        "X_435609",
+        "X_435604",
+        "XM_0109",
+        "XM_0201",
+        "X_435045"
+      ],
+      "paths": {}
+    },
+    "DSDD": {
+      "compulsory": [
+        "X_435663",
+        "XM_0199"
+      ],
+      "constrained": [
+        "X_432673",
+        "XM_0109",
+        "XM_0110",
+        "XM_0201",
+        "XM_0069",
+        "XMU_0076"
+      ],
+      "paths": {
+        "SMC": [
+          "XM_0109",
+          "XM_0110"
+        ],
+        "CADD": [
+          "X_432673",
+          "XM_0201"
+        ]
+      }
+    },
+    "PTDD": {
+      "compulsory": [
+        "XM_0136",
+        "XM_0112"
+      ],
+      "constrained": [
+        "XM_0108",
+        "XM_0107",
+        "XM_0111",
+        "XM_0113",
+        "XM_0114",
+        "XM_0201"
+      ],
+      "paths": {
+        "MP": [
+          "XM_0111",
+          "one other distinct PTDD constrained choice"
+        ],
+        "MT": [
+          "XM_0113",
+          "XM_0114"
+        ]
+      }
+    }
+  },
+  "names": {
+    "BADD": "Bioanalytics in Drug Discovery",
+    "DSDD": "Design & Synthesis in Drug Discovery",
+    "PTDD": "Pharmacology & Toxicology in Drug Discovery"
+  },
+  "paths": {
+    "SMC": "Synthetic Medicinal Chemistry",
+    "CADD": "Computer-Aided Drug Design",
+    "MP": "Molecular Pharmacology",
+    "MT": "Molecular Toxicology"
+  },
+  "principles": [
+    "XM_0105",
+    "XM_0106"
+  ],
+  "sourceFiles": [
+    "M Drug Discovery Sciences TER 2026-2027 (1).pdf",
+    "2026-2027 FAQ BADD.pdf",
+    "2026-2027 FAQ DSDD.pdf",
+    "2026-2027 FAQ PTDD.pdf",
+    "PEP DDS_2026_Oct.docx"
+  ],
+  "aliases": {
+    "X_432721": "XM_0136"
+  },
+  "releaseDate": "9 October 2026"
+}

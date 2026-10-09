@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "DDS-2026-2027.6",
+  "id": "PEP-DEMO-MP",
+  "revision": 1,
+  "student": {
+    "firstName": "Example",
+    "lastName": "Student",
+    "number": "DEMO-2026",
+    "cohort": 2026,
+    "specialization": "PTDD",
+    "path": "MP",
+    "education": "WO",
+    "institution": "Example University",
+    "degree": "BSc Pharmaceutical Sciences",
+    "graduated": "2026-07-15"
+  },
+  "principles": {
+    "override": true,
+    "required": [
+      "XM_0105"
+    ],
+    "explanation": "Example only: the Admissions Board requires Principles of Drug Targets.",
+    "reference": "DEMO-DECISION"
+  },
+  "constrained": [
+    "XM_0111",
+    "XM_0108"
+  ],
+  "electives": [
+    "X_405052"
+  ],
+  "courseDetails": {},
+  "major": {
+    "route": "split",
+    "hostStatus": "unknown",
+    "host": "",
+    "topicStatus": "unknown",
+    "topic": "",
+    "area": ""
+  },
+  "minor": {
+    "enabled": true,
+    "hostStatus": "unknown",
+    "host": "",
+    "topicStatus": "unknown",
+    "topic": ""
+  },
+  "literature": {
+    "enabled": false,
+    "hostStatus": "unknown",
+    "host": "",
+    "topicStatus": "unknown",
+    "topic": ""
+  },
+  "custom": [],
+  "exceptions": {},
+  "notes": "FICTIONAL TEST EXAMPLE — replace all example student details before use.",
+  "coordinator": "dr. Reggie Bosma",
+  "formVersion": "0.6.0",
+  "savedAt": "2026-10-09T22:52:46.981Z",
+  "courseSnapshot": {
+    "snapshotVersion": 1,
+    "rows": [
+      {
+        "id": "XM_0105",
+        "code": "XM_0105",
+        "name": "Principles of Drug Targets",
+        "ec": 6,
+        "section": "Compulsory courses"
+      },
+      {
+        "id": "XM_0196",
+        "code": "XM_0196",
+        "name": "Research and Academic Skills",
+        "ec": 6,
+        "section": "Compulsory courses"
+      },
+      {
+        "id": "XM_0136",
+        "code": "XM_0136",
+        "name": "ADME",
+        "ec": 6,
+        "section": "Compulsory courses"
+      },
+      {
+        "id": "XM_0112",
+        "code": "XM_0112",
+        "name": "Advanced Pharmacology",
+        "ec": 6,
+        "section": "Compulsory courses"
+      },
+      {
+        "id": "XM_0111",
+        "code": "XM_0111",
+        "name": "Drug Target Biochemistry & Signalling",
+        "ec": 6,
+        "section": "Constrained electives"
+      },
+      {
+        "id": "XM_0108",
+        "code": "XM_0108",
+        "name": "Biopharmaceuticals & Biopharma Proteomics",
+        "ec": 6,
+        "section": "Constrained electives"
+      },
+      {
+        "id": "MAJOR_PART1",
+        "code": "XM_0207",
+        "name": "Major Research Project DDS — Part 1",
+        "ec": 18,
+        "section": "Major research project"
+      },
+      {
+        "id": "MAJOR_PART2",
+        "code": "to be announced",
+        "name": "Major Research Project DDS — Part 2",
+        "ec": 30,
+        "section": "Major research project"
+      },
+      {
+        "id": "MINOR",
+        "code": "to be announced",
+        "name": "Minor Research Project DDS",
+        "ec": 30,
+        "section": "Minor research project"
+      },
+      {
+        "id": "X_405052",
+        "code": "X_405052",
+        "name": "Fundamentals of Bioinformatics",
+        "ec": 6,
+        "section": "General electives"
+      }
+    ],
+    "total": 120
+  }
+}

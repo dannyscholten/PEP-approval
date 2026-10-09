@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import './build-history.mjs';
+const dir=path.dirname(fileURLToPath(import.meta.url));
+const dest=process.argv[2]||path.join(dir,'dist','DDS_PEP_2026.html');
+const read=name=>fs.readFileSync(path.join(dir,name),'utf8');
+const data=read('catalogue.json').replace(/</g,'\\u003c');
+let html=read('index.template.html').replace('/*STYLE*/',()=>read('style.css')).replace('/*LOGO*/',()=>`data:image/jpeg;base64,${fs.readFileSync(path.join(dir,'assets/vu-logo.jpeg')).toString('base64')}`).replace('/*DATA*/',()=>data).replace('/*HISTORY*/',()=>read('draft-history.js')).replace('/*RULES*/',()=>read('rules.js')).replace('/*APP*/',()=>read('app.js')).replace('/*PDFLIB*/',()=>read('vendor/pdf-lib.min.js')).replace('/*FONTKIT*/',()=>read('vendor/fontkit.min.js')).replace('/*PDF_FONT*/',()=>fs.readFileSync(path.join(dir,'vendor/NotoSans-Regular.ttf')).toString('base64')).replace('/*PDFEXPORT*/',()=>read('pdf-export.js'));
+fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,html);console.log(dest+' ('+Buffer.byteLength(html)+' bytes)');

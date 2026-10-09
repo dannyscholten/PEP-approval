@@ -1,0 +1,950 @@
+{
+  "status": "Version 0.6.0: persistent before/after import comparison, preserved legacy drafts and GitHub Pages publication checks.",
+  "analysis_date": "2026-10-10",
+  "sources": {
+    "TER": "M Drug Discovery Sciences TER 2026-2027 (1).pdf",
+    "BADD": "2026-2027 FAQ BADD.pdf",
+    "DSDD": "2026-2027 FAQ DSDD.pdf",
+    "PTDD": "2026-2027 FAQ PTDD.pdf",
+    "PEP": "PEP DDS_2026_Oct.docx"
+  },
+  "page_convention": "PDF page ordinal unless explicitly printed page",
+  "rules": [
+    {
+      "id": "R01",
+      "rule": "120 EC is the normal required curricular total and maximum. User allows an exception when requirements cannot all be fulfilled within that total and removing one course would drop the total below 120 EC.",
+      "evidence": "TER 9.1 p14; PEP p3; all FAQs elective sections; user clarification 2026-10-09",
+      "proposed_check": "automatic",
+      "note": "Implemented: above 120 EC requires a linked justification and remains decision-required. The form reports whether a removable elective still leaves at least 120 EC. Academic necessity is reviewed by the Examination Board, not automatically approved. Non-6-EC custom courses are supported. The original PEP states that credits above 120 EC are extracurricular, passed extracurricular courses appear as such on the diploma supplement, and planned extracurricular courses should be left off this form. This explanation is displayed whenever the proposed total exceeds 120 EC; the existing justified-excess review route is retained."
+    },
+    {
+      "id": "R02",
+      "rule": "Research and Academic Skills XM_0196 is compulsory, 6 EC.",
+      "evidence": "TER 10.2 pp19-20",
+      "proposed_check": "automatic",
+      "note": ""
+    },
+    {
+      "id": "R03",
+      "rule": "VU bachelor Farmaceutische Wetenschappen requires neither Principles course (fixed at 0 EC). Other backgrounds normally require both. Record the Admissions Board decision for every non-VU-FW background, including a decision requiring both courses.",
+      "evidence": "TER 10.2 p19; BADD pdf p3/printed12; DSDD pdf p4/printed13; PTDD pdf p4/printed13; explicitly confirmed by user in answer3, 2026-10-09; original PEP statement/signature box (no student action); user follow-up 2026-10-10",
+      "proposed_check": "recorded_decision",
+      "note": "The Admissions Board records or confirms its decision for all non-VU-FW backgrounds. Students may leave its text blank for the board to enter decision/reference/name/date in native PDF fields. This does not prevent a compositionally complete PEP being exported. A later board decision changing courses requires a revised and rechecked PEP. From version 0.5.0, the VU-FW requirement cannot be adjusted; legacy adjustments are removed during import with a visible review notice and recalculated credits."
+    },
+    {
+      "id": "R04",
+      "rule": "Each specialization requires its two named compulsory courses, 6 EC each; compulsory course entries are fixed VU courses.",
+      "evidence": "TER 10.2 pp19-20",
+      "proposed_check": "automatic",
+      "note": "The form does not allow editing institution details or omitting compulsory courses. Previously omitted compulsory courses are restored on draft import. Applicable Principles courses and RAS are fixed in the same way. Matching compulsory/path-course requirements show Passed even while Admissions Board confirmation remains a separate review item. Missing personal names no longer change this course-composition result; they still block review export."
+    },
+    {
+      "id": "R05",
+      "rule": "The programme requires at least 12 EC from its own constrained list. The form designates exactly two distinct 6 EC courses in the constrained-electives section; additional choices go under General electives.",
+      "evidence": "TER 10.2 pp19-20",
+      "proposed_check": "automatic",
+      "note": "Required path courses are preselected and editable. BADD starts with no choices; MP preselects its one required course and leaves one choice open. Required path-course content is checked across the whole selected programme. DSDD and PTDD choices are unavailable until a path is selected. Selected constrained courses have no Edit function and are fixed VU courses. Their selection can still be changed, subject to path checks."
+    },
+    {
+      "id": "R06",
+      "rule": "DSDD SMC requires XM_0109 Spectroscopic Approaches in Medicinal Chemistry and XM_0110 Synthetic Approaches in Medicinal Chemistry.",
+      "evidence": "DSDD pdf p5/printed14; Appendix A pdf p12",
+      "proposed_check": "FAQ_requirement",
+      "note": ""
+    },
+    {
+      "id": "R07",
+      "rule": "DSDD CADD requires X_432673 Computer-Aided Drug Design and Virtual Screening and XM_0201 Data Analysis in Drug Discovery.",
+      "evidence": "DSDD pdf p5/printed14; Appendix A pdf p13",
+      "proposed_check": "FAQ_requirement",
+      "note": ""
+    },
+    {
+      "id": "R08",
+      "rule": "PTDD MP requires XM_0111 Drug Target Biochemistry & Signalling and at least one of the other five PTDD choices.",
+      "evidence": "PTDD pdf p5/printed14; Appendix B1 pdf p15",
+      "proposed_check": "FAQ_requirement",
+      "note": ""
+    },
+    {
+      "id": "R09",
+      "rule": "PTDD MT requires XM_0113 Molecular and Cellular Toxicology and XM_0114 Advanced Course in Molecular Toxicology.",
+      "evidence": "PTDD pdf p5/printed14; Appendix B2 pdf p16",
+      "proposed_check": "FAQ_requirement",
+      "note": ""
+    },
+    {
+      "id": "R10",
+      "rule": "BADD may choose any two of its six constrained choices; current PEP asks no BADD path.",
+      "evidence": "BADD pdf p4/printed13; TER p19; PEP p1",
+      "proposed_check": "automatic",
+      "note": "User confirmed BADD has no paths; wording about both paths was editorial carryover."
+    },
+    {
+      "id": "R11",
+      "rule": "One major project of 48 EC, via either single 48 EC Year 2 course or Part 1 18 EC Year 1 plus Part 2 30 EC Year 2.",
+      "evidence": "TER 10.2 p20 footnote; PEP p1",
+      "proposed_check": "automatic",
+      "note": "The split route is displayed as separate Part 1 (XM_0207, 18 EC) and Part 2 (to be announced, 30 EC) rows in the form and PDF. It still totals 48 EC. The single 48 EC course and minor also use to be announced where the official code is unknown."
+    },
+    {
+      "id": "R12",
+      "rule": "18 EC obtained before major, minor or literature thesis; pass Part 1 before Part 2.",
+      "evidence": "TER 8.1 pp12-13",
+      "proposed_check": "reminder_only",
+      "note": "User-specified reminder: TER Article 8.1 requires at least 18 EC should be obtained from the programme to be able to start with a major or minor research project or a literature thesis. Major Part 1 must be passed before Part 2. Eligibility and achieved credits remain outside the composition checks."
+    },
+    {
+      "id": "R13",
+      "rule": "Major topic aligned with specialization and path; appropriate supervising VU teacher approves topic.",
+      "evidence": "DSDD pp6-7; PTDD pp5-6; BADD pp4-5 (PDF pages)",
+      "proposed_check": "human_review",
+      "note": "Major must relate to own specialization. User places internship checks with internship coordinator before start; do not implement topic/location eligibility as PEP blocking checks. Preserve host/topic information from existing form."
+    },
+    {
+      "id": "R14",
+      "rule": "Optional space is 42 minus required Principles EC after designating two constrained electives. Any further constrained choices are entered under General electives and consume the shared optional budget once.",
+      "evidence": "Derived from TER components: 120-6-12-12-48-P",
+      "proposed_check": "derived_automatic",
+      "note": "Own and other specializations' courses remain available under General electives unless already selected or required elsewhere in this PEP."
+    },
+    {
+      "id": "R15",
+      "rule": "Optional minor research project is 30 EC, on DDS-related topic approved by suitable VU teacher.",
+      "evidence": "All FAQs minor sections; PEP p2",
+      "proposed_check": "automatic_and_review",
+      "note": "User clarifies minor need not focus on own specialization. Internship topic/location suitability is checked by internship coordinator before start, outside PEP validation. No old variable-EC codes for 2026 cohort; new minor code still TBA."
+    },
+    {
+      "id": "R16",
+      "rule": "Extracurricular internships are forbidden according to FAQs; minor must fit inside 120 EC.",
+      "evidence": "BADD p6; DSDD p7; PTDD p7 (PDF pages)",
+      "proposed_check": "FAQ_requirement",
+      "note": ""
+    },
+    {
+      "id": "R17",
+      "rule": "A major and minor focused on the same specialization cannot both be internal. Both may be external. Major relates to own specialization; minor need not.",
+      "evidence": "User resolution of FAQ inconsistency 2026-10-09",
+      "proposed_check": "outside_PEP_scope",
+      "note": "Internship coordinator checks before internships start. Do not add blocking PEP location/topic checks. Keep existing host/topic fields."
+    },
+    {
+      "id": "R18",
+      "rule": "Literature Thesis DDS XM_0198, 12 EC, independent of internship and on different topic.",
+      "evidence": "TER 10.3 p24; all FAQs literature section; PEP p2",
+      "proposed_check": "automatic_and_review",
+      "note": "DOCX merged cells repeat code/EC during naive extraction; count one thesis only."
+    },
+    {
+      "id": "R19",
+      "rule": "Alpha/gamma electives use the shared elective budget and may total no more than 18 EC.",
+      "evidence": "BADD pp3,6-7; DSDD pp4,8; PTDD pp3,7-8 (PDF pages)",
+      "proposed_check": "FAQ_requirement",
+      "note": "The unlisted-course category must explicitly be General or Alpha/gamma; no pending/unknown category is allowed."
+    },
+    {
+      "id": "R20",
+      "rule": "Didactics of Science Supervision XM_0197 is 6 EC; enrol same academic year as supervision, with appropriately planned theory P1/P3.",
+      "evidence": "TER p24; all FAQs Didactics sections",
+      "proposed_check": "EC_validation_and_reminder",
+      "note": "User answer5 excludes year/period checking; preserve Didactics timing information as guidance only."
+    },
+    {
+      "id": "R21",
+      "rule": "TER-listed electives need no prior individual Examination Board permission; other units require academic review and the applicable permission.",
+      "evidence": "TER 10.3 pp23-26",
+      "proposed_check": "human_review",
+      "note": "The form collects no permission status, written decision reference or reason for including an unlisted course. Such courses remain visibly subject to PEP review. The removal of fields does not grant approval."
+    },
+    {
+      "id": "R22",
+      "rule": "Every unlisted course requires course title, institution, course code, EC, academic level, public syllabus URL and elective category. Non-VU courses need public course information.",
+      "evidence": "PEP p3",
+      "proposed_check": "completeness",
+      "note": "All seven fields are mandatory in the dialog and validation. Unknown codes, levels and categories cannot satisfy completeness; an external equivalent academic level may be entered explicitly."
+    },
+    {
+      "id": "R23",
+      "rule": "Bioanalytical Sciences (Chemistry master) cannot be taken in BADD because of overlap with compulsory Advanced Bioanalytical Approaches.",
+      "evidence": "BADD Appendix B pdf p12/printed21",
+      "proposed_check": "FAQ_requirement",
+      "note": ""
+    },
+    {
+      "id": "R24",
+      "rule": "Synthetic Organic Chemistry (Chemistry master) cannot be taken in SMC due overlap with required Synthetic Approaches in Medicinal Chemistry.",
+      "evidence": "DSDD Appendix B1 pdf p15/printed24",
+      "proposed_check": "FAQ_requirement",
+      "note": "Do not extend blanket ban to CADD without evidence; combination overlap merits review."
+    },
+    {
+      "id": "R25",
+      "rule": "SMC intended Synthetic Radiopharmaceutical Chemistry internship: Advanced Radiopharmaceutical Chemistry XM_0069 should be considered required in Year 1.",
+      "evidence": "DSDD pdf p6/printed15 item4",
+      "proposed_check": "FAQ_requirement",
+      "note": "Counts once in optional space in normal SMC plan. Translational Radiopharmaceutical Sciences recommended, not required."
+    },
+    {
+      "id": "R26",
+      "rule": "Biocatalysis internship: Concepts in Chemical Biology and Enzymes in Organic Chemistry advisable, not required.",
+      "evidence": "DSDD pdf p6/printed15 item4",
+      "proposed_check": "advice",
+      "note": ""
+    },
+    {
+      "id": "R27",
+      "rule": "Course alongside internship requires discussion/host permission and compensating time.",
+      "evidence": "BADD pdf p5; DSDD pdf p7; PTDD pdf p6",
+      "proposed_check": "outside_PEP_scope",
+      "note": "Do not prohibit all overlap; example 1 month for 6 EC is not universal fixed duration rule."
+    },
+    {
+      "id": "R28",
+      "rule": "18 EC in a nominal 12 EC period discouraged but not forbidden. Suggested first-year schedules are not universal chronological gates.",
+      "evidence": "BADD pdf pp2,8; DSDD pdf pp3,9-10; PTDD pdf pp2,9",
+      "proposed_check": "outside_PEP_scope",
+      "note": ""
+    },
+    {
+      "id": "R29",
+      "rule": "Students produce a PDF with validation results, exception requests, an Admissions Board signature field and coordinator preapproval. The signed PEP follows the existing VU route.",
+      "evidence": "PEP p3; all FAQs PEP sections; user answer7, 2026-10-09",
+      "proposed_check": "workflow",
+      "note": "Student PEP revision is labelled PEP version. Form footer shows only form version and date; source/rule metadata are kept in this separate maintenance register. Coordinator is derived from specialization and is read-only: BADD dr. Melissa Bärenfänger; DSDD dr. Maikel Wijtmans; PTDD dr. Reggie Bosma. Names supplied by programme owner. A direct offline Download fillable PDF route creates editable decision/reference/name/date fields; two native PDF digital-signature fields allow the Admissions Board to sign first and the coordinator second. The board signature locks its decision, reference, name and date; the final coordinator signature locks all form fields. Digital IDs and a compatible desktop PDF reader are needed. Do not select a whole-document lock when adding the first signature. Browser Print / Save PDF remains a static alternative. Header includes the user-supplied Study Guide TER and DDS Canvas links. First name precedes Last name."
+    },
+    {
+      "id": "R30",
+      "rule": "Exemptions are requested through the separate VU procedure. Exempted courses remain included in the PEP at their normal EC.",
+      "evidence": "TER 3.7 p7; PEP p3",
+      "proposed_check": "separate_process",
+      "note": "No exemption request/status/reference fields in the form or PDF. Importing an old draft removes that metadata while retaining the selected courses and credits."
+    },
+    {
+      "id": "R31",
+      "rule": "Project host and topic details are preferred but may explicitly be Not yet known at PEP submission. Component inclusion and EC remain fixed. Preserve proposed/confirmed/not-yet-known distinctions.",
+      "evidence": "BADD pdf pp7-8; DSDD pdf p9; PTDD pdf p8; user answer6, 2026-10-09",
+      "proposed_check": "workflow",
+      "note": "Unknown project host/topic is nonblocking and must be visible in export; do not silently treat blank as confirmed. Changes and approval lifecycle to be settled in question7."
+    },
+    {
+      "id": "R32",
+      "rule": "Courses from other paths/specializations, and further choices from the student's own constrained list, can be general electives.",
+      "evidence": "PEP p2 footnotes; overlapping TER course lists",
+      "proposed_check": "automatic",
+      "note": "The form allows at most two selections in the constrained section. Path changes retain previous choices as general electives where applicable; old drafts with more than two constrained choices migrate surplus courses without losing EC."
+    },
+    {
+      "id": "R33",
+      "rule": "Every distinct component counted once, fixed catalogue EC protected, no duplicate codes or equivalent aliases counted twice.",
+      "evidence": "Implementation safeguard derived from 120 EC and category structure",
+      "proposed_check": "design_requirement",
+      "note": "Course codes TBA need distinct stable internal component IDs."
+    },
+    {
+      "id": "R34",
+      "rule": "Thesis and Placement Regulations apply to projects; Study Guide contains further unit details.",
+      "evidence": "TER 10.2 p19; 10.5 p27; FAQ registration appendices",
+      "proposed_check": "missing_source",
+      "note": "Composition-only scope narrows required further sources to policies affecting curricular inclusion, credits or approval; do not fetch timetable/course sequencing merely for a separate future planner."
+    },
+    {
+      "id": "R35",
+      "rule": "Keep versioned rule/course data internally and distinguish the student PEP version from the form release version.",
+      "evidence": "TER 1.1 p4 and 11.2 pp27-28; user answer1",
+      "proposed_check": "design_requirement",
+      "note": "Only form version and release date appear in the screen footer; the PDF identifies the PEP version and date. No source/scope/rule-version footer or local-pilot header appears."
+    },
+    {
+      "id": "R36",
+      "rule": "Final project must allow academic outcome review; unknown eligibility remains pending rather than pass.",
+      "evidence": "TER 9.4, 10.1; practical design implication",
+      "proposed_check": "design_requirement",
+      "note": "Do not infer academic suitability through keyword matching or automatic AI judgement."
+    },
+    {
+      "id": "R37",
+      "rule": "Combining major, minor and literature thesis is strongly discouraged because it cannot be completed within the two-year programme and will result in study delay.",
+      "evidence": "Programme-owner clarification, 2026-10-10 (refinement of 2026-10-09 warning)",
+      "proposed_check": "strong_planning_warning",
+      "note": "Explicit programme-owner warning shown in the project section and PDF review results; still non-blocking. This is not a calculation of an individual timetable."
+    },
+    {
+      "id": "R38",
+      "rule": "Allow justified requests for exceptions in submitted PEP; prominently show affected requirements as decision required.",
+      "evidence": "User answer4, 2026-10-09",
+      "proposed_check": "workflow",
+      "note": "Permit export for review, retain coordinator preapproval process, do not claim standard compliance or formal approval. Do not use this route to make incomplete fields or arithmetic errors silently valid. Exception guidance is shown only when an applicable check offers Request exception. Compulsory course omission is no longer available; exceptions do not silently remove fixed course credits."
+    }
+  ],
+  "specializations": {
+    "BADD": {
+      "compulsory": [
+        "XM_0107",
+        "XM_0108"
+      ],
+      "constrained": [
+        "XM_0136",
+        "X_435609",
+        "X_435604",
+        "XM_0109",
+        "XM_0201",
+        "X_435045"
+      ],
+      "paths": {}
+    },
+    "DSDD": {
+      "compulsory": [
+        "X_435663",
+        "XM_0199"
+      ],
+      "constrained": [
+        "X_432673",
+        "XM_0109",
+        "XM_0110",
+        "XM_0201",
+        "XM_0069",
+        "XMU_0076"
+      ],
+      "paths": {
+        "SMC": [
+          "XM_0109",
+          "XM_0110"
+        ],
+        "CADD": [
+          "X_432673",
+          "XM_0201"
+        ]
+      }
+    },
+    "PTDD": {
+      "compulsory": [
+        "XM_0136",
+        "XM_0112"
+      ],
+      "constrained": [
+        "XM_0108",
+        "XM_0107",
+        "XM_0111",
+        "XM_0113",
+        "XM_0114",
+        "XM_0201"
+      ],
+      "paths": {
+        "MP": [
+          "XM_0111",
+          "one other distinct PTDD constrained choice"
+        ],
+        "MT": [
+          "XM_0113",
+          "XM_0114"
+        ]
+      }
+    }
+  },
+  "catalogue": [
+    {
+      "source_name": "ADME",
+      "code": "XM_0136",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Advanced Bioanalytical Approaches",
+      "code": "XM_0107",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Advanced Course in Molecular Toxi",
+      "code": "XM_0114",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Advanced Mass Spectrometry",
+      "code": "XMU_0074",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Advanced Pharmacology",
+      "code": "XM_0112",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Advanced Radiopharmaceutical Chem",
+      "code": "XM_0069",
+      "ec": 6,
+      "level": 600,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Advanced Separation Science",
+      "code": "XMU_0075",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Biopharmaceuticals & Biopharma Pro",
+      "code": "XM_0108",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Business management",
+      "code": "AM_470584",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Communication, Org. and Management",
+      "code": "AM_470572",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Computational Design and Synthesis of Drugs",
+      "code": "XM_0199",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Computer-Aided Drug Design and Virtual Screening",
+      "code": "X_432673",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Concepts in Chemical Biology",
+      "code": "XM_0080",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Data Analysis in Drug Discovery",
+      "code": "XM_0201",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Didactics of Science Supervision",
+      "code": "XM_0197",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Drug Target Biochemistry & Signalling",
+      "code": "XM_0111",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Enzymes in Organic Chemistry",
+      "code": "XMU_0076",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Epidemiology and Clinical Trials",
+      "code": "AM_1332",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Ethics and Science in Dialogue",
+      "code": "AM_1333",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Fundamentals of Bioinformatics",
+      "code": "X_405052",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "High-Throughput Screening",
+      "code": "X_435047",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Literature Thesis DDS",
+      "code": "XM_0198",
+      "ec": 12,
+      "level": 600,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Management of Innovative Technologies",
+      "code": "AM_1181",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Managing science and technology",
+      "code": "AM_470586",
+      "ec": 6,
+      "level": 600,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Mass Spectrometry",
+      "code": "X_435604",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Molecular and Cellular Toxicology",
+      "code": "XM_0113",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Molecular Modelling",
+      "code": "XMU_0059",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Physical Organic Chemistry",
+      "code": "X_435663",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Protein Analysis",
+      "code": "X_435045",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Protein Science",
+      "code": "AM_470145",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Replacement, Refinement and Reduction of Animal",
+      "code": "XM_0148",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Research methods for analyzing problems",
+      "code": "AM_1182",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Science Journalism and Exhibition Design",
+      "code": "AM_1334",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Separation Sciences",
+      "code": "X_435609",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Spectroscopic Analysis",
+      "code": "XMU_0039",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Spectroscopic Approaches in Med",
+      "code": "XM_0109",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Statistical Theory of Complex Molecular Systems",
+      "code": "XMU_0077",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Statistics with R",
+      "code": "X_418156",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Synthetic Approaches in Medicinal Chemistry",
+      "code": "XM_0110",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Synthetic Strategies",
+      "code": "XMU_0016",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "The Art of Science Communication",
+      "code": "AM_1335",
+      "ec": 6,
+      "level": 500,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    },
+    {
+      "source_name": "Translational Radiopharmaceutical Sciences",
+      "code": "XM_0067",
+      "ec": 6,
+      "level": 400,
+      "source": "TER 10.3 pp23-24",
+      "prior_individual_EB_permission": false
+    }
+  ],
+  "anomalies": [
+    {
+      "id": "A01",
+      "issue": "PEP lists ADMET X_432721, TER and FAQ list ADME XM_0136.",
+      "resolution": "Use supplied TER identity in initial catalogue; show correction transparently."
+    },
+    {
+      "id": "A02",
+      "issue": "Contradictory own-specialization VU minor policy.",
+      "resolution": "Resolved by user: same-specialization major/minor cannot both be internal; internship coordinator checks, outside PEP validation."
+    },
+    {
+      "id": "A03",
+      "issue": "Single 48 EC major, Part 2 and minor codes are placeholders.",
+      "resolution": "Display TBA and store separate stable component identifiers; never invent official codes."
+    },
+    {
+      "id": "A04",
+      "issue": "PEP contains Education rows even though project scope is three research specializations.",
+      "resolution": "Exclude Education from v1 per user scope; it has different 30 EC major and curriculum."
+    },
+    {
+      "id": "A05",
+      "issue": "BADD refers to both paths; PTDD optional-space text refers to SMC/CADD.",
+      "resolution": "User confirmed BADD has no paths and wording is carryover. PTDD SMC/CADD references remain editorial carryover."
+    },
+    {
+      "id": "A06",
+      "issue": "BADD external-host 42 EC expectation is explicitly not official rule; major is 48 EC.",
+      "resolution": "Do not offer 42 EC major option."
+    },
+    {
+      "id": "A07",
+      "issue": "TER transition section says literature codes to follow but new elective table already lists XM_0198.",
+      "resolution": "Use explicit new-curriculum table and matching PEP; record inconsistency."
+    },
+    {
+      "id": "A08",
+      "issue": "BADD first-year text suggests Advanced Course in Molecular Toxicology P3 while its course grid puts it in P4.",
+      "resolution": "Do not use FAQ scheduling as authoritative live timetable; verify course guide if planning scope includes periods."
+    },
+    {
+      "id": "A09",
+      "issue": "FAQ recommended options can be absent from TER elective list, including Biotechnology for Molecular Discovery and SMC organometallic electives.",
+      "resolution": "FAQ recommendation alone is not TER-listed prior permission waiver."
+    },
+    {
+      "id": "A10",
+      "issue": "DOCX literature thesis code and EC merged across detail rows; raw extraction repeats them.",
+      "resolution": "Visually verified single 12 EC component; no duplicate row import."
+    }
+  ],
+  "fields": {
+    "existing": [
+      "last name",
+      "first name",
+      "student number",
+      "specialization",
+      "DSDD/PTDD path",
+      "cohort/start year",
+      "prior diploma type",
+      "prior institution",
+      "degree",
+      "graduation date",
+      "Principles deviation statement, Admissions Board name/signature/date",
+      "course title/code/EC and category",
+      "major administrative route",
+      "major host/topic",
+      "minor host/topic",
+      "literature thesis title/host/topic",
+      "external course syllabus link",
+      "total EC",
+      "coordinator name/signature/date"
+    ],
+    "proposed": [
+      "rule/catalogue version",
+      "individual Principles requirement status and evidence",
+      "stable component IDs",
+      "institution and course level for external/custom course",
+      "alpha/gamma category and review status",
+      "major/minor internal-external and subject classification",
+      "project proposed/confirmed status",
+      "project-topic approval status/evidence",
+      "exemption and elective-permission references/status",
+      "planned academic year/period only if timing checks included",
+      "prerequisite status separate from planned EC",
+      "PEP identifier/revision/previous approval",
+      "validation status and source per rule",
+      "export date and validation version",
+      "coordinator approval tied to exact revision",
+      "Explicit Not yet known option for each project host and topic; preferred detail without submission block"
+    ]
+  },
+  "decisions": [
+    {
+      "number": 1,
+      "topic": "Cohort and specialization scope",
+      "status": "answered",
+      "answer": "2026 intake BADD/DSDD/PTDD only; updateable for future cohorts."
+    },
+    {
+      "number": 2,
+      "topic": "Contradictory VU minor rule and subject boundary",
+      "status": "answered",
+      "answer": "Same-specialization major/minor cannot both be internal. Both can be external; major must relate to own specialization, minor need not. Internship coordinator checks before start; omit these checks from PEP."
+    },
+    {
+      "number": 3,
+      "topic": "Admissions decisions for Principles and how evidenced",
+      "status": "answered",
+      "answer": "User confirmed proposed automatic defaults: neither for VU BSc Farmaceutische Wetenschappen, both for all other degrees; individual Admissions Board decision overrides, with statement/signature arranged by coordinator. Follow-up: always record the decision for students without the VU bachelor Farmaceutische Wetenschappen, including when both Principles courses are required."
+    },
+    {
+      "number": 4,
+      "topic": "Handling requests for exceptions to standard curriculum",
+      "status": "answered",
+      "question": "May a PEP containing a clearly identified request for an exception be exported for review, or must the exception already be approved before a submission-ready PEP can be exported?",
+      "answer": "A: Permit clearly identified exception requests within PEP. Require justification, mark affected requirement decision required and include prominently in output for coordinator and Examination Board review. Automatic validation does not confer approval."
+    },
+    {
+      "number": 5,
+      "topic": "Scope of curriculum versus timing checks",
+      "status": "answered",
+      "question": "Should version1 validate programme composition only, or also collect planned years/periods and check indicative workload and prerequisite sequencing? Actual completed-credit verification is separate.",
+      "answer": "A: programme composition only. User explicitly wants to build a separate curriculum planner later. No course-period, workload timetable or planned prerequisite sequence checking in current PEP scope."
+    },
+    {
+      "number": 6,
+      "topic": "Provisional project host and topic details",
+      "status": "answered",
+      "question": "May a PEP be submitted with provisional or not-yet-known host/topic details for the major, optional minor and literature thesis, while their inclusion and EC are fixed?",
+      "answer": "B: full project host/topic details preferred, but explicit Not yet known allowed for major, optional minor and literature thesis. Missing details are visible and nonblocking; selected components and EC remain fixed."
+    },
+    {
+      "number": 7,
+      "topic": "Approval and submission workflow",
+      "status": "answered",
+      "question": "Should version1 retain coordinator preapproval/signature and student submission through existing VU route using exported PDF, or include digital approval/submission workflow in the tool?",
+      "answer": "A: retain existing workflow. Student generates PDF containing validation results and exception requests; specialization coordinator reviews/signs; student submits through existing VU route. No built-in approval accounts, shared review system or submission integration in version1. Follow-up: always include an Admissions Board signature field in the PDF."
+    },
+    {
+      "number": 8,
+      "topic": "Delivery platform",
+      "status": "answered",
+      "question": "Which format should version1 use: a browser form that can run without accounts/server-side student storage and export PDF, or a protected Excel workbook with automatic checks and PDF print layout?",
+      "answer": "Start with route A, browser-based form. User reserves option to move to route B, protected Excel, later. Separate catalogue/rules/data from interface to support reuse; do not build Excel now."
+    },
+    {
+      "number": 9,
+      "topic": "Distribution and local draft saving",
+      "status": "answered",
+      "question": "For the first version, prefer a downloadable self-contained browser file (local-only pilot) or a hosted website link? Proposed in either case: explicit download/reopen of draft files and no central student database.",
+      "answer": "A: downloadable self-contained file for local testing. No hosting now. Save/open drafts locally; may host later.",
+      "followup": "Explain static hosting and local student data, GitHub Pages visibility/limits, and portability. Do not count explanation as a new numbered decision.",
+      "recommendation": "Start downloadable/local-only pilot, with the same static application prepared for later hosting (e.g. GitHub Pages). Local computation and downloadable drafts/PDF remain unchanged. Hosted deployment is not authorized merely by capability inquiry."
+    },
+    {
+      "number": 10,
+      "topic": "Responsibility and method for annual maintenance",
+      "status": "answered",
+      "question": "Who should maintain the catalogue and rules after launch: user with assistant support, nontechnical programme staff independently, or a technical/VU support colleague?",
+      "answer": "A: user maintains catalogue/rules with assistant support; no staff-facing maintenance interface required."
+    }
+  ],
+  "workflow": [
+    "reconcile rules and record decisions",
+    "choose delivery platform",
+    "build working PEP and PDF output",
+    "test valid, invalid and pending cases",
+    "pilot and deliver maintainable form"
+  ],
+  "missing_sources": [
+    "FAQ general Part A if still applicable",
+    "Thesis and Placement Regulations / current internship manual",
+    "course-specific Study Guide prerequisites if timing/entry checks are included",
+    "authoritative future 2027-2028 course codes when issued"
+  ],
+  "user_clarifications": [
+    {
+      "date": "2026-10-09",
+      "topic": "Credit maximum",
+      "text": "120 EC maximum with necessity exception when all requirements cannot otherwise be fulfilled and removing one course drops the total below 120. Implemented as a transparent excess request with arithmetic information and human decision."
+    },
+    {
+      "date": "2026-10-09",
+      "topic": "Combined projects",
+      "text": "Major + minor + literature thesis strongly discouraged timewise; warning, not prohibition."
+    },
+    {
+      "date": "2026-10-09",
+      "topic": "Elective layout",
+      "text": "Separate general electives and alpha/gamma electives visually while retaining one overall budget."
+    },
+    {
+      "date": "2026-10-09",
+      "topic": "BADD",
+      "text": "No paths; FAQ wording is carryover."
+    }
+  ],
+  "scope": {
+    "cohort": 2026,
+    "specializations": [
+      "BADD",
+      "DSDD",
+      "PTDD"
+    ],
+    "focus": "programme composition and review output",
+    "excluded": [
+      "earlier cohorts",
+      "Education specialization",
+      "internship location/topic eligibility validation",
+      "timetabling",
+      "planned prerequisite sequencing",
+      "verification of obtained credits",
+      "built-in approval accounts/workflow",
+      "automatic submission to VU"
+    ],
+    "future_separate_work": "User intends separate curriculum planner later; not authorization to start it now.",
+    "platform": "Browser-based form first; Excel alternative reserved for later."
+  },
+  "implementation_intent": {
+    "separate_rule_and_course_data": true,
+    "pdf_output": true,
+    "built_in_approval": false,
+    "build_excel_now": false
+  },
+  "changes_0_2_0": [
+    "Principles decision mandatory for every non-VU-FW background; Admissions Board signature field in PDF.",
+    "PEP revision renamed PEP version. Form footer reduced to version and date; title includes Cohort 2026.",
+    "Exemption workflows removed; exempted courses still included. Old draft metadata removed without removing courses.",
+    "All seven unlisted-course fields mandatory. Permission, decision-reference and inclusion-reason fields removed.",
+    "Review checks explain their purpose and name the checked path. Linked exception requests retained.",
+    "Exactly two constrained choices in the dedicated section. Editable path presets, no BADD presets, one MP preset.",
+    "Further constrained courses, including own specialization, available as General electives.",
+    "Save/open drafts retained with an explanation: HTML form file and editable student data are separate."
+  ],
+  "changes_0_3_0": [
+    "Compulsory and constrained course sections have no Edit functionality. Compulsory courses cannot be omitted; selected constrained courses cannot carry outside-VU details.",
+    "DSDD/PTDD require a selected path before the constrained choices appear. Selecting a path applies its required-course presets. BADD remains immediately selectable.",
+    "Coordinator is automatically populated from the selected specialization and is read-only, including when an older draft is opened.",
+    "Given name renamed First name. PEP version guidance and entry reminder use the exact requested wording.",
+    "VU blue bars distinguish section headings on screen and in the PDF.",
+    "Major Part 1 and Part 2 are separate 18 EC and 30 EC rows. Unknown official codes consistently say to be announced.",
+    "Exception guidance appears only when an applicable curriculum check offers an exception request."
+  ],
+  "changes_0_4_0": [
+    "Three-project warning explicitly states that completion within two years is impossible and study delay will result.",
+    "User-supplied VU Study Guide TER and DDS Canvas community links appear under the programme name, including clickable links in the PDF.",
+    "Correct compulsory/path-course sets pass independently of Admissions Board confirmation; unfulfilled requirements and explicit exceptions still show their actual status.",
+    "Excess-credit messages explain extracurricular status on the diploma supplement and instruct students to leave planned extracurricular courses off the PEP.",
+    "First name precedes Last name in the form and both PDF routes.",
+    "Download fillable PDF creates editable Admissions Board decision/reference/name/date fields and a coordinator date field offline. Browser printing remains static.",
+    "Students may leave the Principles decision text blank; the board completes it later. A change to course requirements still requires a revised PEP with recalculated credits."
+  ],
+  "changes_0_5_0": [
+    "Added native digital-signature fields for the Admissions Board and specialization coordinator in the downloaded PDF. Board signs first where applicable; coordinator signs second. Student course data remain static.",
+    "Mandatory editable inputs have red asterisks, accessible required attributes and section legends. Conditional project/course fields are marked only when applicable. Required PDF board fields and signature/date fields are similarly marked.",
+    "VU Farmaceutische Wetenschappen graduates have a fixed 0 EC Principles requirement. Adjustments are unavailable; imported legacy adjustments are removed and totals rechecked with a visible notice.",
+    "The programme total has a large, right-aligned VU-blue summary box in both PDF routes.",
+    "Automated verification: 73 domain tests, 31 general browser checks, 8 direct-export browser checks, 10 independent PDF-field checks and 5 signature checks with ephemeral fictional certificates. Adobe Reader UI has not been directly tested."
+  ],
+  "changes_0_6_0": [
+    "Keep draft format 1; save form version and course/EC snapshot without using snapshot values to validate the plan.",
+    "Restore earlier drafts using frozen 0.1.0–0.5.0 rules for comparison; show unavailable historic totals explicitly when reconstruction is impossible.",
+    "Display and focus a persistent import comparison with additions, removals/replacements, changed EC/details and category moves. The original JSON stays unchanged.",
+    "Add frozen historical fixtures and automatic compatibility/browser checks before GitHub Pages deployment."
+  ]
+}

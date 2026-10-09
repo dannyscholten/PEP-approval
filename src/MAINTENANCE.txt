@@ -1,0 +1,157 @@
+DDS PEP — SOURCE AND MAINTENANCE
+
+This is an offline HTML form with no framework, server, network font loading, analytics or database.
+The version 0.6.0 HTML contains the logo, catalogue, styles, validation and interface code.
+The application does not depend on the source files being present next to it.
+
+SOURCE FILES
+catalogue.json       Course codes, names, EC, levels, alpha/gamma tags, specialization/path lists.
+rules.js             Pure validation, component counting and draft import functions.
+app.js               Form controls, draft save/open and the printable PEP.
+pdf-export.js        Vector PDF layout from printable DOM; native AcroForm fields.
+vendor/              Embedded pdf-lib 1.17.1, fontkit 1.1.1, Noto Sans and licences.
+pdf.test.cjs          Direct PDF downloads, decision states, links, Unicode and pagination.
+pdf-fields.test.py    Independent field/widget and save/reopen checks with pypdf.
+pdf-*-test-results.json  PDF verification evidence.
+signatures.test.py    Ephemeral certificate signing and incremental-update validation.
+signature-test-results.json  Signature verification evidence.
+style.css            VU colours, responsive form layout and A4 print layout.
+index.template.html  HTML shell; placeholders are replaced by the build script.
+assets/vu-logo.jpeg  Logo extracted from the supplied Word PEP.
+rule-register.json   Evidence register, source discrepancies, scope and agreed decisions.
+build.mjs            Builds a single distributable HTML file using Node.js built-in modules.
+test.cjs             Domain checks, including boundaries, exceptions and draft integrity.
+browser.test.cjs     Browser interaction, downloads, printing, responsive and escaping checks.
+test-results.json / browser-test-results.json  Evidence from the delivered build.
+examples/            Fictional drafts also supplied at the top level of the ZIP.
+
+REBUILD
+From this Source folder, with Node.js available:
+  node test.cjs
+  node build.mjs
+The rebuilt file is dist/DDS_PEP_2026.html. An optional output path may be supplied:
+  node build.mjs ../DDS_PEP_2026.html
+
+OPTIONAL BROWSER CHECKS
+Install Playwright as a development dependency and have Google Chrome available, then:
+  node browser.test.cjs
+Default input: dist/DDS_PEP_2026.html. Default test outputs: qa/.
+Optional environment variables: PEP_HTML, PEP_QA, PEP_EXAMPLE_PDF, PEP_CHROME.
+PEP_CHROME may name an installed Chrome executable; otherwise channel chrome is used.
+These are development dependencies only. Students need no installation.
+
+ANNUAL UPDATES WITH ASSISTANT SUPPORT
+1. Keep the released 2026 version available for existing 2026 students.
+2. Compare the next cohort's TER, FAQs and PEP template; record changed rules and provenance.
+3. Update the catalogue and rule register. Update rules.js for changed numeric requirements,
+   cohort validation, projects, exceptions or transition arrangements. Some cohort/year/EC
+   values and wording are intentionally explicit in rules.js and app.js: changing only the
+   JSON cohort/version field is not sufficient to introduce a new cohort.
+4. Assign a new ruleVersion and appVersion. Add tests for changed requirements and boundaries.
+5. Rebuild, run tests, open representative drafts, and visually check all printed PDF pages.
+6. Have the programme owner accept the revised rules and examples before distributing it.
+
+RULE AND DATA INTEGRITY
+Draft format version is 1. Imports accept known fields only and recompute the current checks.
+Saved validation results are not trusted. A rule-version mismatch triggers a review notice;
+a different intake year or unsupported draft format is rejected.
+Drafts and local HTML are editable files, not authenticated approvals. The Examination Board
+still assesses the proposal and verifies evidence for recorded decisions.
+Custom-course checks catch known codes, aliases, exact normalized titles and known overlaps;
+they cannot establish equivalence for all possible differently named external courses.
+The excess-credit removal check is arithmetic guidance, not a proof of academic necessity.
+
+PROJECT CODES AND SCOPE
+New major Part 2/single-course and minor codes were not published in the supplied sources.
+Replace their placeholders when authoritative codes are available; do not reuse pre-2026 codes.
+Current checks are composition checks. General FAQ Part A, the placement manual and detailed
+Study Guide prerequisites were not supplied and are not represented as fully validated rules.
+Any later curriculum planner should use a separate scheduling/eligibility layer.
+
+PORTABILITY
+The source can be kept in Git for review and version history. The static HTML can later be
+hosted unchanged after choosing a suitable location. No hosting was configured for this pilot.
+Course data and the pure rule engine are separate from the interface. An Excel version can
+reuse the rule register, catalogue and test cases; its formulas would need independent testing.
+
+VALIDATION AT DELIVERY
+73 domain tests passed, covering all five specialization/path combinations and two prior-degree
+defaults, plus separately reviewed non-VU Principles decisions, duplicate counting, exceptions and import safety.
+31 browser checks passed in Google Chrome on macOS, including save/reopen, print generation,
+mobile width, escaped imported text and no HTTP requests. Eight additional browser checks
+cover the direct fillable export. Native PDF fields and saved values were independently
+verified with 10 pypdf/PyMuPDF checks; output layouts were visually inspected. Five pyHanko
+checks verify two signatures, permitted coordinator date updates and rejection of locked-field
+changes using ephemeral fictional test certificates. Adobe Reader UI was not directly tested.
+These tests verify implementation behaviour against the encoded rules. They do not replace
+programme-owner acceptance of the rule interpretation or official academic decisions.
+
+VERSION 0.2.0 DATA COMPATIBILITY
+Draft format remains 1. The internal revision key is retained for backward compatibility;
+the user-facing name is PEP version. Old drafts with extra constrained choices move these
+to General electives. Old exemption fields and custom-course permission/reference/reason
+fields are discarded. Course selections and EC remain included. A non-VU background now
+always requires an explicit Principles decision. Unknown custom levels/categories/codes
+require completion. The rule register includes the programme-owner follow-up changes.
+
+VERSION 0.3.0 DATA COMPATIBILITY
+Coordinator names are configured in catalogue.json and derived from specialization, not
+trusted from imported drafts. The legacy omitted list is discarded and required courses
+are restored. Outside-VU metadata for compulsory/selected constrained courses is removed.
+Required-course counting no longer depends on an omission field. Split major registration
+produces two stable component identifiers, MAJOR_PART1 and MAJOR_PART2, totalling 48 EC;
+the saved major.route value remains compatible with earlier drafts. DSDD/PTDD drafts
+without a path retain pre-existing constrained choices under General electives until
+a path is chosen. The path presets then apply without double-counting courses.
+
+VERSION 0.4.0 PDF AND DECISION WORKFLOW
+Draft schema remains 1. An empty Principles decision no longer blocks student export.
+The board supplies it for all non-VU-FW backgrounds. VU deviations were removed in 0.5.0.
+The composition check excludes the separate board-confirmation review item.
+Direct PDF export uses native AcroForms with a full embedded Noto Sans font and shared
+AcroForm font resources. Decision text auto-sizes; other fields use 9 pt text. The output is not flattened.
+Only decision/reference/name/date fields are editable, not courses or credits. Version 0.4.0
+used signature spaces; version 0.5.0 replaces these with true digital-signature fields.
+Save changes in the PDF reader; printing creates a static copy.
+The PDF layout walks the same print DOM, so validation text and course rows share one
+source. Rebuild the one-file HTML after any dependency/layout change. Dependencies and
+licences are shipped under vendor and have no runtime network requests.
+Run pdf.test.cjs with PEP_FILLABLE_PDF for the desired example output. Then run
+python3 pdf-fields.test.py <example.pdf> <qa-directory> using pypdf and PyMuPDF.
+
+VERSION 0.5.0
+Draft schema stays 1. VU_FW ignores Principles overrides and always requires 0 EC. Import
+removes stale override/decision metadata for VU_FW with a notice; other selections remain.
+Mandatory markers are tied to the same conditions as the validation rules. Checkbox groups
+use group-level instructions; individual constrained options are not all marked required.
+PDF fields are single-widget canonical AcroForm objects, including two /FT /Sig fields.
+/Lock Include on admissions_signature protects its board-owned fields; /Lock All on
+coordinator_signature makes it the final signatory. /SigFlags 3 supports signing workflows.
+The app prepares unsigned fields only; signing happens in the reader with the signer's ID.
+No certificates, private keys, signed QA PDFs or signing dependency packages are distributed.
+
+SIGNATURE TESTS (DEVELOPMENT ONLY)
+After pdf.test.cjs and pdf-fields.test.py, run:
+  python3 signatures.test.py <qa-directory>
+Requires pyHanko 0.37 and cryptography. Tests create temporary fictional self-signed
+certificates in memory and explicitly trust only those test certificates during validation.
+The diff policy disables permissive in-place appearance stream changes, a stricter supported
+setting. This avoids a pyHanko 0.37 false positive on unchanged appearance streams from prior
+revisions. New appearance streams, field locks and all other diff checks remain enabled;
+negative tests verify that changing the board decision or its appearance is rejected.
+The PDF generation code does not depend on this test policy or on Python.
+
+VERSION 0.6.0 — DRAFT COMPATIBILITY AND GITHUB
+The live form is https://dannyscholten.github.io/dds-pep/ with a stable cohort route /dds-pep/2026/.
+The editable repository is https://github.com/dannyscholten/dds-pep . Its README links to
+a step-by-step update guide and lists which file controls each part of the form.
+New saved drafts include the form version and a course/EC snapshot. Import compares the
+previous plan with the recalculated current plan and shows a persistent change table.
+Archived versions reconstruct drafts from releases 0.1.0–0.5.0. If the old total cannot
+be reconstructed reliably, the form explains this instead of guessing. The original
+JSON is untouched. New downloads keep draft format 1 for backward compatibility.
+Do not remove or edit compatibility/legacy or existing fixtures. Add explicit migrations
+for renamed fields/codes and retain schema-1 support. The GitHub Actions workflow runs
+domain, historical-draft, browser-import and PDF-export checks before publishing.
+A failed check leaves the previous published site in place. Future cohorts need their
+own reviewed rules and route; preserve the 2026 form for existing 2026 students.
