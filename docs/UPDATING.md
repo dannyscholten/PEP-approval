@@ -8,12 +8,12 @@ Repository: https://github.com/dannyscholten/dds-pep
 1. Open **Code**, then the appropriate file. Coordinator names and links are in `src/catalogue.json`; most on-screen wording is in `src/app.js`.
 2. Click the pencil icon. Change only the intended value/text; preserve quotation marks, commas and surrounding code.
 3. If several files need changing together, press `.` on the repository page to open GitHub's editor, then edit and commit them together. This avoids publishing half an update.
-4. Update `appVersion` and `releaseDate` in `src/catalogue.json` (for example `0.6.1` and a written date). Update the displayed README release too. The student's PEP version is independent.
+4. Update `appVersion` and `releaseDate` in `src/catalogue.json` (for example `0.7.1` and a written date). Update the displayed README release too. The student's PEP version is independent.
 5. Choose **Commit changes** and write a short description. Commit to `main` for a small completed edit, or use a new branch/pull request for a larger change.
 6. Open **Actions**, then the newest **Check and publish PEP** run. Wait for both jobs to turn green.
 7. Open the live website, refresh it and verify the change. Save any in-progress draft before refreshing.
 
-A cosmetic edit does not require changing `ruleVersion`. A change to course requirements, EC, inclusion or migration does: for example move `DDS-2026-2027.6` to a new unique rule version. Preserve `schemaVersion: 1` for compatible additions; changing the stored format requires an explicit migration that still accepts format 1.
+A cosmetic edit does not require changing `ruleVersion`. A change to course requirements, EC, inclusion or migration does: for example move `DDS-2026-2027.7` to a new unique rule version. Preserve `schemaVersion: 1` for compatible additions; changing the stored format requires an explicit migration that still accepts format 1.
 
 ## Course or rule changes
 

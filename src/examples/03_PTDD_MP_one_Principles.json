@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "ruleVersion": "DDS-2026-2027.6",
+  "ruleVersion": "DDS-2026-2027.7",
   "id": "PEP-DEMO-MP",
   "revision": 1,
   "student": {
@@ -20,8 +20,8 @@
     "required": [
       "XM_0105"
     ],
-    "explanation": "Example only: the Admissions Board requires Principles of Drug Targets.",
-    "reference": "DEMO-DECISION"
+    "explanation": "",
+    "reference": ""
   },
   "constrained": [
     "XM_0111",
@@ -57,8 +57,8 @@
   "exceptions": {},
   "notes": "FICTIONAL TEST EXAMPLE — replace all example student details before use.",
   "coordinator": "dr. Reggie Bosma",
-  "formVersion": "0.6.0",
-  "savedAt": "2026-10-09T22:52:46.981Z",
+  "formVersion": "0.7.0",
+  "savedAt": "2026-10-09T23:41:21.566Z",
   "courseSnapshot": {
     "snapshotVersion": 1,
     "rows": [

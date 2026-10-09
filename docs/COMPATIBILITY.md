@@ -30,3 +30,5 @@ The Pages workflow requires all of these before deploying:
 4. Browser interaction checks, import change notices, save/reopen, narrow layout, escaped input and PDF export.
 
 A failed job skips deployment; the previous site stays published. This is a test-based safeguard against regressions, not a guarantee against arbitrary changes to code or tests. Keep the gate and extend it when requirements change.
+
+Version 0.7.0 deliberately removes student-entered admission-board decisions and references on import, with an explicit notice. Course choices and credits are unchanged by that removal. New JSON exports exclude those values, and the generated PDF decision always starts blank for the admission board.

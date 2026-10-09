@@ -1,5 +1,5 @@
 {
-  "status": "Version 0.6.0: persistent before/after import comparison, preserved legacy drafts and GitHub Pages publication checks.",
+  "status": "Version 0.7.0: one approval PDF route, draft controls and help at both ends of the form, and PDF-only admission-board decisions.",
   "analysis_date": "2026-10-10",
   "sources": {
     "TER": "M Drug Discovery Sciences TER 2026-2027 (1).pdf",
@@ -946,5 +946,12 @@
     "Restore earlier drafts using frozen 0.1.0–0.5.0 rules for comparison; show unavailable historic totals explicitly when reconstruction is impossible.",
     "Display and focus a persistent import comparison with additions, removals/replacements, changed EC/details and category moves. The original JSON stays unchanged.",
     "Add frozen historical fixtures and automatic compatibility/browser checks before GitHub Pages deployment."
+  ],
+  "changes_0_7_0": [
+    "Remove both print buttons; rename the PDF download to Download PDF for approval.",
+    "Rename Save draft to Export draft, repeat export/open controls at the bottom and add concise fold-out help.",
+    "Admission-board decision is blank and editable only in the PDF; remove its reference field. Older drafts receive a notice when obsolete board text is removed, with no effect on course selections or EC from that removal.",
+    "Use the requested coordinator and examination-board submission instructions and add the issue-report link.",
+    "Retain old draft formats and verify imported selections, PDF form fields and both cryptographic signatures."
   ]
 }

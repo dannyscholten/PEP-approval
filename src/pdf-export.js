@@ -1,5 +1,5 @@
 /* Offline, selectable-text PDF export with native AcroForm fields.
-   Layout is derived from the same printable DOM as the browser print route. */
+   Layout is derived from the prepared PDF document DOM. */
 (function(root){
 'use strict';
 async function create(source,state,logo){
@@ -46,14 +46,13 @@ async function create(source,state,logo){
   for(let i=0;i<2;i++){const x=M+i*col,required=i===1||boardRequired;page.drawRectangle({x,y:top-107,width:col,height:107,borderColor:line,borderWidth:.5});label('Name:',x+5,top-6,i===0&&boardRequired,8);label('Signature:',x+5,top-32,required,8);label('Date:',x+5,top-87,required,8);}
   addField('admissions_name','',M+44,top-4,col-51,23);draw(root.PEPRules.coordinatorName(state),M+col+38,top-7,8);
   addField('admissions_date','',M+44,top-82,col-51,21);addField('coordinator_date','',M+col+44,top-82,col-51,21);
-  signatureField('admissions_signature','Admissions Board digital signature',M+5,top-45,col-10,33,boardRequired,['admissions_decision','admissions_reference','admissions_name','admissions_date'].filter(n=>form.getFieldMaybe(n)));
+  signatureField('admissions_signature','Admissions Board digital signature',M+5,top-45,col-10,33,boardRequired,['admissions_decision','admissions_name','admissions_date'].filter(n=>form.getFieldMaybe(n)));
   signatureField('coordinator_signature','Specialization coordinator digital signature',M+col+5,top-45,col-10,33,true,null);
   y=top-115;
  }
  function total(el){ensure(42);const h=31,w=246,x=W-M-w;page.drawRectangle({x,y:y-h,width:w,height:h,color:pale,borderColor:blue,borderWidth:.8});page.drawRectangle({x:W-M-4,y:y-h,width:4,height:h,color:blue});const value=el.querySelector('strong').textContent;const right=W-M-13;draw('Total programme',x+10,y-10,10,bold,navy);draw(value,right-bold.widthOfTextAtSize(value,17),y-6,17,bold,navy);y-=h+9;}
  function walk(el){
-  if(el.dataset?.pdfField==='admissions_decision'){const val=state.principles.explanation||'';const h=Math.max(62,Math.min(170,lines(val,9,width-12).length*12+14));field('admissions_decision','Admissions Board decision on Principles courses',val,h,true);return;}
-  if(el.dataset?.pdfField==='admissions_reference'){field('admissions_reference','Decision reference, if applicable',state.principles.reference||'',24);return;}
+  if(el.dataset?.pdfField==='admissions_decision'){const val='';const h=Math.max(62,Math.min(170,lines(val,9,width-12).length*12+14));field('admissions_decision','Admission board decision (to be filled in by admission board)',val,h,true);return;}
   if(el.classList?.contains('print-total')){total(el);return;}
   if(el.classList?.contains('signature-table')){signatures();return;}
   if(el.tagName==='TABLE'){table(el);return;}

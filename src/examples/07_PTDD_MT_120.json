@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "ruleVersion": "DDS-2026-2027.6",
+  "ruleVersion": "DDS-2026-2027.7",
   "id": "PEP-DEMO-MT",
   "revision": 1,
   "student": {
@@ -21,7 +21,7 @@
       "XM_0105",
       "XM_0106"
     ],
-    "explanation": "Example decision: both Principles courses are required.",
+    "explanation": "",
     "reference": ""
   },
   "constrained": [
@@ -56,8 +56,8 @@
   "exceptions": {},
   "notes": "FICTIONAL TEST EXAMPLE — replace all example student details before use.",
   "coordinator": "dr. Reggie Bosma",
-  "formVersion": "0.6.0",
-  "savedAt": "2026-10-09T22:52:46.981Z",
+  "formVersion": "0.7.0",
+  "savedAt": "2026-10-09T23:41:21.567Z",
   "courseSnapshot": {
     "snapshotVersion": 1,
     "rows": [

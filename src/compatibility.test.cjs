@@ -47,4 +47,9 @@ test('Custom courses, exception requests and project information survive save/re
  const s=base();s.custom=[{uid:'TEST-CUSTOM',name:'Example external course',code:'EXT500',ec:'5',institution:'Example University',level:'500',category:'alpha',url:'https://example.org/course'}];s.exceptions.over120={reason:'Fictional explanation',reference:'TEST'};s.major.hostStatus='proposed';s.major.host='Example host';
  const restored=R.importDraft(R.exportDraft(s));assert.deepEqual(restored.custom,s.custom);assert.deepEqual(restored.exceptions,s.exceptions);assert.deepEqual(restored.major,s.major);
 });
+test('Older decision text is removed with a notice while course choices and EC stay unchanged',()=>{
+ const saved=R.exportDraft(base());saved.formVersion='0.6.0';saved.ruleVersion='DDS-2026-2027.6';saved.principles.explanation='Old student-entered decision';saved.principles.reference='OLD';const original=JSON.stringify(saved),restored=R.importDraft(saved);
+ assert.equal(restored.principles.explanation,'');assert.equal(restored.principles.reference,'');assert(restored.importNotice.includes('not carried into the new PDF'));assert.equal(restored.importReport.beforeTotal,120);assert.equal(restored.importReport.afterTotal,120);assert.deepEqual(restored.importReport.changes,[]);assert.equal(JSON.stringify(saved),original);
+ const unsafe=base();unsafe.principles.explanation='Do not export';unsafe.principles.reference='Do not export';const exported=R.exportDraft(unsafe);assert.equal(exported.principles.explanation,'');assert.equal(exported.principles.reference,'');assert.equal(unsafe.principles.explanation,'Do not export');
+});
 fs.writeFileSync(path.join(__dirname,'compatibility-test-results.json'),JSON.stringify({count:results.length,results,date:new Date().toISOString()},null,2));

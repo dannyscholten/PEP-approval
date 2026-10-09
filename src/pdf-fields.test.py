@@ -5,7 +5,7 @@ from datetime import datetime,timezone
 from pypdf import PdfReader
 import pymupdf
 example=Path(sys.argv[1]);qa=Path(sys.argv[2]);results=[]
-expected={'admissions_decision','admissions_reference','admissions_name','admissions_date','coordinator_date','admissions_signature','coordinator_signature'}
+expected={'admissions_decision','admissions_name','admissions_date','coordinator_date','admissions_signature','coordinator_signature'}
 def ok(text): results.append(text);print('PASS',text)
 def verify(file,values=None):
     r=PdfReader(file);fields=r.get_fields() or {};assert set(fields)==expected
@@ -24,7 +24,7 @@ def verify(file,values=None):
             x1,y1,x2,y2=widget['/Rect'];assert 0<=x1<x2<=page.mediabox.width and 0<=y1<y2<=page.mediabox.height
     assert set(seen)==expected and len(seen)==len(expected)
     return r
-r=verify(example);assert len(r.pages)==2;ok('Five text fields and two digital-signature fields have matching canonical fields and widgets, valid appearances and page positions')
+r=verify(example);assert len(r.pages)==2;ok('Four text fields and two digital-signature fields have matching canonical fields and widgets, valid appearances and page positions')
 for name in ['admissions_signature','coordinator_signature']:
  f=r.get_fields()[name];assert f['/FT']=='/Sig' and f.get('/Ff',0)&2 and not f.get('/V')
 vu=PdfReader(qa/'fillable-three-projects.pdf').get_fields();assert not vu['admissions_signature'].get('/Ff',0)&2;assert vu['coordinator_signature'].get('/Ff',0)&2;assert 'admissions_decision' not in vu
@@ -37,7 +37,7 @@ assert all(('/NotoSans-Regular 0 Tf' if x['/T']=='admissions_decision' else '/No
 links=[str(a.get_object()['/A']['/URI']) for p in r.pages for a in p.get('/Annots',[]) if a.get_object().get('/Subtype')=='/Link']
 assert links==['https://studiegids.vu.nl/nl/Master/2026-2027/drug-discovery-sciences#/tab=2','https://canvas.vu.nl/courses/31939/'];ok('Both exact user-provided destinations remain clickable PDF links')
 text='\n'.join(p.extract_text() for p in r.pages);assert text.index('First name')<text.index('Last name');assert 'Checked for BADD — passed' in text;assert 'XM_0207' in text and 'to be announced' in text;ok('PDF retains name order, passed course check and separate major registration data')
-values={'admissions_decision':'The Admissions Board confirms that both Principles of Drug Targets and Principles of Drug Discovery are required. This decision applies to the course selection and total shown in this PEP. Approved after review of the prior qualification and curriculum.','admissions_reference':'AB-2026-EXAMPLE','admissions_name':'dr. Melissa Bärenfänger','admissions_date':'10 October 2026','coordinator_date':'12 October 2026'}
+values={'admissions_decision':'The Admissions Board confirms that both Principles of Drug Targets and Principles of Drug Discovery are required. This decision applies to the course selection and total shown in this PEP. Approved after review of the prior qualification and curriculum.','admissions_name':'dr. Melissa Bärenfänger','admissions_date':'10 October 2026','coordinator_date':'12 October 2026'}
 filled=qa/'board-completed-example.pdf'
 with pymupdf.open(example) as doc:
     for page in doc:
@@ -46,9 +46,9 @@ with pymupdf.open(example) as doc:
             widget.field_value=values[widget.field_name]
             widget.update()
     doc.save(filled)
-verify(filled,values);ok('Board text, reference, accented name and dates survive an independent PDF-engine save/reopen with fields still editable')
-pre=PdfReader(qa/'prefilled-decision.pdf');assert pre.get_fields()['admissions_decision']['/V']=='Example decision: both Principles courses are required.';assert pre.get_fields()['admissions_reference']['/V']=='AB-TEST-2026';ok('Optional existing decision/reference values survive the export')
-u=PdfReader(qa/'unicode.pdf');ut='\n'.join(p.extract_text() for p in u.pages);assert 'Éléonore Αλέξανδρος' in ut;assert 'Αλέξανδρος' in u.get_fields()['admissions_decision']['/V'];ok('International names remain encoded in both page text and form values')
+verify(filled,values);ok('Board text, accented name and dates survive an independent PDF-engine save/reopen with fields still editable')
+pre=PdfReader(qa/'prefilled-decision.pdf');assert not pre.get_fields()['admissions_decision'].get('/V');assert 'admissions_reference' not in pre.get_fields();assert not r.get_fields()['admissions_decision'].get('/V');assert 'Admission board decision (to be filled in by admission board)' in text;assert 'Decision reference' not in text;ok('Every new PDF has a blank board-only decision, correct heading and no reference field, including after legacy import')
+u=PdfReader(qa/'unicode.pdf');ut='\n'.join(p.extract_text() for p in u.pages);assert 'Éléonore Αλέξανδρος' in ut;assert not u.get_fields()['admissions_decision'].get('/V');ok('International student names remain encoded and the board decision stays blank')
 for name,term in [('fillable-three-projects.pdf','will result in study delay'),('fillable-excess.pdf','diploma supplement')]:
     t='\n'.join(p.extract_text() for p in PdfReader(qa/name).pages);assert term in t
 long='\n'.join(p.extract_text() for p in PdfReader(qa/'long-notes.pdf').pages);assert long.count('Long explanation for pagination:')==28;ok('Warning, extracurricular explanation and all long-note paragraphs are retained')

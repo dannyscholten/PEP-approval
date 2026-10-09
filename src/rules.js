@@ -187,7 +187,7 @@ function compareImport(raw,s,before){
  return {source:before.source,fromVersion:clean(raw.formVersion)||clean(HISTORY?.[raw.ruleVersion]?.DATA.appVersion)||'earlier/unknown version',toVersion:DATA.appVersion,beforeTotal:previous?.total??null,afterTotal:after.total,changes};
 }
 function exportDraft(s){
- const saved={...s,ruleVersion:DATA.ruleVersion,formVersion:DATA.appVersion,savedAt:new Date().toISOString(),courseSnapshot:courseSnapshot(s)};
+ const saved={...s,principles:{...s.principles,explanation:'',reference:''},ruleVersion:DATA.ruleVersion,formVersion:DATA.appVersion,savedAt:new Date().toISOString(),courseSnapshot:courseSnapshot(s)};
  delete saved.importNotice;delete saved.importReport;
  return saved;
 }
@@ -211,6 +211,8 @@ function importDraft(raw){
   }
  }
  const notices=[];
+ if(base.principles.explanation||base.principles.reference)notices.push('Admission-board decision text and its reference from the older draft are not carried into the new PDF. The admission board completes the decision in the PDF; course selections and EC are unaffected by this removal. Your original draft is unchanged.');
+ base.principles.explanation='';base.principles.reference='';
  if(base.student.education==='VU_FW'){if(base.principles.override||base.principles.required.length||base.principles.explanation||base.principles.reference)notices.push('The Principles requirement is fixed at 0 EC for VU Farmaceutische Wetenschappen graduates. A previous adjustment has been removed; review the recalculated total.');base.principles={override:false,required:[],explanation:'',reference:''};}
  if(raw.ruleVersion!==DATA.ruleVersion)notices.push('This saved PEP has been checked again using the current form. Review the results before exporting.');
  if(raw.ruleVersion!==DATA.ruleVersion&&base.constrained.length>2&&unique(base.constrained).length===base.constrained.length){

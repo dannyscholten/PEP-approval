@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.6.0",
-  "ruleVersion": "DDS-2026-2027.6",
+  "appVersion": "0.7.0",
+  "ruleVersion": "DDS-2026-2027.7",
   "cohort": 2026,
   "total": 120,
   "alphaLimit": 18,

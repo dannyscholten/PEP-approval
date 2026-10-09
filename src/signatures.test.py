@@ -77,10 +77,10 @@ r=PdfFileReader(BytesIO(two));assert r.embedded_signatures[-1].fieldmdp.action.v
 w=IncrementalPdfFileWriter(BytesIO(one))
 for ref in w.root['/AcroForm']['/Fields']:
  f=ref.get_object()
- if f.get('/T')=='admissions_reference':
+ if f.get('/T')=='admissions_date':
   ap=f['/AP'].raw_get('/N');old=ap.get_object()
-  assert b'AB-2026-EXAMPLE' in old.data
-  replacement=generic.StreamObject({k:v for k,v in old.items() if k not in ['/Length','/Filter','/DecodeParms']},stream_data=old.data.replace(b'AB-2026-EXAMPLE',b'TAMPERED-EXAMPLE'))
+  assert b'10 October 2026' in old.data
+  replacement=generic.StreamObject({k:v for k,v in old.items() if k not in ['/Length','/Filter','/DecodeParms']},stream_data=old.data.replace(b'10 October 2026',b'11 October 2026'))
   w.objects[(ap.generation,ap.idnum)]=replacement
 bad=BytesIO();w.write(bad);r=PdfFileReader(BytesIO(bad.getvalue()));status=validate_pdf_signature(r.embedded_signatures[0],signer_validation_context=context,diff_policy=policy);assert not status.docmdp_ok;ok('Changing only a locked field appearance is also rejected')
 Path(__file__).with_name('signature-test-results.json').write_text(json.dumps({'date':datetime.now(timezone.utc).isoformat(),'count':len(results),'results':results,'identities':'Ephemeral fictional QA certificates only; no institutional approval'},indent=2))
