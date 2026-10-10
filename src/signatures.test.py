@@ -83,4 +83,11 @@ for ref in w.root['/AcroForm']['/Fields']:
   replacement=generic.StreamObject({k:v for k,v in old.items() if k not in ['/Length','/Filter','/DecodeParms']},stream_data=old.data.replace(b'10 October 2026',b'11 October 2026'))
   w.objects[(ap.generation,ap.idnum)]=replacement
 bad=BytesIO();w.write(bad);r=PdfFileReader(BytesIO(bad.getvalue()));status=validate_pdf_signature(r.embedded_signatures[0],signer_validation_context=context,diff_policy=policy);assert not status.docmdp_ok;ok('Changing only a locked field appearance is also rejected')
+single=sign((qa/'standard-no-board.pdf').read_bytes(),'coordinator_signature',signer2)
+(qa/'test-coordinator-only-signature.pdf').write_bytes(single)
+r=PdfFileReader(BytesIO(single));assert len(r.embedded_signatures)==1
+status=validate_pdf_signature(r.embedded_signatures[0],signer_validation_context=context,diff_policy=policy)
+assert status.intact and status.valid and status.trusted and status.docmdp_ok,status.summary()
+assert r.embedded_signatures[0].fieldmdp.action.value=='/All'
+ok('Coordinator-only PDF accepts a valid final digital signature without Admissions Board fields')
 Path(__file__).with_name('signature-test-results.json').write_text(json.dumps({'date':datetime.now(timezone.utc).isoformat(),'count':len(results),'results':results,'identities':'Ephemeral fictional QA certificates only; no institutional approval'},indent=2))

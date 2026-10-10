@@ -40,27 +40,28 @@ async function create(source,state,logo){
   const widgetRef=doc.context.register(widget);field.lookup(PDFName.of('Kids')).push(widgetRef);page.node.addAnnot(widgetRef);form.acroForm.addField(fieldRef);
  }
  function signatures(){
-  ensure(142);const col=width/2;
-  ['Admissions Board','Specialization coordinator preapproval'].forEach((s,i)=>{const x=M+i*col;page.drawRectangle({x,y:y-22,width:col,height:22,color:pale,borderColor:line,borderWidth:.5});draw(s,x+5,y-5,9,bold,navy);});
-  y-=22;const top=y;
-  for(let i=0;i<2;i++){const x=M+i*col,required=i===1||boardRequired;page.drawRectangle({x,y:top-107,width:col,height:107,borderColor:line,borderWidth:.5});label('Name:',x+5,top-6,i===0&&boardRequired,8);label('Signature:',x+5,top-32,required,8);label('Date:',x+5,top-87,required,8);}
-  addField('admissions_name','',M+44,top-4,col-51,23);draw(root.PEPRules.coordinatorName(state),M+col+38,top-7,8);
-  addField('admissions_date','',M+44,top-82,col-51,21);addField('coordinator_date','',M+col+44,top-82,col-51,21);
-  signatureField('admissions_signature','Admissions Board digital signature',M+5,top-45,col-10,33,boardRequired,['admissions_decision','admissions_name','admissions_date'].filter(n=>form.getFieldMaybe(n)));
-  signatureField('coordinator_signature','Specialization coordinator digital signature',M+col+5,top-45,col-10,33,true,null);
+  const columns=boardRequired?['Admissions Board for Principles courses','Specialisation coordinator preapproval for PEP']:['Specialisation coordinator preapproval for PEP'];
+  const col=width/columns.length,headerLines=columns.map(t=>lines(t,9,col-10,bold)),headerHeight=Math.max(...headerLines.map(l=>l.length))*12+10;
+  ensure(headerHeight+125);
+  columns.forEach((s,i)=>{const x=M+i*col;page.drawRectangle({x,y:y-headerHeight,width:col,height:headerHeight,color:pale,borderColor:line,borderWidth:.5});headerLines[i].forEach((t,j)=>draw(t,x+5,y-5-j*12,9,bold,navy));});
+  y-=headerHeight;const top=y;
+  columns.forEach((s,i)=>{const x=M+i*col,isBoard=boardRequired&&i===0;page.drawRectangle({x,y:top-107,width:col,height:107,borderColor:line,borderWidth:.5});label('Name:',x+5,top-6,isBoard,8);label('Signature:',x+5,top-32,true,8);label('Date:',x+5,top-87,true,8);
+   if(isBoard){addField('admissions_name','',x+44,top-4,col-51,23);addField('admissions_date','',x+44,top-82,col-51,21);signatureField('admissions_signature','Admissions Board for Principles courses digital signature',x+5,top-45,col-10,33,true,['admissions_decision','admissions_name','admissions_date']);}
+   else{draw(root.PEPRules.coordinatorName(state),x+38,top-7,8);addField('coordinator_date','',x+44,top-82,col-51,21);signatureField('coordinator_signature','Specialisation coordinator digital signature',x+5,top-45,col-10,33,true,null);}
+  });
   y=top-115;
  }
  function total(el){ensure(42);const h=31,w=246,x=W-M-w;page.drawRectangle({x,y:y-h,width:w,height:h,color:pale,borderColor:blue,borderWidth:.8});page.drawRectangle({x:W-M-4,y:y-h,width:4,height:h,color:blue});const value=el.querySelector('strong').textContent;const right=W-M-13;draw('Total programme',x+10,y-10,10,bold,navy);draw(value,right-bold.widthOfTextAtSize(value,17),y-6,17,bold,navy);y-=h+9;}
  function walk(el){
-  if(el.classList?.contains('print-submission')){ensure(70);paragraph(txt(el),{size:8,space:4});const a=el.querySelector('a');if(a){ensure(16);link(a.href,a.href,M,y);y-=19;}return;}
+  if(el.classList?.contains('print-submission')){ensure(70);const a=el.querySelector('a');paragraph(txt(el).replace(a?txt(a):'', '').trim(),{size:8,space:4});if(a){ensure(16);link(a.href,a.href,M,y);y-=19;}return;}
   if(el.dataset?.pdfField==='admissions_decision'){const val='';const h=Math.max(62,Math.min(170,lines(val,9,width-12).length*12+14));field('admissions_decision','Admission board decision (to be filled in by admission board)',val,h,true);return;}
   if(el.classList?.contains('print-total')){total(el);return;}
   if(el.classList?.contains('signature-table')){signatures();return;}
   if(el.tagName==='TABLE'){table(el);return;}
   if(el.tagName==='H2'){heading(txt(el),true);return;}
   if(el.tagName==='H3'){const next=el.nextElementSibling;if(next?.tagName==='TABLE'&&next.rows.length<=4)ensure(24+next.rows.length*20);heading(txt(el));return;}
-  if(el.tagName==='P'&&el.classList.contains('print-checks')&&txt(el).startsWith('*')){ensure(24);const top=y;paragraph(txt(el),{size:8});draw('*',M,top,8,font,red);return;}
-  if(el.tagName==='P'){paragraph(txt(el),{size:el.classList.contains('print-checks')?8:9,color:el.classList.contains('print-total')?navy:ink});return;}
+  if(el.tagName==='P'&&el.classList.contains('print-checks')&&txt(el).startsWith('*')){ensure(24);const top=y;paragraph(txt(el),{size:8,color:red});return;}
+  if(el.tagName==='P'){paragraph(txt(el),{size:el.classList.contains('print-checks')?8:9,color:el.classList.contains('warning-text')||el.classList.contains('mandatory-note')?red:el.classList.contains('exception-justification')?rgb(0,.373,.569):ink});return;}
   if(el.tagName==='STRONG'){paragraph(txt(el),{size:8.5,color:navy});return;}
   if(el.classList?.contains('print-approval'))ensure(220);
   if(el.classList?.contains('print-project'))ensure(70);
@@ -90,7 +91,7 @@ async function create(source,state,logo){
   for(const p of doc.getPages()){const annotations=p.node.Annots();if(!annotations)continue;for(let i=0;i<annotations.size();i++)if(annotations.get(i).toString()===widgetRef.toString())annotations.set(i,f.ref);}
   doc.context.delete(widgetRef);
  }
- doc.setTitle('DDS PEP '+state.student.number+' - version '+state.revision);doc.setAuthor('Vrije Universiteit Amsterdam - Drug Discovery Sciences');doc.setSubject('Proposed curriculum; editable Admissions Board decision fields');doc.setLanguage('en-GB');
+ doc.setTitle('DDS PEP '+state.student.number+' - '+new Date().toISOString().slice(0,10));doc.setAuthor('Vrije Universiteit Amsterdam - Drug Discovery Sciences');doc.setSubject('Proposed curriculum; editable Admissions Board decision fields');doc.setLanguage('en-GB');
  return doc.save({updateFieldAppearances:false});
 }
 root.PEP_PDF={create};

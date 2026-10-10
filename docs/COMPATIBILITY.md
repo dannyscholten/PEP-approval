@@ -2,7 +2,7 @@
 
 ## Keep these guarantees
 
-- Continue accepting every released 2026 draft format, beginning with format 1. Do not assume the form release number equals the draft format or student PEP version.
+- Continue accepting every released 2026 draft format, beginning with format 1. Do not assume the form release number equals the draft format or PDF generation date.
 - Preserve internal field keys and course identifiers. If a key or code must change, add an explicit old-to-new conversion before validation and test a real-shaped fictional old draft.
 - Preserve entered course choices, unlisted-course metadata, project details and exception explanations unless an intentional migration changes them. Explain intentional course/EC changes in the import comparison.
 - Recalculate eligibility and credits from the current approved rules. Never trust a saved approval, validation result or snapshot total.
@@ -32,3 +32,7 @@ The Pages workflow requires all of these before deploying:
 A failed job skips deployment; the previous site stays published. This is a test-based safeguard against regressions, not a guarantee against arbitrary changes to code or tests. Keep the gate and extend it when requirements change.
 
 Version 0.7.0 deliberately removes student-entered admission-board decisions and references on import, with an explicit notice. Course choices and credits are unchanged by that removal. New JSON exports exclude those values, and the generated PDF decision always starts blank for the admission board.
+
+## Version 0.8.0 migrations
+
+Own-specialisation constrained courses saved under General electives move to Constrained electives; all selected credits are retained. An older outside-VU entry stays visible under General electives with its details and a correction message. The original file remains untouched. More than two constrained courses are accepted. A major project without a selected route contributes zero EC until a route is chosen; the snapshot comparison explains that difference. Student `revision` and `major.area` keys are accepted in old files but intentionally ignored. Removed SMC preparation exceptions produce a notice. New PDF Admissions Board fields appear only if a non-VU-FW student deselects one or both Principles courses.

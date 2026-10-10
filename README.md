@@ -2,9 +2,9 @@
 
 [Open the PEP form](https://dannyscholten.github.io/dds-pep/) · [Cohort 2026 link](https://dannyscholten.github.io/dds-pep/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/dds-pep/actions)
 
-Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD and PTDD. Version 0.7.1.
+Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD and PTDD. Version 0.8.0.
 
-The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has an editable admission-board decision field and two digital-signature fields. Academic decisions and exceptions still require the relevant board/coordinator.
+The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has a digital-signature field for the specialisation coordinator. Only a Principles deviation adds editable Admissions Board decision/name/date fields and its signature field. Academic decisions and exceptions still require the relevant board/coordinator.
 
 ## Update the form directly in GitHub
 
@@ -61,3 +61,7 @@ One PDF-for-approval download replaces the print buttons. Export/open draft cont
 ## Version 0.7.1
 
 The downloaded PDF includes the submission instructions and a clickable examination-board submission link. The form and VU-background PDF explicitly state that VU bachelor Farmaceutische Wetenschappen are not allowed to follow any of the Principles courses. The Major programme heading is now Compulsory courses, without the repeated subtitle. Curriculum calculations and saved-draft format are unchanged.
+
+## Version 0.8.0
+
+At least two of the six constrained courses can be selected, including mandatory path courses. Own constrained courses use that section; other specialisations’ courses remain in General electives. Principles EC are included after previous education is chosen, and major-project EC after registration is chosen. Only omission of a Principles course for a non-VU-FW student requires Admissions Board decision and signature fields. Seven numbered sections, a generation date, coloured warnings/justifications and blue help/summary panels are consistent across the form and PDF. The SMC internship preparation reminder remains, with verification delegated to the internship process. Older drafts retain course selections and show changed placements or totals; obsolete PEP revision and research-area fields no longer appear.

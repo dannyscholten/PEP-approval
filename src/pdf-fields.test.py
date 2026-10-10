@@ -24,10 +24,10 @@ def verify(file,values=None):
             x1,y1,x2,y2=widget['/Rect'];assert 0<=x1<x2<=page.mediabox.width and 0<=y1<y2<=page.mediabox.height
     assert set(seen)==expected and len(seen)==len(expected)
     return r
-r=verify(example);assert len(r.pages)==2;ok('Four text fields and two digital-signature fields have matching canonical fields and widgets, valid appearances and page positions')
+r=verify(example);assert 2<=len(r.pages)<=3;ok('Four text fields and two digital-signature fields have matching canonical fields and widgets, valid appearances and page positions')
 for name in ['admissions_signature','coordinator_signature']:
  f=r.get_fields()[name];assert f['/FT']=='/Sig' and f.get('/Ff',0)&2 and not f.get('/V')
-vu=PdfReader(qa/'fillable-three-projects.pdf').get_fields();assert not vu['admissions_signature'].get('/Ff',0)&2;assert vu['coordinator_signature'].get('/Ff',0)&2;assert 'admissions_decision' not in vu
+vu=PdfReader(qa/'fillable-three-projects.pdf').get_fields();assert set(vu)=={'coordinator_date','coordinator_signature'};assert vu['coordinator_signature'].get('/Ff',0)&2;standard=PdfReader(qa/'standard-no-board.pdf').get_fields();assert set(standard)=={'coordinator_date','coordinator_signature'}
 ok('Digital signature fields are unsigned and mandatory where applicable; VU graduates need no Principles decision')
 with pymupdf.open(example) as doc:
  totals=[(p,s) for p in doc for b in p.get_text('dict')['blocks'] if 'lines' in b for l in b['lines'] for s in l['spans'] if s['text']=='120 EC' and s['size']>16]
@@ -36,8 +36,8 @@ ok('Programme EC total is enlarged to 17 pt and positioned on the right')
 assert all(('/NotoSans-Regular 0 Tf' if x['/T']=='admissions_decision' else '/NotoSans-Regular 9 Tf') in x['/DA'] for x in [ref.get_object() for ref in r.trailer['/Root']['/AcroForm']['/Fields']] if x['/FT']=='/Tx');assert '/NotoSans-Regular' in r.trailer['/Root']['/AcroForm']['/DR']['/Font'];ok('Shared embedded font and auto-sized decision text support later board entry')
 links=[str(a.get_object()['/A']['/URI']) for p in r.pages for a in p.get('/Annots',[]) if a.get_object().get('/Subtype')=='/Link']
 assert links==['https://studiegids.vu.nl/nl/Master/2026-2027/drug-discovery-sciences#/tab=2','https://canvas.vu.nl/courses/31939/','https://vu.nl/en/student/elective-space/electives'];ok('Study guide, Canvas and examination-board submission destinations are clickable PDF links')
-text='\n'.join(p.extract_text() for p in r.pages);assert 'After downloading the completed PDF, send it to your specialisation coordinator' in text;assert 'submit it to the DDS examination board for approval' in text;assert text.index('First name')<text.index('Last name');assert 'Checked for BADD — passed' in text;assert 'XM_0207' in text and 'to be announced' in text;ok('PDF retains name order, passed course check and separate major registration data')
-values={'admissions_decision':'The Admissions Board confirms that both Principles of Drug Targets and Principles of Drug Discovery are required. This decision applies to the course selection and total shown in this PEP. Approved after review of the prior qualification and curriculum.','admissions_name':'dr. Melissa Bärenfänger','admissions_date':'10 October 2026','coordinator_date':'12 October 2026'}
+text='\n'.join(p.extract_text() for p in r.pages);assert 'After downloading the completed PDF, send it to your specialisation coordinator' in text;assert 'submit it to the DDS examination board for approval' in text;assert text.index('First name')<text.index('Last name');assert 'Checked for PTDD — Molecular Pharmacology — passed' in text;assert 'XM_0207' in text and 'to be announced' in text;ok('PDF retains name order, passed course check and separate major registration data')
+values={'admissions_decision':'The Admissions Board confirms that only Principles of Drug Targets is required; Principles of Drug Discovery is not required. This decision applies to the course selection and total shown in this PEP. Approved after review of the prior qualification and curriculum.','admissions_name':'dr. Melissa Bärenfänger','admissions_date':'10 October 2026','coordinator_date':'12 October 2026'}
 filled=qa/'board-completed-example.pdf'
 with pymupdf.open(example) as doc:
     for page in doc:
@@ -47,10 +47,17 @@ with pymupdf.open(example) as doc:
             widget.update()
     doc.save(filled)
 verify(filled,values);ok('Board text, accented name and dates survive an independent PDF-engine save/reopen with fields still editable')
-pre=PdfReader(qa/'prefilled-decision.pdf');assert not pre.get_fields()['admissions_decision'].get('/V');assert 'admissions_reference' not in pre.get_fields();assert not r.get_fields()['admissions_decision'].get('/V');assert 'Admission board decision (to be filled in by admission board)' in text;assert 'Decision reference' not in text;assert 'Major programme' not in text;assert text.count('Compulsory courses')==1;ok('Every new PDF has a blank board-only decision, correct heading and no reference field, including after legacy import')
-u=PdfReader(qa/'unicode.pdf');ut='\n'.join(p.extract_text() for p in u.pages);assert 'Éléonore Αλέξανδρος' in ut;assert not u.get_fields()['admissions_decision'].get('/V');ok('International student names remain encoded and the board decision stays blank')
+pre=PdfReader(qa/'prefilled-decision.pdf');assert not pre.get_fields()['admissions_decision'].get('/V');assert 'admissions_reference' not in pre.get_fields();assert not r.get_fields()['admissions_decision'].get('/V');assert 'Admission board decision (to be filled in by admission board)' in text;assert 'Decision reference' not in text;assert 'Major programme' not in text;assert '3. Compulsory courses' in text;assert 'PEP version' not in text;assert 'Date generated:' in text;assert 'Admissions Board for Principles courses' in text;assert 'Specialisation coordinator preapproval for PEP' in text;ok('Every new PDF has a blank board-only decision, correct heading and no reference field, including after legacy import')
+u=PdfReader(qa/'unicode.pdf');ut='\n'.join(p.extract_text() for p in u.pages);assert 'Éléonore Αλέξανδρος' in ut;assert 'admissions_decision' not in u.get_fields();ok('International student names remain encoded and the board decision stays blank')
 for name,term in [('fillable-three-projects.pdf','will result in study delay'),('fillable-excess.pdf','diploma supplement')]:
     t='\n'.join(p.extract_text() for p in PdfReader(qa/name).pages);assert term in t
     if name=='fillable-three-projects.pdf':assert 'VU bachelor Farmaceutische Wetenschappen are not allowed to follow any of the Principles courses.' in t
 long='\n'.join(p.extract_text() for p in PdfReader(qa/'long-notes.pdf').pages);assert long.count('Long explanation for pagination:')==28;ok('Warning, extracurricular explanation and all long-note paragraphs are retained')
+with pymupdf.open(qa/'fillable-three-projects.pdf') as doc:
+    spans=[s for p in doc for b in p.get_text('dict')['blocks'] if 'lines' in b for l in b['lines'] for s in l['spans']]
+    warnings=[s for s in spans if 'study delay' in s['text']];assert warnings and all(s['color']==0xb42318 for s in warnings)
+with pymupdf.open(qa/'fillable-excess.pdf') as doc:
+    spans=[s for p in doc for b in p.get_text('dict')['blocks'] if 'lines' in b for l in b['lines'] for s in l['spans']]
+    explanations=[s for s in spans if 'Exception requested:' in s['text']];assert explanations and all(s['color']==0x005f91 for s in explanations)
+ok('PDF study-delay warnings are red and exception justifications have a distinct blue colour')
 Path(__file__).with_name('pdf-fields-test-results.json').write_text(json.dumps({'date':datetime.now(timezone.utc).isoformat(),'count':len(results),'results':results},indent=2))

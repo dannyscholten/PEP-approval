@@ -155,3 +155,13 @@ for renamed fields/codes and retain schema-1 support. The GitHub Actions workflo
 domain, historical-draft, browser-import and PDF-export checks before publishing.
 A failed check leaves the previous published site in place. Future cohorts need their
 own reviewed rules and route; preserve the 2026 form for existing 2026 students.
+
+VERSION 0.8.0 CURRENT BEHAVIOUR (supersedes older version notes above)
+Minimum two own constrained courses; mandatory path courses checked separately.
+Additional own constrained choices stay in Constrained electives. Other specialisations
+remain selectable as General electives. Principles EC require chosen education; major EC
+require a valid registration route. Admissions Board fields/signature are emitted only
+for a non-VU-FW Principles deviation. Coordinator-only PDF otherwise. No student revision
+field; PDF generation date only. SMC area/check removed with preparation reminder retained.
+Format-1 import preserves selected course credits and exposes migration differences.
+Imported own constrained courses outside VU retain their details visibly for correction.

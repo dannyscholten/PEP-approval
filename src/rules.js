@@ -10,21 +10,32 @@ const canonicalCode = code => Object.entries(DATA.aliases).find(([alias])=>norm(
 const round = v => Math.round(v*100)/100;
 const unique = a => [...new Set(a)];
 function fresh(){return {
- schemaVersion:1,ruleVersion:DATA.ruleVersion,id:'PEP-'+Date.now().toString(36).toUpperCase(),revision:1,
+ schemaVersion:1,ruleVersion:DATA.ruleVersion,id:'PEP-'+Date.now().toString(36).toUpperCase(),
  student:{firstName:'',lastName:'',number:'',cohort:2026,specialization:'',path:'',education:'',institution:'',degree:'',graduated:''},
  principles:{override:false,required:[],explanation:'',reference:''},constrained:[],electives:[],courseDetails:{},
- major:{route:'',hostStatus:'unknown',host:'',topicStatus:'unknown',topic:'',area:''},
+ major:{route:'',hostStatus:'unknown',host:'',topicStatus:'unknown',topic:''},
  minor:{enabled:false,hostStatus:'unknown',host:'',topicStatus:'unknown',topic:''},
  literature:{enabled:false,hostStatus:'unknown',host:'',topicStatus:'unknown',topic:''},
  custom:[],exceptions:{},notes:'',coordinator:'',importNotice:'',importReport:null
 };}
-function principleCodes(s){return s.student.education==='VU_FW' ? [] : s.principles.override ? s.principles.required : DATA.principles;}
-function principlesStatementRequired(s){return ['WO','HBO'].includes(s.student.education);}
+function principleCodes(s){return !['WO','HBO'].includes(s.student.education) ? [] : s.principles.override ? s.principles.required : DATA.principles;}
+function principlesStatementRequired(s){return ['WO','HBO'].includes(s.student.education)&&DATA.principles.some(c=>!principleCodes(s).includes(c));}
 function coordinatorName(s){return DATA.coordinators[s.student.specialization]||'';}
 function needsPath(s){const spec=DATA.specializations[s.student.specialization];return !!spec&&Object.keys(spec.paths).length>0&&!spec.paths[s.student.path];}
 function isFixedCourse(s,code){return requiredCodes(s).includes(code)||s.constrained.includes(code);}
 function clearFixedCourseDetails(s){for(const code of Object.keys(s.courseDetails))if(isFixedCourse(s,code))delete s.courseDetails[code];}
-function selectPath(s,path){const pool=unique([...s.constrained,...s.electives]);s.student.path=path;s.constrained=pathCodes(s);s.electives=pool.filter(c=>!s.constrained.includes(c)&&!requiredCodes(s).includes(c));clearFixedCourseDetails(s);}
+// Preserve draft selections; known own constrained courses use their dedicated section.
+// An old outside-VU entry stays visible in electives until the student corrects it.
+function organiseConstrained(s){
+ const own=DATA.specializations[s.student.specialization]?.constrained||[];
+ const moving=s.electives.filter(c=>own.includes(c)&&!requiredCodes(s).includes(c)&&!s.courseDetails[c]?.outside);
+ s.constrained=[...s.constrained,...moving];s.electives=s.electives.filter(c=>!moving.includes(c));
+}
+function selectPath(s,path){
+ const pool=unique([...s.constrained,...s.electives]);s.student.path=path;
+ s.constrained=pathCodes(s);s.electives=pool.filter(c=>!s.constrained.includes(c)&&!requiredCodes(s).includes(c));
+ organiseConstrained(s);clearFixedCourseDetails(s);
+}
 function pathCodes(s){let spec=DATA.specializations[s.student.specialization];return spec ? (spec.paths[s.student.path]||[]).filter(c=>map[c]) : [];}
 function requiredCodes(s){let spec=DATA.specializations[s.student.specialization];return spec ? [...principleCodes(s),'XM_0196',...spec.compulsory] : [];}
 function components(s){
@@ -32,7 +43,7 @@ function components(s){
  const add=(code,section)=>{const c=map[code];if(c) rows.push({...c,id:code,section});};
  requiredCodes(s).forEach(c=>add(c,'Compulsory courses'));
  s.constrained.forEach(c=>add(c,'Constrained electives'));
- if(DATA.specializations[s.student.specialization]){
+ if(DATA.specializations[s.student.specialization]&&['single','split'].includes(s.major.route)){
   const project={section:'Major research project',source:'TER 10.2, p. 20',project:true};
   if(s.major.route==='split')rows.push(
    {...project,id:'MAJOR_PART1',code:'XM_0207',name:'Major Research Project DDS — Part 1',ec:18},
@@ -55,11 +66,10 @@ function evaluate(s){
  const err=(id,msg,section)=>add(id,'error',msg,'',section);
  if(s.student.cohort!==2026)err('cohort','This version supports the 2026 intake only.','personal');
  for(const [key,label] of [['firstName','First name'],['lastName','Last name'],['number','Student number'],['education','Previous education'],['institution','Previous institution'],['degree','Previous degree'],['graduated','Graduation date']])if(!clean(s.student[key]))err('student_'+key,label+' is required.','personal');
- if(!spec)err('specialization','Choose your specialization.','personal');
+ if(!spec)err('specialization','Choose your specialisation.','personal');
  if(!['','VU_FW','WO','HBO'].includes(s.student.education))err('education','Previous education is not recognized.','personal');
- if(spec&&Object.keys(spec.paths).length&&!spec.paths[s.student.path])err('path','Choose a path within your specialization.','personal');
+ if(spec&&Object.keys(spec.paths).length&&!spec.paths[s.student.path])err('path','Choose a path within your specialisation.','personal');
  if(spec&&!Object.keys(spec.paths).length&&s.student.path)err('badd_path','BADD does not have paths. Clear the path selection.','personal');
- if(!Number.isInteger(s.revision)||s.revision<1)err('revision','The PEP version must be a positive whole number.','personal');
  if(s.student.graduated&&!/^\d{4}-\d{2}-\d{2}$/.test(s.student.graduated))err('graduated_format','Use a complete graduation date.','personal');
  const defaults=s.student.education==='VU_FW'?[]:DATA.principles;
  const p=principleCodes(s);
@@ -70,15 +80,15 @@ function evaluate(s){
  }
  const allCodes=[...requiredCodes(s),...s.constrained,...s.electives];
  const invalid=allCodes.filter(c=>!map[c]);if(invalid.length)err('unknown_codes','Unrecognized catalogue code(s): '+invalid.join(', ')+'. Add unlisted courses through the custom-course form.','electives');
- if(s.constrained.some(c=>!spec?.constrained.includes(c)))err('invalid_constrained','A selected constrained elective is not in the list for this specialization.','constrained');
+ if(s.constrained.some(c=>!spec?.constrained.includes(c)))err('invalid_constrained','A selected constrained elective is not in the list for this specialisation.','constrained');
  if(s.electives.some(c=>DATA.principles.includes(c)||c==='XM_0196'||c==='XM_0198'))err('reserved_elective','Principles, RAS and Literature Thesis must use their dedicated programme sections.','electives');
- if(s.electives.some(c=>spec?.compulsory.includes(c)))err('wrong_section','A compulsory course from your own specialization belongs in the compulsory section.','electives');
+ if(s.electives.some(c=>spec?.constrained.includes(c)))err('own_constrained_section','Courses from your own constrained-electives list belong in Constrained electives. For an imported outside-VU entry, first remove it from General electives and select the fixed VU course in Constrained electives.','constrained');
+ if(s.electives.some(c=>spec?.compulsory.includes(c)))err('wrong_section','A compulsory course from your own specialisation belongs in the compulsory section.','electives');
  if(spec){
   const selected=unique(s.constrained.filter(c=>spec.constrained.includes(c)));
-  if(selected.length<2)add('constrained_min','error','Select two distinct constrained electives from your specialization (12 EC). Add any further choices under General electives.','TER 10.2','constrained',true);
-  if(s.constrained.length>2)err('constrained_max','Only two courses belong in the constrained-electives section. Move additional courses to General electives.','constrained');
-  const missing=pathCodes(s).filter(c=>!allCodes.includes(c));
-  if(missing.length)add('path_courses','error','Your path requires: '+missing.map(c=>map[c].name).join('; ')+'.','Specialization FAQ, constrained choices','constrained',true);
+  if(selected.length<2)add('constrained_min','error','Select at least two distinct courses from the six constrained electives for your specialisation (minimum 12 EC).','TER 10.2','constrained',true);
+  const missing=pathCodes(s).filter(c=>!s.constrained.includes(c));
+  if(missing.length)add('path_courses','error','Your path requires: '+missing.map(c=>map[c].name).join('; ')+'.','Specialisation FAQ, constrained choices','constrained',true);
   if(!['single','split'].includes(s.major.route))err('major_route','Choose the registration route for your 48 EC major project.','projects');
  }
  for(const [key,title] of [['major','Major project'],['minor','Minor project'],['literature','Literature thesis']]){
@@ -90,7 +100,6 @@ function evaluate(s){
   }
  }
  if(s.minor.enabled&&s.literature.enabled)add('three_projects','warning','Combining a major research project, minor research project and literature thesis is strongly discouraged: this combination cannot be completed within the two-year programme and will result in study delay.','Programme clarification, 9 October 2026','projects');
- if(s.student.path==='SMC'&&s.major.area==='radiopharma'&&!allCodes.includes('XM_0069'))add('radiopharma','error','For an intended Synthetic Radiopharmaceutical Chemistry internship, include Advanced Radiopharmaceutical Chemistry.','DSDD FAQ, PDF p. 6','projects',true);
  const existing=rows.filter(r=>!r.custom).map(r=>({key:r.id,code:canonicalCode(r.code),name:norm(r.name)}));
  const usedIds=[];
  for(const c of s.custom){
@@ -108,7 +117,7 @@ function evaluate(s){
   if(match)err(prefix+'_catalogue','This custom course matches '+match.name+' ('+match.code+'). Select it from the catalogue so its official EC and classification are used.','electives');
   if(existing.some(r=>(clean(c.code)&&norm(r.code)===norm(canonical))||(norm(c.name)&&r.name===norm(c.name))))err(prefix+'_duplicate','Duplicate course: '+c.name+'. A course can count only once.','electives');
   existing.push({key:c.uid,code:canonical,name:norm(c.name)});
-  if((s.student.specialization==='BADD'&&norm(c.name)==='bioanalyticalsciences')||((s.student.path==='SMC'||allCodes.includes('XM_0110'))&&norm(c.name)==='syntheticorganicchemistry'))add(prefix+'_overlap','error',c.name+' overlaps with a required/selected course and is excluded by the specialization FAQ.','FAQ Appendix B','electives',true);
+  if((s.student.specialization==='BADD'&&norm(c.name)==='bioanalyticalsciences')||((s.student.path==='SMC'||allCodes.includes('XM_0110'))&&norm(c.name)==='syntheticorganicchemistry'))add(prefix+'_overlap','error',c.name+' overlaps with a required/selected course and is excluded by the specialisation FAQ.','FAQ Appendix B','electives',true);
  }
  const duplicate=unique(allCodes.filter((c,i)=>allCodes.indexOf(c)!==i));if(duplicate.length)err('duplicates','Courses counted more than once: '+duplicate.join(', ')+'.','electives');
  for(const r of rows.filter(r=>!r.custom)){
@@ -121,20 +130,22 @@ function evaluate(s){
  const unclassified=round(rows.filter(r=>r.section==='Electives awaiting classification').reduce((a,r)=>a+r.ec,0));
  if(total<120)add('under120','error','The programme is '+round(120-total)+' EC short of 120. Complete the proposed curriculum.','TER 9.1','review');
  if(total>120){
-  const removable=rows.filter(r=>!r.project&&r.section!=='Compulsory courses'&&total-r.ec>=120&&r.section!=='Constrained electives'&&!pathCodes(s).includes(r.code));
+  const removable=rows.filter(r=>!r.project&&r.section!=='Compulsory courses'&&total-r.ec>=120&&!pathCodes(s).includes(r.code)&&(r.section!=='Constrained electives'||unique(s.constrained.filter(c=>spec?.constrained.includes(c)&&c!==r.code)).length>=2));
   const detail=removable.length?' Removing '+removable.map(r=>r.name).join('; ')+' would still leave at least 120 EC without removing a required core/path course. Explain why this is nevertheless necessary.':' Removing any single removable elective would bring the total below 120 EC. Explain why the excess is needed to fulfil the requirements; this arithmetic check does not grant approval.';
   add('over120','error','The programme totals '+total+' EC ('+round(total-120)+' above 120). You may obtain more than 120 EC, but credits above 120 EC are extracurricular and passed extracurricular courses appear as such on the diploma supplement. Planned extracurricular courses should not be included in this PEP.'+detail,'Programme clarification, 9 October 2026','review',true);
  }
- if(alpha>18)add('alpha_limit','error','Alpha/gamma electives total '+alpha+' EC; the maximum is 18 EC.','Specialization FAQs','electives',true);
+ if(alpha>18)add('alpha_limit','error','Alpha/gamma electives total '+alpha+' EC; the maximum is 18 EC.','Specialisation FAQs','electives',true);
  const unresolved=issues.filter(i=>i.severity==='error');const review=issues.filter(i=>i.severity==='review');const warnings=issues.filter(i=>i.severity==='warning');
  const activeIds=new Set(issues.map(i=>i.id));
  const inactiveRequests=Object.entries(s.exceptions).filter(([id,e])=>clean(e.reason)&&!activeIds.has(id)).map(([id])=>id);
- const courseIssues=issues.filter(i=>i.id!=='principles_decision'&&(['compulsory','principles','constrained'].includes(i.section)||['specialization','path','badd_path','education','student_education','cohort','radiopharma'].includes(i.id)));
+ const courseIssues=issues.filter(i=>i.id!=='principles_decision'&&(['compulsory','principles','constrained'].includes(i.section)||['specialization','path','badd_path','education','student_education','cohort'].includes(i.id)));
  const duplicateProblem=issues.some(i=>i.id.includes('duplicate')||i.id.endsWith('_catalogue'));
- const checkedFor=spec ? s.student.specialization+(s.student.path?' — '+(DATA.paths[s.student.path]||s.student.path):needsPath(s)?' — select a path':'') : 'Choose your specialization and, where applicable, path';
+ const checkedFor=spec ? s.student.specialization+(s.student.path?' — '+(DATA.paths[s.student.path]||s.student.path):needsPath(s)?' — select a path':'') : 'Choose your specialisation and, where applicable, path';
  const checks=[
-  {id:'total',label:'Programme credit total',description:'The proposed programme must contain 120 EC. Any excess needs a justified decision.',value:total+' / 120 EC',status:total===120?'pass':total>120&&clean(s.exceptions.over120?.reason)?'review':'error'},
-  {id:'courses',label:'Compulsory and path courses',description:'Checks compulsory courses, two constrained electives and required path courses. Admissions Board confirmation is separate.',value:spec?'Checked for '+checkedFor:checkedFor,status:courseIssues.some(i=>i.severity==='error')?'error':courseIssues.some(i=>i.severity==='review')?'review':'pass'},
+  {id:'total',label:'Programme credit total',description:'The proposed programme must contain 120 EC. Credits above 120 EC need explicit justification and pre-approval by the specialisation coordinator and approval by the examination board.',value:total+' / 120 EC',status:total===120?'pass':total>120&&clean(s.exceptions.over120?.reason)?'review':'error'},
+  {id:'courses',label:'Compulsory and path courses',description:'Checks compulsory courses, minimum of two constrained electives and required path courses.',value:spec?'Checked for '+checkedFor:checkedFor,status:courseIssues.some(i=>i.severity==='error')?'error':courseIssues.some(i=>i.severity==='review')?'review':'pass'},
+  {id:'constrained',label:'Minimum of 2 out of 6 courses is selected',description:'Select at least two distinct courses from your specialisation’s six constrained electives.',value:spec?unique(s.constrained.filter(c=>spec.constrained.includes(c))).length+' / 6 courses selected':'Choose your specialisation',status:!spec?'error':issues.find(i=>i.id==='constrained_min')?.severity==='review'?'review':issues.some(i=>['constrained_min','invalid_constrained','own_constrained_section'].includes(i.id))?'error':'pass'},
+  {id:'path',label:'Required path courses are selected',description:'The mandatory courses for the selected path must be included in Constrained electives.',value:!spec?'Choose your specialisation':needsPath(s)?'Choose a path':pathCodes(s).length?pathCodes(s).map(c=>map[c].name).join('; '):'No path-specific courses apply',status:!spec||needsPath(s)?'error':issues.find(i=>i.id==='path_courses')?.severity==='review'?'review':issues.some(i=>i.id==='path_courses')?'error':'pass'},
   {id:'alpha',label:'Alpha/gamma elective limit',description:'Alpha/gamma courses use the shared elective space, up to a maximum of 18 EC.',value:alpha+' / 18 EC'+(unclassified?' + '+unclassified+' EC unclassified':''),status:issues.some(i=>i.id.endsWith('_category'))?'error':alpha>18?(clean(s.exceptions.alpha_limit?.reason)?'review':'error'):unclassified?'review':'pass'},
   {id:'duplicates',label:'Courses are not counted twice',description:'Each selected course or project contributes its EC only once.',value:duplicateProblem?'A duplicate or catalogue match needs correction':'No duplicate courses found',status:duplicateProblem?'error':'pass'}
  ];
@@ -200,7 +211,6 @@ function importDraft(raw){
  obj(base.student,raw.student);obj(base.principles,raw.principles);for(const k of ['major','minor','literature'])obj(base[k],raw[k]);
  for(const k of ['constrained','electives']){if(raw[k]!==undefined&&!Array.isArray(raw[k]))throw Error('Invalid '+k+' list.');base[k]=(raw[k]||[]).filter(v=>typeof v==='string').slice(0,200);}
  base.principles.required=Array.isArray(raw.principles?.required)?raw.principles.required.filter(v=>typeof v==='string').slice(0,4):[];
- base.revision=Number(raw.revision)||1;
  if(raw.custom!==undefined&&!Array.isArray(raw.custom))throw Error('Invalid custom course list.');
  base.custom=(raw.custom||[]).slice(0,100).map(x=>{const c={uid:'',name:'',code:'',institution:'',ec:'',level:'',category:'',url:''};obj(c,x);c.ec=typeof x.ec==='number'?String(x.ec):c.ec;return c;});
  for(const k of ['exceptions','courseDetails']){
@@ -215,14 +225,16 @@ function importDraft(raw){
  base.principles.explanation='';base.principles.reference='';
  if(base.student.education==='VU_FW'){if(base.principles.override||base.principles.required.length||base.principles.explanation||base.principles.reference)notices.push('The Principles requirement is fixed at 0 EC for VU Farmaceutische Wetenschappen graduates. A previous adjustment has been removed; review the recalculated total.');base.principles={override:false,required:[],explanation:'',reference:''};}
  if(raw.ruleVersion!==DATA.ruleVersion)notices.push('This saved PEP has been checked again using the current form. Review the results before exporting.');
- if(raw.ruleVersion!==DATA.ruleVersion&&base.constrained.length>2&&unique(base.constrained).length===base.constrained.length){
-  const order=[...pathCodes(base).filter(c=>base.constrained.includes(c)),...base.constrained.filter(c=>!pathCodes(base).includes(c))];
-  base.constrained=order.slice(0,2);base.electives.push(...order.slice(2));
-  notices.push('Additional constrained electives have moved to General electives; their credits are retained.');
- }
  if(['WO','HBO'].includes(base.student.education)&&!base.principles.override){base.principles.override=true;base.principles.required=[...DATA.principles];}
  if(Object.values(raw.courseDetails||{}).some(v=>v?.status?.startsWith('exemption_')))notices.push('Exemption fields have been removed. The courses and their credits remain included; exemptions use the separate procedure.');
- if(needsPath(base)&&base.constrained.length){base.electives=unique([...base.electives,...base.constrained]);base.constrained=[];notices.push('Choose a path before selecting constrained electives. Previous choices have been retained under General electives.');}
+ const moved=base.electives.filter(c=>DATA.specializations[base.student.specialization]?.constrained.includes(c)&&!requiredCodes(base).includes(c)&&!base.courseDetails[c]?.outside);
+ organiseConstrained(base);
+ if(moved.length)notices.push('Courses from your own constrained-electives list have moved from General electives to Constrained electives; their selections and EC are retained.');
+ if(base.electives.some(c=>DATA.specializations[base.student.specialization]?.constrained.includes(c)&&base.courseDetails[c]?.outside))notices.push('An older constrained-course entry has outside-VU details. Those details are preserved under General electives, but this entry needs correction: remove it and select the fixed VU course in Constrained electives.');
+ if(needsPath(base)&&base.constrained.length)notices.push('Your previous constrained-course selections are retained. Choose a path to add its required courses and review all selections.');
+ if(raw.major?.area)notices.push('The former SMC research-area field has been removed. Preparation for a Synthetic Radiopharmaceutical Chemistry internship is now explained in the SMC reminder and verified through the internship process.');
+ if(raw.exceptions?.radiopharma){delete base.exceptions.radiopharma;notices.push('The saved SMC research-preparation exception no longer applies because this check has been removed.');}
+ if(before.snapshot&&before.snapshot.rows.some(r=>r.section==='Major research project')&&!['single','split'].includes(base.major.route))notices.push('The major project now counts towards the EC total only after its registration route is selected. Choose a route to include the 48 EC.');
  if(Array.isArray(raw.omitted)&&raw.omitted.length){notices.push('Previously omitted compulsory courses have been restored with their EC. Compulsory courses cannot be omitted.');}
  const fixedOutside=Object.entries(base.courseDetails).some(([code,detail])=>isFixedCourse(base,code)&&detail.outside);
  if(fixedOutside)notices.push('Compulsory and selected constrained courses are fixed VU courses. Previous outside-VU details for these courses have been removed.');
@@ -234,6 +246,6 @@ function importDraft(raw){
  base.importNotice=notices.join(' ');
  return base;
 }
-const api={DATA,map,fresh,coordinatorName,needsPath,isFixedCourse,clearFixedCourseDetails,principleCodes,principlesStatementRequired,selectPath,pathCodes,requiredCodes,components,evaluate,importDraft,exportDraft,courseSnapshot,round};
+const api={DATA,map,fresh,coordinatorName,needsPath,isFixedCourse,clearFixedCourseDetails,organiseConstrained,principleCodes,principlesStatementRequired,selectPath,pathCodes,requiredCodes,components,evaluate,importDraft,exportDraft,courseSnapshot,round};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.PEPRules=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

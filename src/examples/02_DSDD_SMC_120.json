@@ -1,8 +1,7 @@
 {
   "schemaVersion": 1,
-  "ruleVersion": "DDS-2026-2027.7",
+  "ruleVersion": "DDS-2026-2027.8",
   "id": "PEP-DEMO-SMC",
-  "revision": 1,
   "student": {
     "firstName": "Example",
     "lastName": "Student",
@@ -35,8 +34,7 @@
     "hostStatus": "unknown",
     "host": "",
     "topicStatus": "unknown",
-    "topic": "",
-    "area": ""
+    "topic": ""
   },
   "minor": {
     "enabled": true,
@@ -56,8 +54,8 @@
   "exceptions": {},
   "notes": "FICTIONAL TEST EXAMPLE — replace all example student details before use.",
   "coordinator": "dr. Maikel Wijtmans",
-  "formVersion": "0.7.0",
-  "savedAt": "2026-10-09T23:41:21.566Z",
+  "formVersion": "0.8.0",
+  "savedAt": "2026-10-10T19:05:58.208Z",
   "courseSnapshot": {
     "snapshotVersion": 1,
     "rows": [

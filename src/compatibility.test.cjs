@@ -11,10 +11,10 @@ for(const name of fs.readdirSync(path.join(__dirname,'compatibility/fixtures')))
   const {draft,before}=fixture(name.replace('.json','')),copy=JSON.stringify(draft),s=R.importDraft(draft),report=s.importReport;
   assert.equal(JSON.stringify(draft),copy,'Original input remains untouched');
   assert.equal(report.source,'archived');assert.equal(report.beforeTotal,before.total);assert.equal(report.afterTotal,R.evaluate(s).total);
-  assert.equal(s.student.number,draft.student.number);assert.equal(s.notes,draft.notes);assert.equal(s.revision,draft.revision);
+  assert.equal(s.student.number,draft.student.number);assert.equal(s.notes,draft.notes);assert(!('revision' in s));
   assert.deepEqual([...s.constrained,...s.electives].sort(),[...draft.constrained,...draft.electives].sort());
   if(before.total!==report.afterTotal)assert(report.changes.length>0);
-  if(draft.constrained.length>2){assert.equal(s.constrained.length,2);assert(report.changes.some(c=>c.before?.section==='Constrained electives'&&c.after?.section==='General electives'));}
+  if(draft.constrained.length>2)assert(s.constrained.length>=draft.constrained.length);
  });
 }
 test('Save/reopen includes stable snapshot and form version, without stale import messages',()=>{
@@ -51,5 +51,11 @@ test('Older decision text is removed with a notice while course choices and EC s
  const saved=R.exportDraft(base());saved.formVersion='0.6.0';saved.ruleVersion='DDS-2026-2027.6';saved.principles.explanation='Old student-entered decision';saved.principles.reference='OLD';const original=JSON.stringify(saved),restored=R.importDraft(saved);
  assert.equal(restored.principles.explanation,'');assert.equal(restored.principles.reference,'');assert(restored.importNotice.includes('not carried into the new PDF'));assert.equal(restored.importReport.beforeTotal,120);assert.equal(restored.importReport.afterTotal,120);assert.deepEqual(restored.importReport.changes,[]);assert.equal(JSON.stringify(saved),original);
  const unsafe=base();unsafe.principles.explanation='Do not export';unsafe.principles.reference='Do not export';const exported=R.exportDraft(unsafe);assert.equal(exported.principles.explanation,'');assert.equal(exported.principles.reference,'');assert.equal(unsafe.principles.explanation,'Do not export');
+});
+test('Previous 0.7.1 general constrained choices migrate with exact category notice and unchanged EC',()=>{
+ const s=base();s.electives.push('X_435604');const saved=R.exportDraft(s);saved.formVersion='0.7.1';saved.ruleVersion='DDS-2026-2027.7';const before=JSON.stringify(saved),restored=R.importDraft(saved);assert(restored.constrained.includes('X_435604'));assert(!restored.electives.includes('X_435604'));assert.equal(restored.importReport.beforeTotal,126);assert.equal(restored.importReport.afterTotal,126);assert(restored.importReport.changes.some(c=>c.before?.section==='General electives'&&c.after?.section==='Constrained electives'));assert.equal(JSON.stringify(saved),before);
+});
+test('Old unselected major route explains the 48 EC difference',()=>{
+ const saved=R.exportDraft(base());saved.major.route='';saved.formVersion='0.7.1';saved.ruleVersion='DDS-2026-2027.7';const restored=R.importDraft(saved);assert.equal(restored.importReport.beforeTotal,120);assert.equal(restored.importReport.afterTotal,72);assert(restored.importNotice.includes('registration route'));assert(restored.importReport.changes.some(c=>c.type==='removed'&&c.before.section==='Major research project'));
 });
 fs.writeFileSync(path.join(__dirname,'compatibility-test-results.json'),JSON.stringify({count:results.length,results,date:new Date().toISOString()},null,2));

@@ -1,5 +1,5 @@
 {
-  "status": "Version 0.7.1: PDF submission instructions and link, explicit VU Principles restriction, and simplified Compulsory courses heading.",
+  "status": "Version 0.8.0: minimum two constrained courses, conditional Principles decision/signatures, selection-dependent credits and numbered form/PDF sections.",
   "analysis_date": "2026-10-10",
   "sources": {
     "TER": "M Drug Discovery Sciences TER 2026-2027 (1).pdf",
@@ -26,24 +26,24 @@
     },
     {
       "id": "R03",
-      "rule": "VU bachelor Farmaceutische Wetenschappen requires neither Principles course (fixed at 0 EC). Other backgrounds normally require both. Record the Admissions Board decision for every non-VU-FW background, including a decision requiring both courses.",
-      "evidence": "TER 10.2 p19; BADD pdf p3/printed12; DSDD pdf p4/printed13; PTDD pdf p4/printed13; explicitly confirmed by user in answer3, 2026-10-09; original PEP statement/signature box (no student action); user follow-up 2026-10-10",
+      "rule": "VU bachelor Farmaceutische Wetenschappen students are not allowed to follow Principles courses. Other backgrounds include both by default. Admissions Board decision and signature are needed only when one or both courses are deselected.",
+      "evidence": "TER 10.2 p19; BADD pdf p3/printed12; DSDD pdf p4/printed13; PTDD pdf p4/printed13; explicitly confirmed by user in answer3, 2026-10-09; original PEP statement/signature box (no student action); user follow-up 2026-10-10; programme-owner clarification 2026-10-10 for version 0.8.0",
       "proposed_check": "recorded_decision",
-      "note": "The Admissions Board records or confirms its decision for all non-VU-FW backgrounds. Students may leave its text blank for the board to enter decision/reference/name/date in native PDF fields. This does not prevent a compositionally complete PEP being exported. A later board decision changing courses requires a revised and rechecked PEP. From version 0.5.0, the VU-FW requirement cannot be adjusted; legacy adjustments are removed during import with a visible review notice and recalculated credits."
+      "note": "No Principles EC are included before previous education is selected. Both courses require no Admissions Board involvement. Deselection triggers a board-only blank decision/name/date and digital signature in the PDF; the coordinator signs afterwards. VU-FW cannot override the zero-EC requirement."
     },
     {
       "id": "R04",
       "rule": "Each specialization requires its two named compulsory courses, 6 EC each; compulsory course entries are fixed VU courses.",
       "evidence": "TER 10.2 pp19-20",
       "proposed_check": "automatic",
-      "note": "The form does not allow editing institution details or omitting compulsory courses. Previously omitted compulsory courses are restored on draft import. Applicable Principles courses and RAS are fixed in the same way. Matching compulsory/path-course requirements show Passed even while Admissions Board confirmation remains a separate review item. Missing personal names no longer change this course-composition result; they still block review export."
+      "note": "The form does not allow editing institution details or omitting compulsory courses. Previously omitted compulsory courses are restored on draft import. Applicable Principles courses and RAS are fixed in the same way. Matching compulsory/path-course requirements show Passed with a separate Admissions Board review item only when a Principles course is deselected. Missing personal names no longer change this course-composition result; they still block review export."
     },
     {
       "id": "R05",
-      "rule": "The programme requires at least 12 EC from its own constrained list. The form designates exactly two distinct 6 EC courses in the constrained-electives section; additional choices go under General electives.",
-      "evidence": "TER 10.2 pp19-20",
+      "rule": "At least two distinct courses (minimum 12 EC) from the six own constrained electives. More than two are allowed. Required path courses are preselected and checked in that section.",
+      "evidence": "TER 10.2 pp19-20; programme-owner clarification for version 0.8.0, 2026-10-10",
       "proposed_check": "automatic",
-      "note": "Required path courses are preselected and editable. BADD starts with no choices; MP preselects its one required course and leaves one choice open. Required path-course content is checked across the whole selected programme. DSDD and PTDD choices are unavailable until a path is selected. Selected constrained courses have no Edit function and are fixed VU courses. Their selection can still be changed, subject to path checks."
+      "note": "BADD starts with no preset, MP with its one mandatory course, other paths with their two mandatory courses. Path selection is required for DSDD/PTDD. Selected constrained courses are fixed VU courses without Edit controls."
     },
     {
       "id": "R06",
@@ -75,10 +75,10 @@
     },
     {
       "id": "R10",
-      "rule": "BADD may choose any two of its six constrained choices; current PEP asks no BADD path.",
-      "evidence": "BADD pdf p4/printed13; TER p19; PEP p1",
+      "rule": "BADD may select two or more of its six constrained courses and has no paths.",
+      "evidence": "BADD pdf p4/printed13; TER p19; PEP p1; programme-owner clarification for version 0.8.0, 2026-10-10",
       "proposed_check": "automatic",
-      "note": "User confirmed BADD has no paths; wording about both paths was editorial carryover."
+      "note": "Confirmed by programme owner; BADD has no preset courses."
     },
     {
       "id": "R11",
@@ -103,10 +103,10 @@
     },
     {
       "id": "R14",
-      "rule": "Optional space is 42 minus required Principles EC after designating two constrained electives. Any further constrained choices are entered under General electives and consume the shared optional budget once.",
-      "evidence": "Derived from TER components: 120-6-12-12-48-P",
+      "rule": "Other elective space is the remainder towards 120 EC after Principles, compulsory courses, all selected constrained courses and projects.",
+      "evidence": "Derived from TER components: 120-6-12-12-48-P; programme-owner clarification for version 0.8.0, 2026-10-10",
       "proposed_check": "derived_automatic",
-      "note": "Own and other specializations' courses remain available under General electives unless already selected or required elsewhere in this PEP."
+      "note": "Each selected course contributes its EC once. Additional own constrained courses consume remaining space in the constrained section; other specialisation courses remain general electives."
     },
     {
       "id": "R15",
@@ -180,10 +180,10 @@
     },
     {
       "id": "R25",
-      "rule": "SMC intended Synthetic Radiopharmaceutical Chemistry internship: Advanced Radiopharmaceutical Chemistry XM_0069 should be considered required in Year 1.",
-      "evidence": "DSDD pdf p6/printed15 item4",
+      "rule": "For an SMC Synthetic Radiopharmaceutical Chemistry internship, the FAQ identifies Advanced Radiopharmaceutical Chemistry as required preparation in Year 1.",
+      "evidence": "DSDD pdf p6/printed15 item4; programme-owner clarification for version 0.8.0, 2026-10-10",
       "proposed_check": "FAQ_requirement",
-      "note": "Counts once in optional space in normal SMC plan. Translational Radiopharmaceutical Sciences recommended, not required."
+      "note": "The research-area field and its automatic validation have been removed at the programme owner’s request. A brief SMC reminder is retained; the internship coordinator verifies preparation. This is not an additional universal SMC path requirement."
     },
     {
       "id": "R26",
@@ -229,10 +229,10 @@
     },
     {
       "id": "R32",
-      "rule": "Courses from other paths/specializations, and further choices from the student's own constrained list, can be general electives.",
-      "evidence": "PEP p2 footnotes; overlapping TER course lists",
+      "rule": "Other specialisations’ constrained courses remain available as general electives; all own constrained courses use Constrained electives, with at least two selected.",
+      "evidence": "PEP p2 footnotes; overlapping TER course lists; programme-owner clarification for version 0.8.0, 2026-10-10",
       "proposed_check": "automatic",
-      "note": "The form allows at most two selections in the constrained section. Path changes retain previous choices as general electives where applicable; old drafts with more than two constrained choices migrate surplus courses without losing EC."
+      "note": "Path changes add mandatory path courses and retain own additional selections in Constrained electives. Import moves own courses there while retaining EC and showing category changes. Imported outside-VU metadata is preserved visibly for correction."
     },
     {
       "id": "R33",
@@ -958,5 +958,14 @@
     "Share the exact submission instructions between web form and PDF, including a clickable examination-board submission link.",
     "State explicitly that VU bachelor Farmaceutische Wetenschappen are not allowed to follow any of the Principles courses.",
     "Rename Major programme to Compulsory courses and remove the repeated subtitle in web form, navigation and PDF."
-  ]
+  ],
+  "release_0_8_0": {
+    "authority": "Programme-owner requested changes, confirmed in this conversation on 10 October 2026",
+    "constrained": "At least two of the six own-specialisation courses, with no maximum of two. Required path courses are preselected and checked separately. All own constrained courses use that section; other-specialisation courses remain available in General electives. Additional own constrained courses may be considered removable in excess-EC analysis only if minimum and path requirements remain met.",
+    "principles": "Board decision/signature only for non-VU-FW students omitting one or both Principles courses.",
+    "major": "48 EC only after a valid single or split route is selected.",
+    "smc": "Research-area field and automatic check removed. Brief preparation reminder remains; internship coordinator verifies suitability.",
+    "migration": "Format 1 still supported. Known own constrained entries move from General electives to Constrained electives without changing EC. Outside-VU entries stay visible for correction with their metadata. Obsolete student revision and research-area values are intentionally ignored; a notice explains removed research-preparation exceptions. Existing draft snapshots show exact course/category/EC changes.",
+    "presentation": "Seven numbered sections; generation date replaces student PEP version; red warnings/mandatory help, blue exception justification, light-blue fold-out help and Programme total panel."
+  }
 }
