@@ -967,5 +967,12 @@
     "smc": "Research-area field and automatic check removed. Brief preparation reminder remains; internship coordinator verifies suitability.",
     "migration": "Format 1 still supported. Known own constrained entries move from General electives to Constrained electives without changing EC. Outside-VU entries stay visible for correction with their metadata. Obsolete student revision and research-area values are intentionally ignored; a notice explains removed research-preparation exceptions. Existing draft snapshots show exact course/category/EC changes.",
     "presentation": "Seven numbered sections; generation date replaces student PEP version; red warnings/mandatory help, blue exception justification, light-blue fold-out help and Programme total panel."
+  },
+  "release_0_9_0": {
+    "authority": "Programme-owner requested changes and layout improvements, confirmed 10 October 2026",
+    "drafts": "First student baseline: format 2; pre-release archives removed; preserve baseline fixture and snapshot comparisons for future releases.",
+    "projects": "Explicit host/topic status selection for every enabled project.",
+    "pdf": "No Principles section for VU FW; consecutive visible section numbers; 9 pt editable fields; bold 13 pt total; bold check titles and green/orange/red status labels. Reviewed checkboxes indicate review, not approval, and are completed before coordinator signs and locks all fields.",
+    "layout": "VU blue section bars, light-blue total/help, active section navigation and mobile fold-out; separate Principles subtotal and grouped review items."
   }
 }

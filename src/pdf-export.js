@@ -27,9 +27,29 @@ async function create(source,state,logo){
   const headerData=heads.map(layout);
   for(const row of all){const data=layout(row);if(data.h<=H-M-bottom-40){if(y-data.h<bottom){newPage();if(!data.isHead)headerData.forEach(d=>rowDraw(d));}rowDraw(data);}else{let start=0,total=Math.max(...data.ls.map(a=>a.length));while(start<total){if(y-30<bottom){newPage();headerData.forEach(d=>rowDraw(d));}const count=Math.min(total-start,Math.floor((y-bottom-6)/lh));if(count<1){newPage();continue;}rowDraw(data,start,count);start+=count;}}}y-=5;
  }
+ function checks(el){
+  const ws=[width*.52,width*.32,width*.16],pad=5,lh=10.5;
+  const statusColour=s=>s==='pass'?rgb(.141,.412,.263):s==='review'?rgb(.55,.31,0):red;
+  function header(){ensure(20);let x=M;['Check','Details','Status'].forEach((t,i)=>{page.drawRectangle({x,y:y-19,width:ws[i],height:19,color:pale,borderColor:line,borderWidth:.5});draw(t,x+pad,y-5,8,bold,navy);x+=ws[i];});y-=19;}
+  header();
+  for(const row of el.querySelectorAll('tbody tr')){
+   const title=lines(txt(row.cells[0].querySelector('strong')),8.5,ws[0]-pad*2,bold),desc=lines(txt(row.cells[0].querySelector('small')),8,ws[0]-pad*2),value=lines(txt(row.cells[1]),8.5,ws[1]-pad*2),status=lines(txt(row.cells[2]),8.5,ws[2]-pad*2,bold);
+   const h=Math.max(title.length+desc.length,value.length,status.length)*lh+8;
+   if(y-h<bottom){newPage();header();}
+   let x=M;ws.forEach(w=>{page.drawRectangle({x,y:y-h,width:w,height:h,color:white,borderColor:line,borderWidth:.5});x+=w;});
+   title.forEach((t,j)=>draw(t,M+pad,y-4-j*lh,8.5,bold,navy));desc.forEach((t,j)=>draw(t,M+pad,y-4-(title.length+j)*lh,8,font,muted));
+   value.forEach((t,j)=>draw(t,M+ws[0]+pad,y-4-j*lh,8.5,font,ink));status.forEach((t,j)=>draw(t,M+ws[0]+ws[1]+pad,y-4-j*lh,8.5,bold,statusColour(row.dataset.status)));y-=h;
+  }y-=6;
+ }
+ function reviewItem(el){
+  ensure(115);const field=form.createCheckBox('review_'+el.dataset.reviewId);field.addToPage(page,{x:M,y:y-12,width:11,height:11,borderWidth:.7,borderColor:blue,backgroundColor:rgb(.975,.985,1),textColor:navy});
+  draw('Reviewed',M+17,y,8.5,bold,navy);y-=17;
+  paragraph('DECISION / VERIFICATION REQUIRED',{size:8.5,color:rgb(.55,.31,0)});
+  for(const child of el.children)if(child.tagName==='P')walk(child);
+ }
  function label(text,x,top,required=false,size=8.5){draw(text,x,top,size,bold,navy);if(required)draw(' *',x+bold.widthOfTextAtSize(text,size),top,size,bold,red);}
  function field(name,text,value='',height=32,multiline=false){ensure(height+23);label(text,M,y,name==='admissions_decision');y-=15;addField(name,value,M,y,width,height,multiline);y-=height+8;}
- function addField(name,value,x,top,w,h,multiline=false){const f=form.createTextField(name);if(multiline)f.enableMultiline();f.setText(clean(value));f.disableScrolling();f.addToPage(page,{x,y:top-h,width:w,height:h,borderWidth:.6,borderColor:line,backgroundColor:rgb(.975,.985,1),textColor:ink,font});f.setFontSize(0);if(name==='admissions_decision'||name==='coordinator_date'||boardRequired&&['admissions_name','admissions_date'].includes(name))f.enableRequired();return f;}
+ function addField(name,value,x,top,w,h,multiline=false){const f=form.createTextField(name);if(multiline)f.enableMultiline();f.setText(clean(value));f.disableScrolling();f.addToPage(page,{x,y:top-h,width:w,height:h,borderWidth:.6,borderColor:line,backgroundColor:rgb(.975,.985,1),textColor:ink,font});f.setFontSize(9);if(name==='admissions_decision'||name==='coordinator_date'||boardRequired&&['admissions_name','admissions_date'].includes(name))f.enableRequired();return f;}
  function signatureField(name,description,x,top,w,h,required,lockFields){
   const lock=doc.context.obj(lockFields?{Type:'SigFieldLock',Action:'Include',Fields:lockFields.map(PDFString.of)}:{Type:'SigFieldLock',Action:'All'});
   const field=doc.context.obj({FT:'Sig',T:PDFString.of(name),TU:PDFString.of(description),Ff:required?2:0,Kids:[],Lock:lock});
@@ -51,19 +71,21 @@ async function create(source,state,logo){
   });
   y=top-115;
  }
- function total(el){ensure(42);const h=31,w=246,x=W-M-w;page.drawRectangle({x,y:y-h,width:w,height:h,color:pale,borderColor:blue,borderWidth:.8});page.drawRectangle({x:W-M-4,y:y-h,width:4,height:h,color:blue});const value=el.querySelector('strong').textContent;const right=W-M-13;draw('Total programme',x+10,y-10,10,bold,navy);draw(value,right-bold.widthOfTextAtSize(value,17),y-6,17,bold,navy);y-=h+9;}
+ function total(el){ensure(42);const h=31,w=246,x=W-M-w;page.drawRectangle({x,y:y-h,width:w,height:h,color:pale,borderColor:blue,borderWidth:.8});page.drawRectangle({x:W-M-4,y:y-h,width:4,height:h,color:blue});const value=el.querySelector('strong').textContent;const right=W-M-13;draw('Total credit count of PEP',x+10,y-10,9,bold,navy);draw(value,right-bold.widthOfTextAtSize(value,13),y-8,13,bold,navy);y-=h+9;}
  function walk(el){
   if(el.classList?.contains('print-submission')){ensure(70);const a=el.querySelector('a');paragraph(txt(el).replace(a?txt(a):'', '').trim(),{size:8,space:4});if(a){ensure(16);link(a.href,a.href,M,y);y-=19;}return;}
-  if(el.dataset?.pdfField==='admissions_decision'){const val='';const h=Math.max(62,Math.min(170,lines(val,9,width-12).length*12+14));field('admissions_decision','Admission board decision (to be filled in by admission board)',val,h,true);return;}
+  if(el.dataset?.pdfField==='admissions_decision'){const val='';const h=92;field('admissions_decision','Admission board decision (to be filled in by admission board)',val,h,true);return;}
   if(el.classList?.contains('print-total')){total(el);return;}
   if(el.classList?.contains('signature-table')){signatures();return;}
+  if(el.classList?.contains('print-check-table')){checks(el);return;}
+  if(el.dataset?.reviewId){reviewItem(el);return;}
   if(el.tagName==='TABLE'){table(el);return;}
-  if(el.tagName==='H2'){heading(txt(el),true);return;}
-  if(el.tagName==='H3'){const next=el.nextElementSibling;if(next?.tagName==='TABLE'&&next.rows.length<=4)ensure(24+next.rows.length*20);heading(txt(el));return;}
+  if(el.tagName==='H2'){if(txt(el).includes('Research projects'))ensure(190);heading(txt(el),true);return;}
+  if(el.tagName==='H3'){if(['Major research project','Minor research project','Literature thesis'].includes(txt(el)))ensure(txt(el)==='Major research project'?170:120);const next=el.nextElementSibling;if(next?.tagName==='TABLE'&&next.rows.length<=4)ensure(24+next.rows.length*20);heading(txt(el));return;}
   if(el.tagName==='P'&&el.classList.contains('print-checks')&&txt(el).startsWith('*')){ensure(24);const top=y;paragraph(txt(el),{size:8,color:red});return;}
   if(el.tagName==='P'){paragraph(txt(el),{size:el.classList.contains('print-checks')?8:9,color:el.classList.contains('warning-text')||el.classList.contains('mandatory-note')?red:el.classList.contains('exception-justification')?rgb(0,.373,.569):ink});return;}
   if(el.tagName==='STRONG'){paragraph(txt(el),{size:8.5,color:navy});return;}
-  if(el.classList?.contains('print-approval'))ensure(220);
+  if(el.classList?.contains('print-approval'))ensure(198);
   if(el.classList?.contains('print-project'))ensure(70);
   for(const child of el.children)walk(child);
  }
@@ -75,11 +97,10 @@ async function create(source,state,logo){
  for(const el of source.children){if(el.classList.contains('print-head'))continue;walk(el);}
  const pages=doc.getPages();pages.forEach((p,i)=>{p.drawText('DDS - Cohort 2026',{x:M,y:23,size:8,font,color:muted});p.drawText((i+1)+' / '+pages.length,{x:W-M-28,y:23,size:8,font,color:muted});});
  form.updateFieldAppearances(font);
- // Shared font resources and zero-size default appearances let PDF readers resize
- // new board text to fit, while retaining the generated appearances for existing text.
+ // Shared embedded font resources keep editable text at the surrounding 9 pt size.
  form.acroForm.dict.set(PDFName.of('DR'),doc.context.obj({Font:{'NotoSans-Regular':font.ref}}));
  form.acroForm.dict.set(PDFName.of('SigFlags'),PDFNumber.of(3));
- for(const f of form.getFields())if(f instanceof root.PDFLib.PDFTextField)f.setFontSize(f.getName()==='admissions_decision'?0:9);
+ for(const f of form.getFields())if(f instanceof root.PDFLib.PDFTextField)f.setFontSize(9);
  // Each field has exactly one widget. Store it as one canonical field/widget
  // object, a standard PDF representation that supports incremental form updates
  // and signature validation consistently across PDF processors.
@@ -91,7 +112,7 @@ async function create(source,state,logo){
   for(const p of doc.getPages()){const annotations=p.node.Annots();if(!annotations)continue;for(let i=0;i<annotations.size();i++)if(annotations.get(i).toString()===widgetRef.toString())annotations.set(i,f.ref);}
   doc.context.delete(widgetRef);
  }
- doc.setTitle('DDS PEP '+state.student.number+' - '+new Date().toISOString().slice(0,10));doc.setAuthor('Vrije Universiteit Amsterdam - Drug Discovery Sciences');doc.setSubject('Proposed curriculum; editable Admissions Board decision fields');doc.setLanguage('en-GB');
+ doc.setTitle('DDS PEP '+state.student.number+' - '+new Date().toLocaleDateString('en-CA',{timeZone:'Europe/Amsterdam'}));doc.setAuthor('Vrije Universiteit Amsterdam - Drug Discovery Sciences');doc.setSubject('Proposed curriculum; editable Admissions Board decision fields');doc.setLanguage('en-GB');
  return doc.save({updateFieldAppearances:false});
 }
 root.PEP_PDF={create};

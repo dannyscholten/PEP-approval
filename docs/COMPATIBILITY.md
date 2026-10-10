@@ -1,38 +1,18 @@
-# Compatibility maintenance contract
+# Saved-draft compatibility baseline
 
-## Keep these guarantees
+Version 0.9.0 is the first student-release baseline, using draft format 2. Pre-release format-1 archives and their migration tests were removed at the programme owner's request; these forms had not been distributed to students. A pre-release test draft is rejected with a clear explanation.
 
-- Continue accepting every released 2026 draft format, beginning with format 1. Do not assume the form release number equals the draft format or PDF generation date.
-- Preserve internal field keys and course identifiers. If a key or code must change, add an explicit old-to-new conversion before validation and test a real-shaped fictional old draft.
-- Preserve entered course choices, unlisted-course metadata, project details and exception explanations unless an intentional migration changes them. Explain intentional course/EC changes in the import comparison.
-- Recalculate eligibility and credits from the current approved rules. Never trust a saved approval, validation result or snapshot total.
-- Compare the prior course rows with the imported rows. Report additions, removals/replacements, changed codes/titles/credits and moves between categories, even when the overall total is unchanged.
-- Never invent historical credits. If a snapshot is absent and no archived release can reconstruct the plan, explicitly show an unavailable old total.
-- Do not modify the student's original file during import.
+## Guarantees for future updates
 
-## Implementation
+- Continue accepting every student-released 2026 draft format, starting with format 2. Preserve field keys and stable course identifiers; add an explicit conversion and fixture test if either changes.
+- Preserve selections, project details, unlisted-course metadata and exception explanations. Explain intentional course, category or EC changes in the focused import comparison.
+- Recalculate every check and total using current rules. Saved validation and snapshot totals never grant approval.
+- Compare saved snapshot rows with current rows, including additions, removals, changed titles/codes/credits and category moves, even if the total stays unchanged.
+- If a valid snapshot is unavailable, state that the previous total is unavailable. Do not guess it.
+- Never change the student's original file during import.
 
-`exportDraft` in `src/rules.js` includes a `courseSnapshot` with `snapshotVersion: 1`, stable row IDs, code/title, EC and category, plus form and rule versions. `importDraft` validates the draft, applies existing migrations and returns `importReport`. `app.js` renders and focuses a persistent comparison panel. Snapshot text is escaped; its values are used for comparison only.
+`src/rules.js` exports form/rule versions and a validated `courseSnapshot`. `app.js` focuses the comparison when a file is opened. Snapshot labels are escaped and snapshot EC serve comparison only.
 
-`src/compatibility/legacy/` retains unmodified rules/catalogues for releases 0.1.0–0.5.0, which did not record snapshots. `build-history.mjs` wraps those trusted files in isolated namespaces to build `draft-history.js`; no imported code is executed. A malformed draft can fall back to an explicit unavailable comparison.
+Keep `src/draft-fixtures/0.9.0-standard.json` unchanged as the baseline. Add fictional fixtures for future released features or migrations; do not regenerate baseline fixtures from the current rules. Snapshot tests simulate future catalogue changes, course removal and category changes. Browser tests cover export/reopen, change notices and untrusted labels.
 
-Do not edit or remove legacy files or existing fixture drafts. `frozen-sha256.json` detects accidental changes to these archives. New fixtures may be added with new manifest entries; do not regenerate the historical entries from the current rules.
-
-New releases save snapshots, so each routine release does not require another full archived engine. Add a fictional saved draft fixture from the release when a new migration is needed. To support a future schema, keep format-1 import and explicitly convert that schema, rather than just replacing the accepted version number.
-
-## Publication gate
-
-The Pages workflow requires all of these before deploying:
-
-1. Syntax checks and curriculum tests.
-2. Archived-file integrity, 15 historical import fixtures, snapshot and migration tests.
-3. Website build.
-4. Browser interaction checks, import change notices, save/reopen, narrow layout, escaped input and PDF export.
-
-A failed job skips deployment; the previous site stays published. This is a test-based safeguard against regressions, not a guarantee against arbitrary changes to code or tests. Keep the gate and extend it when requirements change.
-
-Version 0.7.0 deliberately removes student-entered admission-board decisions and references on import, with an explicit notice. Course choices and credits are unchanged by that removal. New JSON exports exclude those values, and the generated PDF decision always starts blank for the admission board.
-
-## Version 0.8.0 migrations
-
-Own-specialisation constrained courses saved under General electives move to Constrained electives; all selected credits are retained. An older outside-VU entry stays visible under General electives with its details and a correction message. The original file remains untouched. More than two constrained courses are accepted. A major project without a selected route contributes zero EC until a route is chosen; the snapshot comparison explains that difference. Student `revision` and `major.area` keys are accepted in old files but intentionally ignored. Removed SMC preparation exceptions produce a notice. New PDF Admissions Board fields appear only if a non-VU-FW student deselects one or both Principles courses.
+The GitHub Pages gate runs syntax, curriculum, draft compatibility, browser and PDF-export checks. A failed run leaves the previous live deployment available. Keep these checks and add targeted regression tests for new behaviour.

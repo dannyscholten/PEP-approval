@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "ruleVersion": "DDS-2026-2027.8",
+  "schemaVersion": 2,
+  "ruleVersion": "DDS-2026-2027.9",
   "id": "PEP-DEMO-SMC",
   "student": {
     "firstName": "Example",
@@ -19,9 +19,7 @@
     "required": [
       "XM_0105",
       "XM_0106"
-    ],
-    "explanation": "",
-    "reference": ""
+    ]
   },
   "constrained": [
     "XM_0109",
@@ -54,8 +52,8 @@
   "exceptions": {},
   "notes": "FICTIONAL TEST EXAMPLE — replace all example student details before use.",
   "coordinator": "dr. Maikel Wijtmans",
-  "formVersion": "0.8.0",
-  "savedAt": "2026-10-10T19:05:58.208Z",
+  "formVersion": "0.9.0",
+  "savedAt": "2026-10-10T20:16:54.756Z",
   "courseSnapshot": {
     "snapshotVersion": 1,
     "rows": [
@@ -64,14 +62,14 @@
         "code": "XM_0105",
         "name": "Principles of Drug Targets",
         "ec": 6,
-        "section": "Compulsory courses"
+        "section": "Principles courses"
       },
       {
         "id": "XM_0106",
         "code": "XM_0106",
         "name": "Principles of Drug Discovery",
         "ec": 6,
-        "section": "Compulsory courses"
+        "section": "Principles courses"
       },
       {
         "id": "XM_0196",

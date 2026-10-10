@@ -2,7 +2,7 @@
 
 [Open the PEP form](https://dannyscholten.github.io/dds-pep/) · [Cohort 2026 link](https://dannyscholten.github.io/dds-pep/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/dds-pep/actions)
 
-Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD and PTDD. Version 0.8.0.
+Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD and PTDD. Version 0.9.0.
 
 The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has a digital-signature field for the specialisation coordinator. Only a Principles deviation adds editable Admissions Board decision/name/date fields and its signature field. Academic decisions and exceptions still require the relevant board/coordinator.
 
@@ -26,11 +26,7 @@ Do not edit a generated `index.html`: GitHub builds it from these source files. 
 
 ## Saved-draft compatibility
 
-Draft format 1 remains supported for the 2026 cohort. New drafts record their form/rule version and the course list and EC shown at save time. On import, the form compares that record with the recalculated programme and shows additions, removals, credit changes and moves between sections. The original JSON file is never modified. Snapshot values are used for the comparison only, never as validation or approval.
-
-For releases 0.1.0–0.5.0, frozen historical rules reconstruct the old course list and total. If the earlier total cannot be established, the form explicitly says it is unavailable and asks the student to compare their previous PDF.
-
-Each publication runs curriculum tests, 15 historical draft fixtures, migration and snapshot tests, browser import tests and PDF-export checks. Keep the frozen files and fixture checks when making updates. See [compatibility maintenance](docs/COMPATIBILITY.md).
+Version 0.9.0 establishes the first student-release baseline (draft format 2). Pre-release draft archives and migrations have been removed. Exported drafts include course/EC snapshots; future updates must preserve released drafts and clearly show any changed courses, categories or credit totals on import. Keep the baseline fixture and compatibility checks. See [compatibility maintenance](docs/COMPATIBILITY.md).
 
 ## Data and hosting
 
@@ -65,3 +61,9 @@ The downloaded PDF includes the submission instructions and a clickable examinat
 ## Version 0.8.0
 
 At least two of the six constrained courses can be selected, including mandatory path courses. Own constrained courses use that section; other specialisations’ courses remain in General electives. Principles EC are included after previous education is chosen, and major-project EC after registration is chosen. Only omission of a Principles course for a non-VU-FW student requires Admissions Board decision and signature fields. Seven numbered sections, a generation date, coloured warnings/justifications and blue help/summary panels are consistent across the form and PDF. The SMC internship preparation reminder remains, with verification delegated to the internship process. Older drafts retain course selections and show changed placements or totals; obsolete PEP revision and research-area fields no longer appear.
+
+## Version 0.9.0
+
+Host and topic statuses start with Make selection and must explicitly be set for every included project. VU FW PDFs omit Principles entirely and number the remaining sections consecutively. PDF text fields use 9 pt text, the right-aligned total is 13 pt bold, check titles are bold and statuses use green/orange/red. Review items have editable Reviewed boxes: they acknowledge review, not approval, and must be completed before the coordinator's signature locks all fields. Both signatures remain digitally signable.
+
+The summary is headed Total credit count of PEP, with separate Principles/compulsory subtotals. Sections of this PEP provides active-section navigation on desktop and a compact fold-out on mobile. Spacing, help text and review grouping are consistent with VU styling. Draft help is titled How to save draft PEPs.

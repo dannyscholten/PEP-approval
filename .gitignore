@@ -3,7 +3,6 @@ dist/
 qa/
 src/dist/
 src/qa/
-src/draft-history.js
 src/*test-results.json
 .DS_Store
 *.key

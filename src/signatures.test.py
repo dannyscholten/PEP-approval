@@ -59,12 +59,17 @@ for ref in w.root['/AcroForm']['/Fields']:
   assert b'12 October 2026' in data
   new_ap=generic.StreamObject({k:v for k,v in old_ap.items() if k not in ['/Length','/Filter','/DecodeParms']},stream_data=data.replace(b'12 October 2026',b'13 October 2026'))
   f['/AP'][generic.pdf_name('/N')]=w.add_object(new_ap);w.mark_update(ref)
+# Reviewer can tick an action item after the board signs, before final preapproval.
+for ref in w.root['/AcroForm']['/Fields']:
+ f=ref.get_object()
+ if f.get('/T')=='review_principles_decision':
+  f[generic.pdf_name('/V')]=generic.pdf_name('/Off');f[generic.pdf_name('/AS')]=generic.pdf_name('/Off');w.mark_update(ref)
 changed=BytesIO();w.write(changed);(qa/'test-coordinator-date.pdf').write_bytes(changed.getvalue())
 two=sign(changed.getvalue(),'coordinator_signature',signer2);(qa/'test-two-signatures.pdf').write_bytes(two)
 r=PdfFileReader(BytesIO(two));assert len(r.embedded_signatures)==2
 for sig in r.embedded_signatures:
  status=validate_pdf_signature(sig,signer_validation_context=context,diff_policy=policy);assert status.intact and status.valid and status.trusted and status.docmdp_ok,(sig.field_name,status.summary())
-ok('Coordinator can update its date and countersign while both signatures remain valid')
+ok('Coordinator can update its date and review checkbox, then countersign while both signatures remain valid')
 # Alter a board-owned field after its signature: validation must reject the change.
 w=IncrementalPdfFileWriter(BytesIO(one))
 for ref in w.root['/AcroForm']['/Fields']:

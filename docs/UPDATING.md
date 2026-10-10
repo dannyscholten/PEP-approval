@@ -13,7 +13,7 @@ Repository: https://github.com/dannyscholten/dds-pep
 6. Open **Actions**, then the newest **Check and publish PEP** run. Wait for both jobs to turn green.
 7. Open the live website, refresh it and verify the change. Save any in-progress draft before refreshing.
 
-A cosmetic edit does not require changing `ruleVersion`. A change to course requirements, EC, inclusion or migration does: for example move `DDS-2026-2027.7` to a new unique rule version. Preserve `schemaVersion: 1` for compatible additions; changing the stored format requires an explicit migration that still accepts format 1.
+A cosmetic edit does not require changing `ruleVersion`. A change to course requirements, EC, inclusion or migration does: for example move `DDS-2026-2027.9` to a new unique rule version. Preserve draft `schemaVersion: 2` for compatible additions. If the stored format changes, keep an explicit conversion accepting previously released student formats, starting with format 2.
 
 ## Course or rule changes
 

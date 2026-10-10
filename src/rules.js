@@ -2,7 +2,6 @@
 (function(root){
 'use strict';
 const DATA = typeof module !== 'undefined' && module.exports ? require('./catalogue.json') : root.PEP_DATA;
-const HISTORY = typeof module !== 'undefined' && module.exports ? require('./draft-history.js') : root.PEP_HISTORY;
 const map = Object.fromEntries(DATA.courses.map(c=>[c.code,c]));
 const clean = v => typeof v==='string' ? v.trim() : '';
 const norm = v => clean(v).toLowerCase().replace(/[^a-z0-9]/g,'');
@@ -10,12 +9,12 @@ const canonicalCode = code => Object.entries(DATA.aliases).find(([alias])=>norm(
 const round = v => Math.round(v*100)/100;
 const unique = a => [...new Set(a)];
 function fresh(){return {
- schemaVersion:1,ruleVersion:DATA.ruleVersion,id:'PEP-'+Date.now().toString(36).toUpperCase(),
+ schemaVersion:2,ruleVersion:DATA.ruleVersion,id:'PEP-'+Date.now().toString(36).toUpperCase(),
  student:{firstName:'',lastName:'',number:'',cohort:2026,specialization:'',path:'',education:'',institution:'',degree:'',graduated:''},
- principles:{override:false,required:[],explanation:'',reference:''},constrained:[],electives:[],courseDetails:{},
- major:{route:'',hostStatus:'unknown',host:'',topicStatus:'unknown',topic:''},
- minor:{enabled:false,hostStatus:'unknown',host:'',topicStatus:'unknown',topic:''},
- literature:{enabled:false,hostStatus:'unknown',host:'',topicStatus:'unknown',topic:''},
+ principles:{override:false,required:[]},constrained:[],electives:[],courseDetails:{},
+ major:{route:'',hostStatus:'',host:'',topicStatus:'',topic:''},
+ minor:{enabled:false,hostStatus:'',host:'',topicStatus:'',topic:''},
+ literature:{enabled:false,hostStatus:'',host:'',topicStatus:'',topic:''},
  custom:[],exceptions:{},notes:'',coordinator:'',importNotice:'',importReport:null
 };}
 function principleCodes(s){return !['WO','HBO'].includes(s.student.education) ? [] : s.principles.override ? s.principles.required : DATA.principles;}
@@ -41,7 +40,7 @@ function requiredCodes(s){let spec=DATA.specializations[s.student.specialization
 function components(s){
  let rows=[];
  const add=(code,section)=>{const c=map[code];if(c) rows.push({...c,id:code,section});};
- requiredCodes(s).forEach(c=>add(c,'Compulsory courses'));
+ requiredCodes(s).forEach(c=>add(c,DATA.principles.includes(c)?'Principles courses':'Compulsory courses'));
  s.constrained.forEach(c=>add(c,'Constrained electives'));
  if(DATA.specializations[s.student.specialization]&&['single','split'].includes(s.major.route)){
   const project={section:'Major research project',source:'TER 10.2, p. 20',project:true};
@@ -96,7 +95,7 @@ function evaluate(s){
   if(key==='major'&&!spec)continue;
   for(const field of ['host','topic']){
    if(!['unknown','proposed','confirmed'].includes(s[key][field+'Status']))err(key+'_'+field+'_status','Choose a status for '+title.toLowerCase()+' '+field+'.','projects');
-   if(s[key][field+'Status']!=='unknown'&&!clean(s[key][field]))err(key+'_'+field,title+' '+field+' needs details, or choose “Not yet known”.','projects');
+   if(['proposed','confirmed'].includes(s[key][field+'Status'])&&!clean(s[key][field]))err(key+'_'+field,title+' '+field+' needs details, or choose “Not yet known”.','projects');
   }
  }
  if(s.minor.enabled&&s.literature.enabled)add('three_projects','warning','Combining a major research project, minor research project and literature thesis is strongly discouraged: this combination cannot be completed within the two-year programme and will result in study delay.','Programme clarification, 9 October 2026','projects');
@@ -167,20 +166,8 @@ function savedSnapshot(value){
  return {snapshotVersion:1,rows,total:round(rows.reduce((n,r)=>n+r.ec,0))};
 }
 function previousSnapshot(raw){
- const saved=savedSnapshot(raw.courseSnapshot);if(saved)return {snapshot:saved,source:'saved'};
- const old=HISTORY?.[raw.ruleVersion];
- if(old){
-  try{
-   // Defaults fill absent optional fields in partial historic drafts. Importing
-   // through an old engine would migrate it first and hide the before-state.
-   const state={...old.fresh(),...raw};
-   for(const k of ['student','principles','major','minor','literature'])state[k]={...old.fresh()[k],...raw[k]};
-   const rows=old.components(state).map(r=>({id:r.id,code:r.code,name:r.name,ec:r.ec,section:r.section}));
-   const snapshot=savedSnapshot({snapshotVersion:1,rows});
-   if(snapshot)return {snapshot,source:'archived'};
-  }catch(e){/* Explain that comparison is unavailable; still recover the entries. */}
- }
- return {snapshot:null,source:'unavailable'};
+ const saved=savedSnapshot(raw.courseSnapshot);
+ return saved?{snapshot:saved,source:'saved'}:{snapshot:null,source:'unavailable'};
 }
 function compareImport(raw,s,before){
  const after=courseSnapshot(s),previous=before.snapshot,changes=[];
@@ -195,15 +182,15 @@ function compareImport(raw,s,before){
   }
   for(const now of remaining)changes.push({type:'added',before:null,after:now});
  }
- return {source:before.source,fromVersion:clean(raw.formVersion)||clean(HISTORY?.[raw.ruleVersion]?.DATA.appVersion)||'earlier/unknown version',toVersion:DATA.appVersion,beforeTotal:previous?.total??null,afterTotal:after.total,changes};
+ return {source:before.source,fromVersion:clean(raw.formVersion)||'earlier/unknown version',toVersion:DATA.appVersion,beforeTotal:previous?.total??null,afterTotal:after.total,changes};
 }
 function exportDraft(s){
- const saved={...s,principles:{...s.principles,explanation:'',reference:''},ruleVersion:DATA.ruleVersion,formVersion:DATA.appVersion,savedAt:new Date().toISOString(),courseSnapshot:courseSnapshot(s)};
+ const saved={...s,principles:{override:s.principles.override,required:[...s.principles.required]},ruleVersion:DATA.ruleVersion,formVersion:DATA.appVersion,savedAt:new Date().toISOString(),courseSnapshot:courseSnapshot(s)};
  delete saved.importNotice;delete saved.importReport;
  return saved;
 }
 function importDraft(raw){
- if(!raw||typeof raw!=='object'||Array.isArray(raw)||raw.schemaVersion!==1)throw Error('This is not a supported DDS PEP draft (format version 1).');
+ if(!raw||typeof raw!=='object'||Array.isArray(raw)||raw.schemaVersion!==2)throw Error(raw?.schemaVersion===1?'This draft was made with a pre-release test form. Start a new PEP using this version.':'This is not a supported DDS PEP draft (format version 2).');
  if(raw.student?.cohort!==2026)throw Error('This form supports the 2026 intake only.');
  const before=previousSnapshot(raw);
  let base=fresh();const textKeys=['id','notes'];for(const k of textKeys)if(typeof raw[k]==='string')base[k]=raw[k].slice(0,k==='notes'?10000:200);
@@ -221,28 +208,12 @@ function importDraft(raw){
   }
  }
  const notices=[];
- if(base.principles.explanation||base.principles.reference)notices.push('Admission-board decision text and its reference from the older draft are not carried into the new PDF. The admission board completes the decision in the PDF; course selections and EC are unaffected by this removal. Your original draft is unchanged.');
- base.principles.explanation='';base.principles.reference='';
- if(base.student.education==='VU_FW'){if(base.principles.override||base.principles.required.length||base.principles.explanation||base.principles.reference)notices.push('The Principles requirement is fixed at 0 EC for VU Farmaceutische Wetenschappen graduates. A previous adjustment has been removed; review the recalculated total.');base.principles={override:false,required:[],explanation:'',reference:''};}
+ if(base.student.education==='VU_FW')base.principles={override:false,required:[]};
  if(raw.ruleVersion!==DATA.ruleVersion)notices.push('This saved PEP has been checked again using the current form. Review the results before exporting.');
- if(['WO','HBO'].includes(base.student.education)&&!base.principles.override){base.principles.override=true;base.principles.required=[...DATA.principles];}
- if(Object.values(raw.courseDetails||{}).some(v=>v?.status?.startsWith('exemption_')))notices.push('Exemption fields have been removed. The courses and their credits remain included; exemptions use the separate procedure.');
- const moved=base.electives.filter(c=>DATA.specializations[base.student.specialization]?.constrained.includes(c)&&!requiredCodes(base).includes(c)&&!base.courseDetails[c]?.outside);
- organiseConstrained(base);
- if(moved.length)notices.push('Courses from your own constrained-electives list have moved from General electives to Constrained electives; their selections and EC are retained.');
- if(base.electives.some(c=>DATA.specializations[base.student.specialization]?.constrained.includes(c)&&base.courseDetails[c]?.outside))notices.push('An older constrained-course entry has outside-VU details. Those details are preserved under General electives, but this entry needs correction: remove it and select the fixed VU course in Constrained electives.');
- if(needsPath(base)&&base.constrained.length)notices.push('Your previous constrained-course selections are retained. Choose a path to add its required courses and review all selections.');
- if(raw.major?.area)notices.push('The former SMC research-area field has been removed. Preparation for a Synthetic Radiopharmaceutical Chemistry internship is now explained in the SMC reminder and verified through the internship process.');
- if(raw.exceptions?.radiopharma){delete base.exceptions.radiopharma;notices.push('The saved SMC research-preparation exception no longer applies because this check has been removed.');}
- if(before.snapshot&&before.snapshot.rows.some(r=>r.section==='Major research project')&&!['single','split'].includes(base.major.route))notices.push('The major project now counts towards the EC total only after its registration route is selected. Choose a route to include the 48 EC.');
- if(Array.isArray(raw.omitted)&&raw.omitted.length){notices.push('Previously omitted compulsory courses have been restored with their EC. Compulsory courses cannot be omitted.');}
- const fixedOutside=Object.entries(base.courseDetails).some(([code,detail])=>isFixedCourse(base,code)&&detail.outside);
- if(fixedOutside)notices.push('Compulsory and selected constrained courses are fixed VU courses. Previous outside-VU details for these courses have been removed.');
  clearFixedCourseDetails(base);
- for(const key of Object.keys(base.exceptions))if(key.startsWith('missing_'))delete base.exceptions[key];
  base.coordinator=coordinatorName(base);
  base.importReport=compareImport(raw,base,before);
- if(!before.snapshot)notices.push('The previous course list and EC total could not be reconstructed reliably. Check the imported selections against your earlier PDF; the total shown uses the current rules.');
+ if(!before.snapshot)notices.push('The saved course list and EC total are unavailable. Check the imported selections against your earlier PDF; the total shown uses the current rules.');
  base.importNotice=notices.join(' ');
  return base;
 }
