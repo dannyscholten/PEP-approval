@@ -7,7 +7,7 @@ const qa=path.resolve(process.env.PEP_QA||path.join(__dirname,'qa'));fs.mkdirSyn
  try{
  const page=await browser.newPage({viewport:{width:1360,height:1000},acceptDownloads:true});const errors=[],results=[];
  page.on('pageerror',e=>errors.push(e.message));const ok=n=>{results.push(n);console.log('PASS '+n);};
- await page.goto('file://'+html);await page.waitForFunction(()=>window.PEP_APP);
+ await page.goto('file://'+html);await page.locator('#welcome-start').click();await page.waitForFunction(()=>window.PEP_APP);
  const raw=JSON.parse(fs.readFileSync(path.join(__dirname,'examples/01_BADD_standard_120.json')));
  const original=JSON.stringify(raw);raw.courseSnapshot.rows.find(r=>r.code==='XM_0136').ec=8;
  const input=path.join(qa,'saved-draft.json');fs.writeFileSync(input,JSON.stringify(raw));await page.locator('#file-input').setInputFiles(input);

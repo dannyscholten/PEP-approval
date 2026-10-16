@@ -1000,3 +1000,16 @@ details[open] summary{
 @media(max-width:540px){.action-icon{width:17px;height:17px}.toolbar > button,.exports > button{text-align:left}}
 
 .masthead .subhead{margin:0 0 6px}
+
+/* Short, accessible welcome guide with the same VU styling as the planner. */
+.welcome-dialog{width:min(740px,calc(100% - 30px));max-height:90vh;max-height:90dvh}
+.welcome-heading{display:flex;align-items:flex-start;gap:16px;justify-content:space-between}
+.welcome-heading h2{font-size:23px;margin:0 0 14px}
+.welcome-heading button{flex:none;font-size:23px;min-width:40px;min-height:40px;padding:0}
+.welcome-steps{padding-left:24px;margin:18px 0}.welcome-steps li{padding-left:4px;margin-bottom:14px}
+.welcome-steps li::marker{color:var(--blue);font-weight:700}.welcome-steps strong{color:var(--navy)}
+.welcome-steps p{margin:4px 0 0;font-size:14px;line-height:1.5}
+.welcome-preference{display:flex;gap:8px;align-items:center;font-size:13px}.welcome-preference input{width:18px;height:18px;flex:none}
+#pdf-availability{font-size:13px;line-height:1.5;margin:-8px 0 18px;padding:10px 12px;background:#eef7fc;border-left:3px solid var(--blue)}
+#pdf-availability.unavailable{color:var(--red);border-color:var(--red);background:#fff6f5}
+@media(max-width:540px){.welcome-dialog{padding:18px}.welcome-heading h2{font-size:21px}.welcome-steps{padding-left:20px}}

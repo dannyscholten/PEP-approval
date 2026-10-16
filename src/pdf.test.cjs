@@ -7,7 +7,7 @@ const output=path.resolve(process.env.PEP_FILLABLE_PDF||path.join(qa,'DDS_PEP_ex
  const browser=await chromium.launch({headless:true,...(process.env.PEP_CHROME?{executablePath:process.env.PEP_CHROME}:{channel:'chrome'})});
  const results=[],errors=[],network=[];const ok=s=>{results.push(s);console.log('PASS '+s);};
  try{
- const page=await browser.newPage({acceptDownloads:true,viewport:{width:1360,height:1000}});page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/^https?:/.test(r.url()))network.push(r.url());});await page.goto('file://'+html);
+ const page=await browser.newPage({acceptDownloads:true,viewport:{width:1360,height:1000}});page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/^https?:/.test(r.url()))network.push(r.url());});await page.goto('file://'+html);await page.locator('#welcome-start').click();
  const load=async name=>{await page.evaluate(s=>PEP_APP.load(s),JSON.parse(fs.readFileSync(path.join(__dirname,'examples',name+'.json'))));};
  const save=async file=>{const [d]=await Promise.all([page.waitForEvent('download',{timeout:30000}),page.locator('#download-pdf').click()]);await d.saveAs(file);assert.equal(fs.readFileSync(file).subarray(0,5).toString(),'%PDF-');};
  assert(await page.locator('#download-pdf').isDisabled());ok('Incomplete plan cannot use fillable export');
