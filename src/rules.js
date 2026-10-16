@@ -208,9 +208,6 @@ function importDraft(raw){
   }
  }
  const notices=[];
- const clearedHosts=[];
- for(const key of ['major','minor','literature'])if(base[key].hostStatus==='unknown'){base[key].hostStatus='';clearedHosts.push(key);}
- if(clearedHosts.length)notices.push('“Not yet known” is no longer available for project hosts. Select Proposed or Confirmed and enter a host for each included project. Previously saved topic statuses have been preserved.');
  if(base.student.education==='VU_FW')base.principles={override:false,required:[]};
  if(raw.ruleVersion!==DATA.ruleVersion)notices.push('This saved PEP has been checked again using the current form. Review the results before exporting.');
  clearFixedCourseDetails(base);

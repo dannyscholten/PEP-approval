@@ -3,7 +3,6 @@ const R=require('./rules.js');const results=[];
 const test=(name,fn)=>{fn();results.push(name);console.log('PASS '+name);};
 const base=()=>JSON.parse(fs.readFileSync(path.join(__dirname,'draft-fixtures/0.9.0-standard.json')));
 test('First student-release baseline restores selections and credits',()=>{const raw=base(),s=R.importDraft(raw);assert.equal(R.evaluate(s).total,120);assert.deepEqual(s.constrained,raw.constrained);assert.deepEqual(s.importReport.changes,[]);});
-test('Older unknown host statuses clear with a notice while topics and credits remain unchanged',()=>{const raw=base(),s=R.importDraft(raw);for(const key of ['major','minor','literature']){assert.equal(s[key].hostStatus,'');assert.equal(s[key].topicStatus,raw[key].topicStatus);assert.equal(s[key].host,raw[key].host);}assert(s.importNotice.includes('no longer available for project hosts'));assert.equal(R.evaluate(s).total,120);assert(!R.evaluate(s).canExport);assert.deepEqual(s.importReport.changes,[]);});
 test('Save/reopen includes stable snapshot and form version, without stale import messages',()=>{
  const saved=R.exportDraft(base());assert.equal(saved.schemaVersion,2);assert.equal(saved.formVersion,R.DATA.appVersion);assert(saved.courseSnapshot.rows.length);assert(!('importReport' in saved));assert(!('importNotice' in saved));
  const s=R.importDraft(saved);assert.equal(s.importReport.source,'saved');assert.deepEqual(s.importReport.changes,[]);assert.equal(s.importReport.beforeTotal,s.importReport.afterTotal);

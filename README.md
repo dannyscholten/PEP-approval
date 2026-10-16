@@ -70,4 +70,4 @@ The summary is headed Total credit count of PEP, with separate Principles/compul
 
 ## Version 0.9.1
 
-Major, minor and literature thesis hosts must be Proposed or Confirmed, with host details entered. Topics still allow Not yet known. Older drafts remain importable: obsolete unknown host statuses are cleared with a visible notice, while topics, course selections and EC totals are preserved. Unlisted-course guidance clarifies the General and Alpha/gamma elective types.
+Major, minor and literature thesis hosts must be Proposed or Confirmed, with host details entered. Topics still allow Not yet known. Unlisted-course guidance clarifies the General and Alpha/gamma elective types.
