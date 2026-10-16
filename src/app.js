@@ -168,7 +168,7 @@ $('review-button').onclick=()=>{$('review').scrollIntoView({behavior:'smooth'});
 $('new-plan').onclick=()=>{if(confirm('Start a new PEP? Export your current draft first if you want to keep it.')){state=R.fresh();dirty=false;render();window.scrollTo(0,0);}};
 window.addEventListener('beforeprint',()=>preparePrint('review'));
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
-document.querySelector('.subhead').insertAdjacentHTML('afterend',resourceLinks());
+document.querySelector('.masthead h1').insertAdjacentHTML('afterend',resourceLinks());
 $('form-version').textContent='Form version '+D.appVersion+' · '+D.releaseDate;
 render();
 // Exposes the same deterministic functions for local automated verification; no network access.
