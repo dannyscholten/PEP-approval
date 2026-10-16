@@ -90,8 +90,9 @@ async function create(source,state,logo){
   for(const child of el.children)walk(child);
  }
  newPage();const image=await doc.embedJpg(logo);const dims=image.scaleToFit(123,60);page.drawImage(image,{x:W-M-dims.width,y:y-dims.height,width:dims.width,height:dims.height});
- for(const l of lines('Personal Education Plan - Cohort 2026',16,width-140,bold)){draw(l,M,y,16,bold,blue);y-=20;}
- draw('Master Drug Discovery Sciences',M,y,11,font,navy);y-=22;
+ draw('Master Drug Discovery Sciences',M,y,11,font,navy);y-=20;
+ for(const l of lines('Personal Education Plan Approval - Cohort 2026',16,width-140,bold)){draw(l,M,y,16,bold,blue);y-=20;}
+ y-=2;
  const a=link('VU Study Guide - TER',root.PEPRules.DATA.links.studyGuide,M,y);link('DDS Canvas community',root.PEPRules.DATA.links.canvas,M+a+18,y);y-=24;
  page.drawLine({start:{x:M,y},end:{x:W-M,y},thickness:1.3,color:blue});y-=14;
  for(const el of source.children){if(el.classList.contains('print-head'))continue;walk(el);}

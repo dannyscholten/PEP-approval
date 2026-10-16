@@ -998,3 +998,5 @@ details[open] summary{
 .action-icon{width:18px;height:18px;flex:none}
 .button-label{min-width:0}
 @media(max-width:540px){.action-icon{width:17px;height:17px}.toolbar > button,.exports > button{text-align:left}}
+
+.masthead .subhead{margin:0 0 6px}
