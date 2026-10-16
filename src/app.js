@@ -175,8 +175,9 @@ $('form-version').textContent='Form version '+D.appVersion+' · '+D.releaseDate;
 render();
 const welcome=$('welcome-dialog'),welcomeKey='dds-pep-introduction-hidden';
 function rememberWelcome(){try{if($('welcome-hide').checked)localStorage.setItem(welcomeKey,'yes');else localStorage.removeItem(welcomeKey);}catch(e){/* The introduction still works when browser storage is unavailable. */}}
-$('welcome-close').onclick=()=>welcome.close();
-$('welcome-start').onclick=()=>{welcome.close();$('student-firstName').focus({preventScroll:true});};
+$('welcome-hide').onchange=rememberWelcome;
+$('welcome-close').onclick=()=>{rememberWelcome();welcome.close();};
+$('welcome-start').onclick=()=>{rememberWelcome();welcome.close();$('student-firstName').focus({preventScroll:true});};
 welcome.addEventListener('close',rememberWelcome);
 $('getting-started').onclick=()=>welcome.showModal();
 let hideWelcome=false;try{hideWelcome=localStorage.getItem(welcomeKey)==='yes';}catch(e){}
