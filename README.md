@@ -2,7 +2,7 @@
 
 [Open the PEP form](https://dannyscholten.github.io/dds-pep/) · [Cohort 2026 link](https://dannyscholten.github.io/dds-pep/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/dds-pep/actions)
 
-Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD and PTDD. Version 0.9.5.
+Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 0.10.0.
 
 The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has a digital-signature field for the specialisation coordinator. Only a Principles deviation adds editable Admissions Board decision/name/date fields and its signature field. Academic decisions and exceptions still require the relevant board/coordinator.
 
@@ -87,3 +87,9 @@ The import button is labelled Import draft PEP at both ends of the form. Instruc
 ## Version 0.9.5
 
 Import/export help links to the DDS curriculum planner. A welcome dialog explains completing, saving and reviewing the PEP, coordinator signing, conditional Admissions review, and examination-board submission through VU keuzeruimte. It can be reopened with Getting started; its optional dismissal preference is the only new browser-stored value. A live status beside the PDF button explains why download is unavailable or ready. Historical draft comparisons and migration checks have been removed for this first intended student release; current draft and planner imports still validate and recalculate the curriculum.
+
+## Version 0.10.0 — Education specialisation
+
+Education has a separate 60 EC DDS + 60 EC Education curriculum. It includes a fixed 30 EC major (XM_0200), one 6 EC constrained choice, 54 EC compulsory Education courses including three zero-EC components, and 6 EC Education elective space. DDS electives are limited to the Education-specific TER list plus the unused constrained course; an optional Education literature thesis is 6 EC. Minor research projects and alpha/gamma DDS courses are prohibited without exceptions. Wereldburgerschap and deel 2 must be selected together. Unlisted courses require a component choice and individual Examination Board approval. Neither component may be short of 60 EC; excess requires the existing explicit justification and approval route. dr. Daan Geerke preapproves both parts. The form and PDF display both subtotals.
+
+The TER places the year-2 Education tables under the old-curriculum heading. The programme owner explicitly confirmed their applicability to the 2026 intake, the 54+6 EC package, the 60/60 split and the detailed choices before implementation. See [Education decisions](docs/EDUCATION.md). No curriculum-planner or Microsoft approval-workflow changes are included.

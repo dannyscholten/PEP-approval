@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 2,
+  "ruleVersion": "DDS-2026-2027.11",
+  "id": "PEP-MVBLSJ0Z",
+  "student": {
+    "firstName": "Fictional",
+    "lastName": "Education student",
+    "number": "TEST-EDU",
+    "cohort": 2026,
+    "specialization": "EDU",
+    "path": "",
+    "education": "VU_FW",
+    "institution": "Example University",
+    "degree": "Example degree",
+    "graduated": "2026-07-01"
+  },
+  "principles": {
+    "override": true,
+    "required": []
+  },
+  "constrained": [
+    "XM_0112"
+  ],
+  "electives": [
+    "XM_0108",
+    "X_435609"
+  ],
+  "educationElectives": [
+    "O_PROZ"
+  ],
+  "courseDetails": {},
+  "major": {
+    "route": "",
+    "hostStatus": "proposed",
+    "host": "VU (fictional)",
+    "topicStatus": "unknown",
+    "topic": ""
+  },
+  "minor": {
+    "enabled": false,
+    "hostStatus": "",
+    "host": "",
+    "topicStatus": "",
+    "topic": ""
+  },
+  "literature": {
+    "enabled": false,
+    "code": "",
+    "hostStatus": "",
+    "host": "",
+    "topicStatus": "",
+    "topic": ""
+  },
+  "custom": [],
+  "exceptions": {},
+  "notes": "",
+  "coordinator": "",
+  "formVersion": "0.10.0",
+  "savedAt": "2026-10-16T23:33:13.427Z",
+  "courseSnapshot": {
+    "snapshotVersion": 1,
+    "rows": [
+      {
+        "id": "XM_0136",
+        "code": "XM_0136",
+        "name": "ADME",
+        "ec": 6,
+        "section": "Compulsory courses"
+      },
+      {
+        "id": "XM_0199",
+        "code": "XM_0199",
+        "name": "Computational Design and Synthesis of Drugs",
+        "ec": 6,
+        "section": "Compulsory courses"
+      },
+      {
+        "id": "O_MLDIDAC_1",
+        "code": "O_MLDIDAC_1",
+        "name": "Didactiek 1",
+        "ec": 6,
+        "section": "Education compulsory courses"
+      },
+      {
+        "id": "O_MLPRAK_1",
+        "code": "O_MLPRAK_1",
+        "name": "Praktijk 1",
+        "ec": 6,
+        "section": "Education compulsory courses"
+      },
+      {
+        "id": "O_MLPEERGR_1",
+        "code": "O_MLPEERGR_1",
+        "name": "Peergroup 1",
+        "ec": 0,
+        "section": "Education compulsory courses"
+      },
+      {
+        "id": "O_MLDIDAC_2",
+        "code": "O_MLDIDAC_2",
+        "name": "Didactiek 2",
+        "ec": 9,
+        "section": "Education compulsory courses"
+      },
+      {
+        "id": "O_MLPRAK_2",
+        "code": "O_MLPRAK_2",
+        "name": "Praktijk 2",
+        "ec": 9,
+        "section": "Education compulsory courses"
+      },
+      {
+        "id": "O_MLPEERGR_2",
+        "code": "O_MLPEERGR_2",
+        "name": "Peergroup 2",
+        "ec": 0,
+        "section": "Education compulsory courses"
+      },
+      {
+        "id": "O_MLPRAK_3",
+        "code": "O_MLPRAK_3",
+        "name": "Praktijk 3",
+        "ec": 15,
+        "section": "Education compulsory courses"
+      },
+      {
+        "id": "O_MPEDIVER",
+        "code": "O_MPEDIVER",
+        "name": "Pedagogische Didactische Verdieping",
+        "ec": 9,
+        "section": "Education compulsory courses"
+      },
+      {
+        "id": "O_MSTARTSEP",
+        "code": "O_MSTARTSEP",
+        "name": "Startweek",
+        "ec": 0,
+        "section": "Education compulsory courses"
+      },
+      {
+        "id": "XM_0112",
+        "code": "XM_0112",
+        "name": "Advanced Pharmacology",
+        "ec": 6,
+        "section": "Constrained electives"
+      },
+      {
+        "id": "XM_0200",
+        "code": "XM_0200",
+        "name": "Major Research Project Education Specialisation",
+        "ec": 30,
+        "section": "Major research project"
+      },
+      {
+        "id": "XM_0108",
+        "code": "XM_0108",
+        "name": "Biopharmaceuticals & Biopharma Proteomics",
+        "ec": 6,
+        "section": "General electives"
+      },
+      {
+        "id": "X_435609",
+        "code": "X_435609",
+        "name": "Separation Sciences",
+        "ec": 6,
+        "section": "General electives"
+      },
+      {
+        "id": "O_PROZ",
+        "code": "O_PROZ",
+        "name": "Praktijkonderzoek",
+        "ec": 6,
+        "section": "Education electives"
+      }
+    ],
+    "total": 120
+  }
+}

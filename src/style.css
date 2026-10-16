@@ -981,3 +981,5 @@ details[open] summary{
 #pdf-availability{font-size:13px;line-height:1.5;margin:-8px 0 18px;padding:10px 12px;background:#eef7fc;border-left:3px solid var(--blue)}
 #pdf-availability.unavailable{color:var(--red);border-color:var(--red);background:#fff6f5}
 @media(max-width:540px){.welcome-dialog{padding:18px}.welcome-heading h2{font-size:21px}.welcome-steps{padding-left:20px}}
+
+.component-totals{margin-top:14px;padding-top:10px;border-top:2px solid #7bb9d5}.component-totals .subtotal{font-size:14px;color:#003b64}.component-totals strong{white-space:nowrap}

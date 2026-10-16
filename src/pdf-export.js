@@ -80,7 +80,7 @@ async function create(source,state,logo){
   if(el.classList?.contains('print-check-table')){checks(el);return;}
   if(el.dataset?.reviewId){reviewItem(el);return;}
   if(el.tagName==='TABLE'){table(el);return;}
-  if(el.tagName==='H2'){if(txt(el).includes('Research projects'))ensure(190);heading(txt(el),true);return;}
+  if(el.tagName==='H2'){if(root.PEPRules.isEducation(state)&&txt(el).includes('Review and'))ensure(570);if(txt(el).includes('Research projects'))ensure(190);heading(txt(el),true);return;}
   if(el.tagName==='H3'){if(['Major research project','Minor research project','Literature thesis'].includes(txt(el)))ensure(txt(el)==='Major research project'?170:120);const next=el.nextElementSibling;if(next?.tagName==='TABLE'&&next.rows.length<=4)ensure(24+next.rows.length*20);heading(txt(el));return;}
   if(el.tagName==='P'&&el.classList.contains('print-checks')&&txt(el).startsWith('*')){ensure(24);const top=y;paragraph(txt(el),{size:8,color:red});return;}
   if(el.tagName==='P'){paragraph(txt(el),{size:el.classList.contains('print-checks')?8:9,color:el.classList.contains('warning-text')||el.classList.contains('mandatory-note')?red:el.classList.contains('exception-justification')?rgb(0,.373,.569):ink});return;}

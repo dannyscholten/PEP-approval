@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "ruleVersion": "DDS-2026-2027.10",
+  "ruleVersion": "DDS-2026-2027.11",
   "id": "PEP-DEMO-MT",
   "student": {
     "firstName": "Example",
@@ -26,6 +26,7 @@
     "XM_0114"
   ],
   "electives": [],
+  "educationElectives": [],
   "courseDetails": {},
   "major": {
     "route": "split",
@@ -43,6 +44,7 @@
   },
   "literature": {
     "enabled": false,
+    "code": "",
     "hostStatus": "proposed",
     "host": "Example University",
     "topicStatus": "unknown",
@@ -52,8 +54,8 @@
   "exceptions": {},
   "notes": "FICTIONAL TEST EXAMPLE — replace all example student details before use.",
   "coordinator": "dr. Reggie Bosma",
-  "formVersion": "0.9.5",
-  "savedAt": "2026-10-16T23:02:47.008Z",
+  "formVersion": "0.10.0",
+  "savedAt": "2026-10-16T23:34:40.414Z",
   "courseSnapshot": {
     "snapshotVersion": 1,
     "rows": [

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.9.5",
-  "ruleVersion": "DDS-2026-2027.10",
+  "appVersion": "0.10.0",
+  "ruleVersion": "DDS-2026-2027.11",
   "cohort": 2026,
   "total": 120,
   "alphaLimit": 18,
@@ -365,6 +365,198 @@
       "level": 400,
       "category": "core",
       "source": "TER 10.2, p. 19"
+    },
+    {
+      "code": "O_MLDIDAC_1",
+      "name": "Didactiek 1",
+      "ec": 6,
+      "level": 400,
+      "category": "educationCore",
+      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MLPRAK_1",
+      "name": "Praktijk 1",
+      "ec": 6,
+      "level": 400,
+      "category": "educationCore",
+      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MLPEERGR_1",
+      "name": "Peergroup 1",
+      "ec": 0,
+      "level": 400,
+      "category": "educationCore",
+      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MLDIDAC_2",
+      "name": "Didactiek 2",
+      "ec": 9,
+      "level": 400,
+      "category": "educationCore",
+      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MLPRAK_2",
+      "name": "Praktijk 2",
+      "ec": 9,
+      "level": 400,
+      "category": "educationCore",
+      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MLPEERGR_2",
+      "name": "Peergroup 2",
+      "ec": 0,
+      "level": 0,
+      "category": "educationCore",
+      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MLPRAK_3",
+      "name": "Praktijk 3",
+      "ec": 15,
+      "level": 400,
+      "category": "educationCore",
+      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MPEDIVER",
+      "name": "Pedagogische Didactische Verdieping",
+      "ec": 9,
+      "level": 500,
+      "category": "educationCore",
+      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MSTARTSEP",
+      "name": "Startweek",
+      "ec": 0,
+      "level": 0,
+      "category": "educationCore",
+      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_PROZ",
+      "name": "Praktijkonderzoek",
+      "ec": 6,
+      "level": 400,
+      "category": "education",
+      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MLVNOND",
+      "name": "Vernieuwende Onderwijsconcepten",
+      "ec": 3,
+      "level": 400,
+      "category": "education",
+      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MTTO",
+      "name": "Tweetalig Onderwijs",
+      "ec": 3,
+      "level": 500,
+      "category": "education",
+      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MAIIHO",
+      "name": "AI in het Onderwijs",
+      "ec": 3,
+      "level": 400,
+      "category": "education",
+      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MWRLDBS",
+      "name": "Wereldburgerschap",
+      "ec": 3,
+      "level": 400,
+      "category": "education",
+      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MWRLDBS_2",
+      "name": "Wereldburgerschap deel 2",
+      "ec": 3,
+      "level": 400,
+      "category": "education",
+      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "O_MIDD",
+      "name": "Inclusieve Digitale Didactiek",
+      "ec": 3,
+      "level": 400,
+      "category": "education",
+      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "XM_0016",
+      "name": "Colloquium & Literature Thesis Bioanalytical Chemistry (Education)",
+      "ec": 6,
+      "level": 600,
+      "category": "educationLiterature",
+      "source": "TER 10.3 p. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "XM_0017",
+      "name": "Colloquium & Literature Thesis Environmental Bioanalysis (Education)",
+      "ec": 6,
+      "level": 600,
+      "category": "educationLiterature",
+      "source": "TER 10.3 p. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "XM_0018",
+      "name": "Colloquium & Literature Thesis Medicinal Chemistry (Education)",
+      "ec": 6,
+      "level": 600,
+      "category": "educationLiterature",
+      "source": "TER 10.3 p. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "XM_0019",
+      "name": "Colloquium & Literature Thesis Molecular & Computational Toxicology (Education)",
+      "ec": 6,
+      "level": 600,
+      "category": "educationLiterature",
+      "source": "TER 10.3 p. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "XM_0020",
+      "name": "Colloquium & Literature Thesis Organic Chemistry (Education)",
+      "ec": 6,
+      "level": 600,
+      "category": "educationLiterature",
+      "source": "TER 10.3 p. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "XM_0021",
+      "name": "Colloquium & Literature Thesis Radiopharmaceutical Chemistry (Education)",
+      "ec": 6,
+      "level": 600,
+      "category": "educationLiterature",
+      "source": "TER 10.3 p. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "XM_0022",
+      "name": "Colloquium & Literature Thesis Theoretical Chemistry (Education)",
+      "ec": 6,
+      "level": 600,
+      "category": "educationLiterature",
+      "source": "TER 10.3 p. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+    },
+    {
+      "code": "XM_0200",
+      "name": "Major Research Project Education Specialisation",
+      "ec": 30,
+      "level": 600,
+      "category": "educationProject",
+      "source": "TER 10.2 p. 20"
     }
   ],
   "specializations": {
@@ -430,12 +622,64 @@
           "XM_0114"
         ]
       }
+    },
+    "EDU": {
+      "compulsory": [
+        "XM_0136",
+        "XM_0199"
+      ],
+      "constrained": [
+        "XM_0112",
+        "X_432673"
+      ],
+      "paths": {},
+      "educationCompulsory": [
+        "O_MLDIDAC_1",
+        "O_MLPRAK_1",
+        "O_MLPEERGR_1",
+        "O_MLDIDAC_2",
+        "O_MLPRAK_2",
+        "O_MLPEERGR_2",
+        "O_MLPRAK_3",
+        "O_MPEDIVER",
+        "O_MSTARTSEP"
+      ],
+      "educationElectives": [
+        "O_PROZ",
+        "O_MLVNOND",
+        "O_MTTO",
+        "O_MAIIHO",
+        "O_MWRLDBS",
+        "O_MWRLDBS_2",
+        "O_MIDD"
+      ],
+      "ddsElectives": [
+        "AM_470145",
+        "XM_0108",
+        "X_405052",
+        "X_435609",
+        "X_435663",
+        "XM_0107",
+        "XM_0111",
+        "XM_0113",
+        "X_435604"
+      ],
+      "literature": [
+        "XM_0016",
+        "XM_0017",
+        "XM_0018",
+        "XM_0019",
+        "XM_0020",
+        "XM_0021",
+        "XM_0022"
+      ]
     }
   },
   "names": {
     "BADD": "Bioanalytics in Drug Discovery",
     "DSDD": "Design & Synthesis in Drug Discovery",
-    "PTDD": "Pharmacology & Toxicology in Drug Discovery"
+    "PTDD": "Pharmacology & Toxicology in Drug Discovery",
+    "EDU": "Education"
   },
   "paths": {
     "SMC": "Synthetic Medicinal Chemistry",
@@ -461,12 +705,16 @@
   "coordinators": {
     "BADD": "dr. Melissa Bärenfänger",
     "DSDD": "dr. Maikel Wijtmans",
-    "PTDD": "dr. Reggie Bosma"
+    "PTDD": "dr. Reggie Bosma",
+    "EDU": "dr. Daan Geerke"
   },
   "links": {
     "studyGuide": "https://studiegids.vu.nl/nl/Master/2026-2027/drug-discovery-sciences#/tab=2",
     "canvas": "https://canvas.vu.nl/courses/31939/",
     "curriculumPlanner": "https://dannyscholten.github.io/dds-curriculum-planner/"
   },
-  "draftSchemaVersion": 2
+  "draftSchemaVersion": 2,
+  "coordinatorEmails": {
+    "EDU": "d.p.geerke@vu.nl"
+  }
 }
