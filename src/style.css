@@ -992,3 +992,9 @@ details[open] summary{
   -webkit-print-color-adjust:exact;
   print-color-adjust:exact}
 }
+
+/* Match the curriculum planner action icons without external dependencies. */
+.toolbar > button,.exports > button{display:inline-flex;align-items:center;justify-content:center;gap:7px;max-width:100%;white-space:normal}
+.action-icon{width:18px;height:18px;flex:none}
+.button-label{min-width:0}
+@media(max-width:540px){.action-icon{width:17px;height:17px}.toolbar > button,.exports > button{text-align:left}}

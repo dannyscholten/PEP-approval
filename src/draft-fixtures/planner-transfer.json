@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 2,
+  "ruleVersion": "DDS-2026-2027.10",
+  "id": "PEP-MVBFXL07",
+  "student": {
+    "firstName": "",
+    "lastName": "",
+    "number": "",
+    "cohort": 2026,
+    "specialization": "BADD",
+    "path": "",
+    "education": "VU_FW",
+    "institution": "",
+    "degree": "",
+    "graduated": ""
+  },
+  "principles": {
+    "override": false,
+    "required": []
+  },
+  "constrained": [
+    "XM_0136",
+    "X_435609",
+    "X_435604"
+  ],
+  "electives": [
+    "XM_0114"
+  ],
+  "courseDetails": {},
+  "major": {
+    "route": "split",
+    "hostStatus": "unknown",
+    "host": "",
+    "topicStatus": "unknown",
+    "topic": ""
+  },
+  "minor": {
+    "enabled": true,
+    "hostStatus": "unknown",
+    "host": "",
+    "topicStatus": "unknown",
+    "topic": ""
+  },
+  "literature": {
+    "enabled": false,
+    "hostStatus": "",
+    "host": "",
+    "topicStatus": "",
+    "topic": ""
+  },
+  "custom": [],
+  "exceptions": {},
+  "notes": "Curriculum planner overview (relative academic years):\nResearch and Academic Skills: Year 1 1 Sep - Year 1 31 May\nAdvanced Bioanalytical Approaches: Year 1 1 Nov - Year 1 31 Dec\nBiopharmaceuticals & Biopharma Proteomics: Year 1 1 Sep - Year 1 31 Oct\nADME: Year 1 1 Sep - Year 1 31 Oct\nSeparation Sciences: Year 1 1 Sep - Year 1 31 Oct\nMass Spectrometry: Year 1 1 Nov - Year 1 31 Dec\nMajor Research Project DDS: Year 1 1 Apr - Year 2 31 Dec\nMinor Research Project DDS: Year 2 1 Jan - Year 2 31 May\nAdvanced Course in Molecular Toxicology: Year 2 1 Feb - Year 2 31 Mar",
+  "coordinator": "",
+  "formVersion": "0.9.1",
+  "savedAt": "2026-10-16T20:49:11.680Z",
+  "courseSnapshot": {
+    "snapshotVersion": 1,
+    "rows": [
+      {
+        "id": "XM_0196",
+        "code": "XM_0196",
+        "name": "Research and Academic Skills",
+        "ec": 6,
+        "section": "Compulsory courses"
+      },
+      {
+        "id": "XM_0107",
+        "code": "XM_0107",
+        "name": "Advanced Bioanalytical Approaches",
+        "ec": 6,
+        "section": "Compulsory courses"
+      },
+      {
+        "id": "XM_0108",
+        "code": "XM_0108",
+        "name": "Biopharmaceuticals & Biopharma Proteomics",
+        "ec": 6,
+        "section": "Compulsory courses"
+      },
+      {
+        "id": "XM_0136",
+        "code": "XM_0136",
+        "name": "ADME",
+        "ec": 6,
+        "section": "Constrained electives"
+      },
+      {
+        "id": "X_435609",
+        "code": "X_435609",
+        "name": "Separation Sciences",
+        "ec": 6,
+        "section": "Constrained electives"
+      },
+      {
+        "id": "X_435604",
+        "code": "X_435604",
+        "name": "Mass Spectrometry",
+        "ec": 6,
+        "section": "Constrained electives"
+      },
+      {
+        "id": "MAJOR_PART1",
+        "code": "XM_0207",
+        "name": "Major Research Project DDS — Part 1",
+        "ec": 18,
+        "section": "Major research project"
+      },
+      {
+        "id": "MAJOR_PART2",
+        "code": "to be announced",
+        "name": "Major Research Project DDS — Part 2",
+        "ec": 30,
+        "section": "Major research project"
+      },
+      {
+        "id": "MINOR",
+        "code": "to be announced",
+        "name": "Minor Research Project DDS",
+        "ec": 30,
+        "section": "Minor research project"
+      },
+      {
+        "id": "XM_0114",
+        "code": "XM_0114",
+        "name": "Advanced Course in Molecular Toxicology",
+        "ec": 6,
+        "section": "General electives"
+      }
+    ],
+    "total": 120
+  },
+  "plannerTransfer": {
+    "targetFormVersion": "0.9.1",
+    "targetRuleVersion": "DDS-2026-2027.10",
+    "targetSchemaVersion": 2,
+    "version": "1.2.11",
+    "planningDates": "relative-academic-year",
+    "schedule": {
+      "XM_0196": {
+        "start": "Y1-09-01",
+        "end": "Y1-06-01",
+        "year": 1,
+        "fte": 1,
+        "leaveWeeks": 0,
+        "pauseWeeks": 0
+      },
+      "XM_0107": {
+        "start": "Y1-11-01",
+        "end": "Y1-01-01",
+        "year": 1,
+        "fte": 1,
+        "leaveWeeks": 0,
+        "pauseWeeks": 0
+      },
+      "XM_0108": {
+        "start": "Y1-09-01",
+        "end": "Y1-11-01",
+        "year": 1,
+        "fte": 1,
+        "leaveWeeks": 0,
+        "pauseWeeks": 0
+      },
+      "XM_0136": {
+        "start": "Y1-09-01",
+        "end": "Y1-11-01",
+        "year": 1,
+        "fte": 1,
+        "leaveWeeks": 0,
+        "pauseWeeks": 0
+      },
+      "X_435609": {
+        "start": "Y1-09-01",
+        "end": "Y1-11-01",
+        "year": 1,
+        "fte": 1,
+        "leaveWeeks": 0,
+        "pauseWeeks": 0
+      },
+      "X_435604": {
+        "start": "Y1-11-01",
+        "end": "Y1-01-01",
+        "year": 1,
+        "fte": 1,
+        "leaveWeeks": 0,
+        "pauseWeeks": 0
+      },
+      "MAJOR": {
+        "start": "Y1-04-01",
+        "year": 1,
+        "fte": 1,
+        "daysPerWeek": 5,
+        "leaveWeeks": 4,
+        "pauseWeeks": 0,
+        "breakStart": "Y1-07-01",
+        "notes": ""
+      },
+      "MINOR": {
+        "start": "Y2-01-01",
+        "year": 2,
+        "fte": 1,
+        "daysPerWeek": 5,
+        "leaveWeeks": 0,
+        "pauseWeeks": 0,
+        "breakStart": "",
+        "notes": ""
+      },
+      "XM_0114": {
+        "start": "Y2-02-01",
+        "end": "Y2-04-01",
+        "year": 2,
+        "fte": 1,
+        "leaveWeeks": 0,
+        "pauseWeeks": 0
+      }
+    },
+    "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP generator. No approval is granted by this export."
+  }
+}

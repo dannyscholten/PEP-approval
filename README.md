@@ -2,7 +2,7 @@
 
 [Open the PEP form](https://dannyscholten.github.io/dds-pep/) · [Cohort 2026 link](https://dannyscholten.github.io/dds-pep/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/dds-pep/actions)
 
-Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD and PTDD. Version 0.9.1.
+Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD and PTDD. Version 0.9.2.
 
 The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has a digital-signature field for the specialisation coordinator. Only a Principles deviation adds editable Admissions Board decision/name/date fields and its signature field. Academic decisions and exceptions still require the relevant board/coordinator.
 
@@ -71,3 +71,7 @@ The summary is headed Total credit count of PEP, with separate Principles/compul
 ## Version 0.9.1
 
 Major, minor and literature thesis hosts must be Proposed or Confirmed, with host details entered. Topics still allow Not yet known. Unlisted-course guidance clarifies the General and Alpha/gamma elective types.
+
+## Version 0.9.2
+
+Outlined action icons match the DDS curriculum planner. Buttons and help consistently name Export draft PEP, Import draft PEP or Curriculum Planning, and Review PEP & Generate PDF. The import help identifies the planner's Export for PEP approval option. PEP composition and PDF approval rules are unchanged.
