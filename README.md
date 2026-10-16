@@ -2,7 +2,7 @@
 
 [Open the PEP form](https://dannyscholten.github.io/dds-pep/) · [Cohort 2026 link](https://dannyscholten.github.io/dds-pep/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/dds-pep/actions)
 
-Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 0.10.0.
+Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 0.10.1.
 
 The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has a digital-signature field for the specialisation coordinator. Only a Principles deviation adds editable Admissions Board decision/name/date fields and its signature field. Academic decisions and exceptions still require the relevant board/coordinator.
 
@@ -93,3 +93,7 @@ Import/export help links to the DDS curriculum planner. A welcome dialog explain
 Education has a separate 60 EC DDS + 60 EC Education curriculum. It includes a fixed 30 EC major (XM_0200), one 6 EC constrained choice, 54 EC compulsory Education courses including three zero-EC components, and 6 EC Education elective space. DDS electives are limited to the Education-specific TER list plus the unused constrained course; an optional Education literature thesis is 6 EC. Minor research projects and alpha/gamma DDS courses are prohibited without exceptions. Wereldburgerschap and deel 2 must be selected together. Unlisted courses require a component choice and individual Examination Board approval. Neither component may be short of 60 EC; excess requires the existing explicit justification and approval route. dr. Daan Geerke preapproves both parts. The form and PDF display both subtotals.
 
 The TER places the year-2 Education tables under the old-curriculum heading. The programme owner explicitly confirmed their applicability to the 2026 intake, the 54+6 EC package, the 60/60 split and the detailed choices before implementation. See [Education decisions](docs/EDUCATION.md). No curriculum-planner or Microsoft approval-workflow changes are included.
+
+## Version 0.10.1
+
+Education has an Add an unlisted course button directly below each year’s elective space. The component is preselected from the button, and unlisted courses are shown in their own DDS or Education section. Editing the component moves the course and updates the subtotals. Curriculum rules and PDF output are unchanged.
