@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "ruleVersion": "DDS-2026-2027.11",
+  "ruleVersion": "DDS-2026-2027.12",
   "id": "PEP-DEMO-MT",
   "student": {
     "firstName": "Example",
@@ -54,8 +54,8 @@
   "exceptions": {},
   "notes": "FICTIONAL TEST EXAMPLE — replace all example student details before use.",
   "coordinator": "dr. Reggie Bosma",
-  "formVersion": "0.10.1",
-  "savedAt": "2026-10-16T23:46:30.282Z",
+  "formVersion": "0.10.3",
+  "savedAt": "2026-10-16T23:51:41.769Z",
   "courseSnapshot": {
     "snapshotVersion": 1,
     "rows": [

@@ -55,7 +55,7 @@ function components(s){
   );else rows.push({...project,id:'MAJOR',code:'to be announced',name:'Major Research Project DDS',ec:48});
  }
  if(s.minor.enabled)rows.push({id:'MINOR',code:'to be announced',name:'Minor Research Project DDS',ec:30,section:'Minor research project',project:true});
- if(s.literature.enabled){const code=isEducation(s)?s.literature.code:'XM_0198';if(map[code])rows.push({...map[code],id:code,section:'Literature thesis',project:true});}
+ if(!isEducation(s)&&s.literature.enabled){const code='XM_0198';if(map[code])rows.push({...map[code],id:code,section:'Literature thesis',project:true});}
  s.electives.forEach(c=>add(c,map[c]?.category==='alpha'?'Alpha/gamma electives':'General electives'));
  (s.educationElectives||[]).forEach(c=>add(c,'Education electives'));
  s.custom.forEach(c=>rows.push({...c,id:c.uid,ec:Number(c.ec)||0,section:isEducation(s)&&c.component==='education'?'Education electives':c.category==='alpha'?'Alpha/gamma electives':c.category==='general'?'General electives':'Electives awaiting classification',custom:true}));
@@ -98,6 +98,7 @@ function evaluate(s){
   if(!edu&&!['single','split'].includes(s.major.route))err('major_route','Choose the registration route for your 48 EC major project.','projects');
  }
  for(const [key,title] of [['major','Major project'],['minor','Minor project'],['literature','Literature thesis']]){
+  if(edu&&key!=='major')continue;
   if(key!=='major'&&!s[key].enabled)continue;
   if(key==='major'&&!spec)continue;
   for(const field of ['host','topic']){
@@ -144,7 +145,8 @@ function evaluate(s){
  if(edu){
   for(const [component,value] of [['DDS',ddsTotal],['Education',educationTotal]])if(value<60)err('education_'+component.toLowerCase()+'_total',component+' component totals '+value+' EC; at least 60 EC are required. Credits in the other component cannot cover this shortfall.','electives');
   if(s.minor.enabled)err('education_minor','Minor research projects are not allowed for Education. Remove the minor; no exception is available.','projects');
-  if(s.literature.enabled&&!educationSpec().literature.includes(s.literature.code))err('education_literature','Select one Education colloquium/literature thesis (6 EC).','projects');
+  if(s.literature.enabled)err('education_literature','Literature theses are not allowed for Education.','projects');
+  if(s.electives.some(c=>educationSpec().literature.includes(c)||c==='XM_0198')||s.custom.some(c=>educationSpec().literature.includes(canonicalCode(c.code))||canonicalCode(c.code)==='XM_0198'||norm(c.name).includes('literaturethesis')))err('education_literature_course','Literature theses cannot be included as electives or unlisted courses for Education. Remove the course.','electives');
   if(s.electives.some(c=>!availableDDS(s).includes(c)))err('education_dds_catalogue','A selected DDS elective is outside the Education-specific list. Remove it; propose eligible alternatives through Add an unlisted course for individual approval.','electives');
   if(s.electives.some(c=>map[c]?.category==='alpha')||s.custom.some(c=>c.component==='dds'&&c.category==='alpha'))err('education_alpha','Alpha/gamma courses are not allowed in the DDS component of Education.','electives');
   if(s.educationElectives.some(c=>!educationSpec().educationElectives.includes(c)))err('education_elective_catalogue','Select Education electives from the recommended list, or propose an unlisted course for approval.','electives');
@@ -193,7 +195,7 @@ function importDraft(raw){
  if(raw.student?.cohort!==2026)throw Error('This form supports the 2026 intake only.');
  let base=fresh();const textKeys=['id','notes'];for(const k of textKeys)if(typeof raw[k]==='string')base[k]=raw[k].slice(0,k==='notes'?10000:200);
  const obj=(target,source)=>{if(!source||typeof source!=='object'||Array.isArray(source))return;for(const k of Object.keys(target)){if(typeof target[k]==='string'&&typeof source[k]==='string')target[k]=source[k].slice(0,10000);if(typeof target[k]==='boolean')target[k]=source[k]===true;}};
- obj(base.student,raw.student);obj(base.principles,raw.principles);for(const k of ['major','minor','literature'])obj(base[k],raw[k]);
+ obj(base.student,raw.student);obj(base.principles,raw.principles);for(const k of (isEducation(base)?['major','minor']:['major','minor','literature']))obj(base[k],raw[k]);
  for(const k of ['constrained','electives','educationElectives']){if(raw[k]!==undefined&&!Array.isArray(raw[k]))throw Error('Invalid '+k+' list.');base[k]=(raw[k]||[]).filter(v=>typeof v==='string').slice(0,200);}
  base.principles.required=Array.isArray(raw.principles?.required)?raw.principles.required.filter(v=>typeof v==='string').slice(0,4):[];
  if(raw.custom!==undefined&&!Array.isArray(raw.custom))throw Error('Invalid custom course list.');

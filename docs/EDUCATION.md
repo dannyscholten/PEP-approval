@@ -15,9 +15,9 @@ Source: [DDS TER 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6
 1. The year-2 package on pp. 21–22 applies to the 2026 intake: 54 compulsory EC including Peergroup 1, Peergroup 2 and Startweek at 0 EC, plus 6 EC from the recommended Education electives on p. 26.
 2. Required 60 EC DDS + 60 EC Education. Neither component can compensate for a shortage in the other. Excess credits require existing explicit justification, coordinator preapproval and Examination Board approval.
 3. The unused constrained-choice course can use DDS elective space and counts once.
-4. One Education-specific 6 EC colloquium/literature thesis (XM_0016–XM_0022) can use DDS elective space.
+4. Superseded decision: the programme owner subsequently removed the literature-thesis option altogether for Education (version 0.10.3). No literature-thesis EC count in the Education PEP. Earlier test drafts need no special compatibility handling, as confirmed by the programme owner.
 5. No minor research project, and no exception for a minor.
-6. Restrict the DDS catalogue to the nine Education-specific electives, unused constrained course and optional 6 EC thesis. Other suitable courses may be proposed for individual approval.
+6. Restrict the DDS catalogue to the nine Education-specific electives, unused constrained course. Other suitable courses may be proposed for individual approval.
 7. Education electives: Praktijkonderzoek 6 EC or two distinct 3 EC choices. Wereldburgerschap and Wereldburgerschap deel 2 must be selected together. Unlisted alternatives require individual approval.
 8. dr. Daan Geerke (d.p.geerke@vu.nl) preapproves both components.
 9. Unlisted courses require an explicit DDS/Education component choice; compulsory courses remain fixed.
@@ -25,6 +25,6 @@ Source: [DDS TER 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6
 
 ## Validation and imports
 
-Education state is additive to draft format 2. Current BADD/DSDD/PTDD and planner exports retain their semantics. Imported invalid courses remain visible and block PDF until corrected; minor removal is explicitly available for an invalid Education import. Merely switching specialisation prompts confirmation, replaces fixed compulsory components, and removes a minor when entering Education. A 6 EC thesis must then be selected if a previous literature project was enabled. Saved validation never grants approval.
+Education state is additive to draft format 2. Current BADD/DSDD/PTDD and planner exports retain their semantics. Imported invalid courses remain visible and block PDF until corrected; minor removal is explicitly available for an invalid Education import. Merely switching specialisation prompts confirmation, replaces fixed compulsory components, and removes a minor when entering Education. Literature-thesis fields are not part of the Education form or its importable project fields. No earlier-test-draft conversion or correction UI is provided. Saved validation never grants approval.
 
 Exported PDFs include all fixed zero-EC components, both subtotals, course codes, the conditional Admissions Board section and the coordinator signature. Individual approval items use reviewed boxes, not automatic approval. The student still submits the preapproved PEP to the Examination Board.
