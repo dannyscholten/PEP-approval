@@ -42,7 +42,7 @@ test('SMC prohibited overlap detected',()=>{const s=valid('DSDD','SMC');s.custom
 test('SMC preparation is checked by the internship process',()=>assert(!has(valid('DSDD','SMC'),'radiopharma')));
 test('General course outside VU needs syllabus',()=>{const s=valid();s.electives=['X_405052'];s.courseDetails.X_405052={outside:true,institution:'Partner',url:''};assert(has(s,'outside_url_X_405052'));});
 test('Inactive exceptions do not confer active approval',()=>{const s=valid();s.exceptions.over120={reason:'Old request'};const v=R.evaluate(s);assert(!v.review.some(i=>i.id==='over120'));assert(v.inactiveRequests.includes('over120'));});
-test('Draft roundtrip re-evaluates current rules',()=>{const s=valid();s.ruleVersion='old';s.validation={passed:true};const imported=R.importDraft(JSON.parse(JSON.stringify(s)));assert(imported.importNotice);assert(!('validation' in imported));assert.equal(R.evaluate(imported).total,120);});
+test('Draft roundtrip re-evaluates current rules',()=>{const s=valid();s.ruleVersion='old';s.validation={passed:true};const imported=R.importDraft(JSON.parse(JSON.stringify(s)));assert(!('importReport' in imported));assert(!('validation' in imported));assert.equal(R.evaluate(imported).total,120);});
 test('Different cohort and format rejected',()=>{const s=valid();s.student.cohort=2025;assert.throws(()=>R.importDraft(s));assert.throws(()=>R.importDraft({schemaVersion:7}));});
 test('Prototype keys ignored during import',()=>{const s=valid();s.exceptions=JSON.parse('{"__proto__":{"reason":"bad"}}');R.importDraft(s);assert.equal({}.reason,undefined);});
 test('Custom negative credits rejected',()=>{const s=valid();s.custom=[custom('Example','-6')];assert(has(s,'custom_CEXAMPLE_ec'));});

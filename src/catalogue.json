@@ -468,6 +468,5 @@
     "canvas": "https://canvas.vu.nl/courses/31939/",
     "curriculumPlanner": "https://dannyscholten.github.io/dds-curriculum-planner/"
   },
-  "draftSchemaVersion": 2,
-  "compatibilityBaseline": "0.9.0"
+  "draftSchemaVersion": 2
 }

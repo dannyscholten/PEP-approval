@@ -18,15 +18,15 @@ The form checks programme composition, credits and required information. Student
 | Course titles, codes, EC, coordinator names, links, version/date | [src/catalogue.json](src/catalogue.json) |
 | Visible form wording and behaviour | [src/app.js](src/app.js) |
 | VU colours, spacing and print styles | [src/style.css](src/style.css) |
-| Curriculum checks and draft migration | [src/rules.js](src/rules.js) |
+| Curriculum checks and draft imports | [src/rules.js](src/rules.js) |
 | Downloaded PDF layout and fields | [src/pdf-export.js](src/pdf-export.js) |
 | Deployment automation | [.github/workflows/pages.yml](.github/workflows/pages.yml) |
 
 Do not edit a generated `index.html`: GitHub builds it from these source files. Detailed examples and recovery instructions are in the [update guide](docs/UPDATING.md).
 
-## Saved-draft compatibility
+## Saved drafts
 
-Version 0.9.0 establishes the first student-release baseline (draft format 2). Pre-release draft archives and migrations have been removed. Exported drafts include course/EC snapshots; future updates must preserve released drafts and clearly show any changed courses, categories or credit totals on import. Keep the baseline fixture and compatibility checks. See [compatibility maintenance](docs/COMPATIBILITY.md).
+Version 0.9.5 is the first intended student release (draft format 2). Earlier versions were not distributed to students, so import does not compare against historical versions or migrate their formats. File validation and current curriculum checks remain. Exported version metadata and course snapshots provide a starting point for compatibility in future updates. See [draft import maintenance](docs/IMPORTS.md).
 
 ## Data and hosting
 
@@ -86,4 +86,4 @@ The import button is labelled Import draft PEP at both ends of the form. Instruc
 
 ## Version 0.9.5
 
-Import/export help links to the DDS curriculum planner. A welcome dialog explains completing, saving and reviewing the PEP, coordinator signing, conditional Admissions review, and examination-board submission through VU keuzeruimte. It can be reopened with Getting started; its optional dismissal preference is the only new browser-stored value. A live status beside the PDF button explains why download is unavailable or ready.
+Import/export help links to the DDS curriculum planner. A welcome dialog explains completing, saving and reviewing the PEP, coordinator signing, conditional Admissions review, and examination-board submission through VU keuzeruimte. It can be reopened with Getting started; its optional dismissal preference is the only new browser-stored value. A live status beside the PDF button explains why download is unavailable or ready. Historical draft comparisons and migration checks have been removed for this first intended student release; current draft and planner imports still validate and recalculate the curriculum.

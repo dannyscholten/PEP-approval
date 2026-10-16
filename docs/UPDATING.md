@@ -19,7 +19,7 @@ A cosmetic edit does not require changing `ruleVersion`. A change to course requ
 
 Use `src/catalogue.json` for the course data and `src/rules.js` for logic. Keep course codes and internal field names stable unless a deliberate mapping is implemented. Do not remove a course simply because it is no longer offered: old plans may still need to refer to it. Clarify whether the change is a correction for the same intake or a new-cohort rule.
 
-Run the tests and review a draft from the earlier version. Check the displayed before/after course list and EC total. Expected academic changes need explicit test updates and a recorded explanation in `src/rule-register.json`; do not delete a failing compatibility test just to make publication pass.
+Run the tests and review a current draft export/import and a curriculum-planner PEP export. Version 0.9.5 is the first intended student release; there are no historical-version comparison checks. For subsequent updates, preserve student-released drafts and add conversion/change notices if selections or credits change. Expected academic changes need explicit test updates and a recorded explanation in `src/rule-register.json`.
 
 Larger changes are best made on a branch with a pull request. The checks run there, but the live website is updated only after the change reaches `main` and the checks pass again.
 

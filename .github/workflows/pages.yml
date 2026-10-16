@@ -21,7 +21,7 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - name: Check curriculum rules and backward compatibility
+      - name: Check curriculum rules and draft imports
         run: npm test
       - name: Build the website
         run: npm run build

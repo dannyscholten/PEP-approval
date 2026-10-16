@@ -15,7 +15,7 @@ function fresh(){return {
  major:{route:'',hostStatus:'',host:'',topicStatus:'',topic:''},
  minor:{enabled:false,hostStatus:'',host:'',topicStatus:'',topic:''},
  literature:{enabled:false,hostStatus:'',host:'',topicStatus:'',topic:''},
- custom:[],exceptions:{},notes:'',coordinator:'',importNotice:'',importReport:null
+ custom:[],exceptions:{},notes:'',coordinator:''
 };}
 function principleCodes(s){return !['WO','HBO'].includes(s.student.education) ? [] : s.principles.override ? s.principles.required : DATA.principles;}
 function principlesStatementRequired(s){return ['WO','HBO'].includes(s.student.education)&&DATA.principles.some(c=>!principleCodes(s).includes(c));}
@@ -156,43 +156,14 @@ function courseSnapshot(s){
  const rows=components(s).map(r=>({id:r.id,code:r.code,name:r.name,ec:r.ec,section:r.section}));
  return {snapshotVersion:1,rows,total:round(rows.reduce((n,r)=>n+r.ec,0))};
 }
-function savedSnapshot(value){
- if(value?.snapshotVersion!==1||!Array.isArray(value.rows)||value.rows.length>500)return null;
- const rows=[];
- for(const r of value.rows){
-  if(!r||!['id','code','name','section'].every(k=>typeof r[k]==='string'&&r[k].length<=10000)||typeof r.ec!=='number'||!Number.isFinite(r.ec)||Math.abs(r.ec)>120)return null;
-  rows.push({id:r.id,code:r.code,name:r.name,section:r.section,ec:r.ec});
- }
- return {snapshotVersion:1,rows,total:round(rows.reduce((n,r)=>n+r.ec,0))};
-}
-function previousSnapshot(raw){
- const saved=savedSnapshot(raw.courseSnapshot);
- return saved?{snapshot:saved,source:'saved'}:{snapshot:null,source:'unavailable'};
-}
-function compareImport(raw,s,before){
- const after=courseSnapshot(s),previous=before.snapshot,changes=[];
- if(previous){
-  const remaining=after.rows.map(r=>({...r}));
-  for(const old of previous.rows){
-   let i=remaining.findIndex(r=>r.id===old.id&&r.section===old.section);
-   if(i<0)i=remaining.findIndex(r=>r.id===old.id);
-   if(i<0){changes.push({type:'removed',before:old,after:null});continue;}
-   const now=remaining.splice(i,1)[0];
-   if(old.ec!==now.ec||old.section!==now.section||old.code!==now.code||old.name!==now.name)changes.push({type:'changed',before:old,after:now});
-  }
-  for(const now of remaining)changes.push({type:'added',before:null,after:now});
- }
- return {source:before.source,fromVersion:clean(raw.formVersion)||'earlier/unknown version',toVersion:DATA.appVersion,beforeTotal:previous?.total??null,afterTotal:after.total,changes};
-}
 function exportDraft(s){
  const saved={...s,principles:{override:s.principles.override,required:[...s.principles.required]},ruleVersion:DATA.ruleVersion,formVersion:DATA.appVersion,savedAt:new Date().toISOString(),courseSnapshot:courseSnapshot(s)};
  delete saved.importNotice;delete saved.importReport;
  return saved;
 }
 function importDraft(raw){
- if(!raw||typeof raw!=='object'||Array.isArray(raw)||raw.schemaVersion!==2)throw Error(raw?.schemaVersion===1?'This draft was made with a pre-release test form. Start a new PEP using this version.':'This is not a supported DDS PEP draft (format version 2).');
+ if(!raw||typeof raw!=='object'||Array.isArray(raw)||raw.schemaVersion!==2)throw Error('This is not a supported DDS PEP draft (format version 2).');
  if(raw.student?.cohort!==2026)throw Error('This form supports the 2026 intake only.');
- const before=previousSnapshot(raw);
  let base=fresh();const textKeys=['id','notes'];for(const k of textKeys)if(typeof raw[k]==='string')base[k]=raw[k].slice(0,k==='notes'?10000:200);
  const obj=(target,source)=>{if(!source||typeof source!=='object'||Array.isArray(source))return;for(const k of Object.keys(target)){if(typeof target[k]==='string'&&typeof source[k]==='string')target[k]=source[k].slice(0,10000);if(typeof target[k]==='boolean')target[k]=source[k]===true;}};
  obj(base.student,raw.student);obj(base.principles,raw.principles);for(const k of ['major','minor','literature'])obj(base[k],raw[k]);
@@ -207,14 +178,9 @@ function importDraft(raw){
    const template=k==='exceptions'?{reason:'',reference:''}:{outside:false,institution:'',url:''};obj(template,value);base[k][key]=template;
   }
  }
- const notices=[];
  if(base.student.education==='VU_FW')base.principles={override:false,required:[]};
- if(raw.ruleVersion!==DATA.ruleVersion)notices.push('This saved PEP has been checked again using the current form. Review the results before exporting.');
  clearFixedCourseDetails(base);
  base.coordinator=coordinatorName(base);
- base.importReport=compareImport(raw,base,before);
- if(!before.snapshot)notices.push('The saved course list and EC total are unavailable. Check the imported selections against your earlier PDF; the total shown uses the current rules.');
- base.importNotice=notices.join(' ');
  return base;
 }
 const api={DATA,map,fresh,coordinatorName,needsPath,isFixedCourse,clearFixedCourseDetails,organiseConstrained,principleCodes,principlesStatementRequired,selectPath,pathCodes,requiredCodes,components,evaluate,importDraft,exportDraft,courseSnapshot,round};
