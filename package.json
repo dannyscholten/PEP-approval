@@ -1,6 +1,6 @@
 {
   "name": "dds-pep",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "private": true,
   "description": "VU Drug Discovery Sciences PEP form",
   "scripts": {

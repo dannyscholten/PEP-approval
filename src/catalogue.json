@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.9.3",
+  "appVersion": "0.9.4",
   "ruleVersion": "DDS-2026-2027.10",
   "cohort": 2026,
   "total": 120,
@@ -457,7 +457,7 @@
   "aliases": {
     "X_432721": "XM_0136"
   },
-  "releaseDate": "2026-10-16",
+  "releaseDate": "2026-10-17",
   "coordinators": {
     "BADD": "dr. Melissa Bärenfänger",
     "DSDD": "dr. Maikel Wijtmans",
