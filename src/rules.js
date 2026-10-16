@@ -94,8 +94,8 @@ function evaluate(s){
   if(key!=='major'&&!s[key].enabled)continue;
   if(key==='major'&&!spec)continue;
   for(const field of ['host','topic']){
-   if(!['unknown','proposed','confirmed'].includes(s[key][field+'Status']))err(key+'_'+field+'_status','Choose a status for '+title.toLowerCase()+' '+field+'.','projects');
-   if(['proposed','confirmed'].includes(s[key][field+'Status'])&&!clean(s[key][field]))err(key+'_'+field,title+' '+field+' needs details, or choose “Not yet known”.','projects');
+   if(!(field==='host'?['proposed','confirmed']:['unknown','proposed','confirmed']).includes(s[key][field+'Status']))err(key+'_'+field+'_status','Choose a status for '+title.toLowerCase()+' '+field+'.','projects');
+   if(['proposed','confirmed'].includes(s[key][field+'Status'])&&!clean(s[key][field]))err(key+'_'+field,title+' '+field+' needs details.'+(field==='topic'?' You may choose “Not yet known” for the topic.':''),'projects');
   }
  }
  if(s.minor.enabled&&s.literature.enabled)add('three_projects','warning','Combining a major research project, minor research project and literature thesis is strongly discouraged: this combination cannot be completed within the two-year programme and will result in study delay.','Programme clarification, 9 October 2026','projects');
@@ -208,6 +208,9 @@ function importDraft(raw){
   }
  }
  const notices=[];
+ const clearedHosts=[];
+ for(const key of ['major','minor','literature'])if(base[key].hostStatus==='unknown'){base[key].hostStatus='';clearedHosts.push(key);}
+ if(clearedHosts.length)notices.push('“Not yet known” is no longer available for project hosts. Select Proposed or Confirmed and enter a host for each included project. Previously saved topic statuses have been preserved.');
  if(base.student.education==='VU_FW')base.principles={override:false,required:[]};
  if(raw.ruleVersion!==DATA.ruleVersion)notices.push('This saved PEP has been checked again using the current form. Review the results before exporting.');
  clearFixedCourseDetails(base);

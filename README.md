@@ -2,7 +2,7 @@
 
 [Open the PEP form](https://dannyscholten.github.io/dds-pep/) · [Cohort 2026 link](https://dannyscholten.github.io/dds-pep/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/dds-pep/actions)
 
-Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD and PTDD. Version 0.9.0.
+Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD and PTDD. Version 0.9.1.
 
 The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has a digital-signature field for the specialisation coordinator. Only a Principles deviation adds editable Admissions Board decision/name/date fields and its signature field. Academic decisions and exceptions still require the relevant board/coordinator.
 
@@ -67,3 +67,7 @@ At least two of the six constrained courses can be selected, including mandatory
 Host and topic statuses start with Make selection and must explicitly be set for every included project. VU FW PDFs omit Principles entirely and number the remaining sections consecutively. PDF text fields use 9 pt text, the right-aligned total is 13 pt bold, check titles are bold and statuses use green/orange/red. Review items have editable Reviewed boxes: they acknowledge review, not approval, and must be completed before the coordinator's signature locks all fields. Both signatures remain digitally signable.
 
 The summary is headed Total credit count of PEP, with separate Principles/compulsory subtotals. Sections of this PEP provides active-section navigation on desktop and a compact fold-out on mobile. Spacing, help text and review grouping are consistent with VU styling. Draft help is titled How to save draft PEPs.
+
+## Version 0.9.1
+
+Major, minor and literature thesis hosts must be Proposed or Confirmed, with host details entered. Topics still allow Not yet known. Older drafts remain importable: obsolete unknown host statuses are cleared with a visible notice, while topics, course selections and EC totals are preserved. Unlisted-course guidance clarifies the General and Alpha/gamma elective types.

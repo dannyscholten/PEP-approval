@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "ruleVersion": "DDS-2026-2027.9",
+  "ruleVersion": "DDS-2026-2027.10",
   "id": "PEP-DEMO-CADD",
   "student": {
     "firstName": "Example",
@@ -29,22 +29,22 @@
   "courseDetails": {},
   "major": {
     "route": "split",
-    "hostStatus": "unknown",
-    "host": "",
+    "hostStatus": "proposed",
+    "host": "Example University",
     "topicStatus": "unknown",
     "topic": ""
   },
   "minor": {
     "enabled": true,
-    "hostStatus": "unknown",
-    "host": "",
+    "hostStatus": "proposed",
+    "host": "Example University",
     "topicStatus": "unknown",
     "topic": ""
   },
   "literature": {
     "enabled": false,
-    "hostStatus": "unknown",
-    "host": "",
+    "hostStatus": "proposed",
+    "host": "Example University",
     "topicStatus": "unknown",
     "topic": ""
   },
@@ -52,8 +52,8 @@
   "exceptions": {},
   "notes": "FICTIONAL TEST EXAMPLE — replace all example student details before use.",
   "coordinator": "dr. Maikel Wijtmans",
-  "formVersion": "0.9.0",
-  "savedAt": "2026-10-10T20:16:54.757Z",
+  "formVersion": "0.9.1",
+  "savedAt": "2026-10-16T20:20:18.386Z",
   "courseSnapshot": {
     "snapshotVersion": 1,
     "rows": [

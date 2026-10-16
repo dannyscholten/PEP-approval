@@ -974,5 +974,9 @@
     "projects": "Explicit host/topic status selection for every enabled project.",
     "pdf": "No Principles section for VU FW; consecutive visible section numbers; 9 pt editable fields; bold 13 pt total; bold check titles and green/orange/red status labels. Reviewed checkboxes indicate review, not approval, and are completed before coordinator signs and locks all fields.",
     "layout": "VU blue section bars, light-blue total/help, active section navigation and mobile fold-out; separate Principles subtotal and grouped review items."
+  },
+  "userUpdate20261016": {
+    "source": "User instruction, 16 October 2026",
+    "rule": "For major research project, minor research project and literature thesis, the host must be proposed or confirmed with details. Not yet known remains available for the topic. This supersedes earlier project-host flexibility decisions."
   }
 }
