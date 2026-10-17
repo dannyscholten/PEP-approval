@@ -2,7 +2,7 @@
 
 [Open the PEP form](https://dannyscholten.github.io/dds-pep/) · [Cohort 2026 link](https://dannyscholten.github.io/dds-pep/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/dds-pep/actions)
 
-Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 0.10.4.
+Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 0.10.5.
 
 The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has a digital-signature field for the specialisation coordinator. Only a Principles deviation adds editable Admissions Board decision/name/date fields and its signature field. Academic decisions and exceptions still require the relevant board/coordinator.
 
@@ -109,3 +109,7 @@ Removed the literature-thesis option for Education. Education PDFs and navigatio
 ## Version 0.10.4
 
 Corrected four Education course codes against the 2026–2027 VU Study Guide: O_MLDIDAC2, O_MLPROZ, O_MLVNON and O_MWRLDBS_1. Updated selections, examples, validation, the Wereldburgerschap paired choice and JSON course snapshots consistently. Credits and curriculum requirements are unchanged.
+
+## Version 0.10.5
+
+When PDF export is unavailable, its explanation appears only in the Download PDF for approval button tooltip. The visible review checklist remains. Course rules and the corrected Study Guide codes are unchanged.
