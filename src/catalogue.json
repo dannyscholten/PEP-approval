@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.10.3",
-  "ruleVersion": "DDS-2026-2027.12",
+  "appVersion": "0.10.4",
+  "ruleVersion": "DDS-2026-2027.13",
   "cohort": 2026,
   "total": 120,
   "alphaLimit": 18,
@@ -391,12 +391,12 @@
       "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
     },
     {
-      "code": "O_MLDIDAC_2",
+      "code": "O_MLDIDAC2",
       "name": "Didactiek 2",
       "ec": 9,
       "level": 400,
       "category": "educationCore",
-      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
+      "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026; course code corrected against VU Study Guide 2026–2027, 17 October 2026"
     },
     {
       "code": "O_MLPRAK_2",
@@ -439,20 +439,20 @@
       "source": "TER 10.2/10.3, pp. 21–22; 2026 applicability confirmed by programme owner, 17 October 2026"
     },
     {
-      "code": "O_PROZ",
+      "code": "O_MLPROZ",
       "name": "Praktijkonderzoek",
       "ec": 6,
       "level": 400,
       "category": "education",
-      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026; course code corrected against VU Study Guide 2026–2027, 17 October 2026"
     },
     {
-      "code": "O_MLVNOND",
+      "code": "O_MLVNON",
       "name": "Vernieuwende Onderwijsconcepten",
       "ec": 3,
       "level": 400,
       "category": "education",
-      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026; course code corrected against VU Study Guide 2026–2027, 17 October 2026"
     },
     {
       "code": "O_MTTO",
@@ -471,12 +471,12 @@
       "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
     },
     {
-      "code": "O_MWRLDBS",
+      "code": "O_MWRLDBS_1",
       "name": "Wereldburgerschap",
       "ec": 3,
       "level": 400,
       "category": "education",
-      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026"
+      "source": "TER 10.2/10.3, pp. 26; 2026 applicability confirmed by programme owner, 17 October 2026; course code corrected against VU Study Guide 2026–2027, 17 October 2026"
     },
     {
       "code": "O_MWRLDBS_2",
@@ -637,7 +637,7 @@
         "O_MLDIDAC_1",
         "O_MLPRAK_1",
         "O_MLPEERGR_1",
-        "O_MLDIDAC_2",
+        "O_MLDIDAC2",
         "O_MLPRAK_2",
         "O_MLPEERGR_2",
         "O_MLPRAK_3",
@@ -645,11 +645,11 @@
         "O_MSTARTSEP"
       ],
       "educationElectives": [
-        "O_PROZ",
-        "O_MLVNOND",
+        "O_MLPROZ",
+        "O_MLVNON",
         "O_MTTO",
         "O_MAIIHO",
-        "O_MWRLDBS",
+        "O_MWRLDBS_1",
         "O_MWRLDBS_2",
         "O_MIDD"
       ],

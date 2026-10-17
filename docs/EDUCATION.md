@@ -28,3 +28,7 @@ Source: [DDS TER 2026–2027](https://assets-us-01.kc-usercontent.com/f55d3574-6
 Education state is additive to draft format 2. Current BADD/DSDD/PTDD and planner exports retain their semantics. Imported invalid courses remain visible and block PDF until corrected; minor removal is explicitly available for an invalid Education import. Merely switching specialisation prompts confirmation, replaces fixed compulsory components, and removes a minor when entering Education. Literature-thesis fields are not part of the Education form or its importable project fields. No earlier-test-draft conversion or correction UI is provided. Saved validation never grants approval.
 
 Exported PDFs include all fixed zero-EC components, both subtotals, course codes, the conditional Admissions Board section and the coordinator signature. Individual approval items use reviewed boxes, not automatic approval. The student still submits the preapproved PEP to the Examination Board.
+
+## Study Guide course-code corrections — 17 October 2026
+
+The programme owner confirmed using the current Study Guide codes in both tools. The four TER-derived codes have been replaced: O_MLDIDAC_2 → O_MLDIDAC2; O_PROZ → O_MLPROZ; O_MLVNOND → O_MLVNON; O_MWRLDBS → O_MWRLDBS_1. Course credits, component allocation and the Wereldburgerschap pairing rule are unchanged. Version 0.10.4 exports these current codes using rule version DDS-2026-2027.13.

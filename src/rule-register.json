@@ -980,7 +980,7 @@
     "rule": "For major research project, minor research project and literature thesis, the host must be proposed or confirmed with details. Not yet known remains available for the topic. This supersedes earlier project-host flexibility decisions."
   },
   "education2026": {
-    "ruleVersion": "DDS-2026-2027.12",
+    "ruleVersion": "DDS-2026-2027.13",
     "source": "TER 10.2 pp19–22, 10.3 pp24–26; confirmed programme-owner decisions 17 October 2026",
     "decisions": "docs/EDUCATION.md; programme-owner follow-up removed literature theses altogether in version 0.10.3",
     "ddsEC": 60,
@@ -993,6 +993,24 @@
     "ddsAlphaGammaAllowed": false,
     "coordinator": "dr. Daan Geerke",
     "email": "d.p.geerke@vu.nl",
-    "literatureThesisAllowed": false
+    "literatureThesisAllowed": false,
+    "studyGuideCodeCorrections": {
+      "O_MLDIDAC_2": {
+        "code": "O_MLDIDAC2",
+        "sourceUrl": "https://studiegids.vu.nl/en/courses/2026-2027/O_MLDIDAC2"
+      },
+      "O_PROZ": {
+        "code": "O_MLPROZ",
+        "sourceUrl": "https://studiegids.vu.nl/en/courses/2026-2027/O_MLPROZ"
+      },
+      "O_MLVNOND": {
+        "code": "O_MLVNON",
+        "sourceUrl": "https://studiegids.vu.nl/en/courses/2026-2027/O_MLVNON"
+      },
+      "O_MWRLDBS": {
+        "code": "O_MWRLDBS_1",
+        "sourceUrl": "https://studiegids.vu.nl/en/courses/2026-2027/O_MWRLDBS_1"
+      }
+    }
   }
 }

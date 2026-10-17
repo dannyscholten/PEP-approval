@@ -123,7 +123,7 @@ function changed(e){
   if(path==='constrained'&&R.needsPath(state)){el.checked=false;toast('Choose your path in Personal details before selecting constrained electives.');return;}
   if(path==='principles.required')state.principles.override=true;
   set(path,el.checked?[...list,el.value]:list.filter(c=>c!==el.value));
-  if(path==='educationElectives'&&['O_MWRLDBS','O_MWRLDBS_2'].includes(el.value)){state.educationElectives=state.educationElectives.filter(c=>!['O_MWRLDBS','O_MWRLDBS_2'].includes(c));if(el.checked)state.educationElectives.push('O_MWRLDBS','O_MWRLDBS_2');}
+  if(path==='educationElectives'&&['O_MWRLDBS_1','O_MWRLDBS_2'].includes(el.value)){state.educationElectives=state.educationElectives.filter(c=>!['O_MWRLDBS_1','O_MWRLDBS_2'].includes(c));if(el.checked)state.educationElectives.push('O_MWRLDBS_1','O_MWRLDBS_2');}
   if(path==='constrained'&&el.checked)state.electives=state.electives.filter(c=>c!==el.value);
   render();return;
  }

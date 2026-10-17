@@ -150,7 +150,7 @@ function evaluate(s){
   if(s.electives.some(c=>!availableDDS(s).includes(c)))err('education_dds_catalogue','A selected DDS elective is outside the Education-specific list. Remove it; propose eligible alternatives through Add an unlisted course for individual approval.','electives');
   if(s.electives.some(c=>map[c]?.category==='alpha')||s.custom.some(c=>c.component==='dds'&&c.category==='alpha'))err('education_alpha','Alpha/gamma courses are not allowed in the DDS component of Education.','electives');
   if(s.educationElectives.some(c=>!educationSpec().educationElectives.includes(c)))err('education_elective_catalogue','Select Education electives from the recommended list, or propose an unlisted course for approval.','electives');
-  if(s.educationElectives.includes('O_MWRLDBS')!==s.educationElectives.includes('O_MWRLDBS_2'))err('education_world','Wereldburgerschap and Wereldburgerschap deel 2 must be selected together.','electives');
+  if(s.educationElectives.includes('O_MWRLDBS_1')!==s.educationElectives.includes('O_MWRLDBS_2'))err('education_world','Wereldburgerschap and Wereldburgerschap deel 2 must be selected together.','electives');
  }else if(s.educationElectives.length||s.electives.some(c=>map[c]?.category?.startsWith('education')))err('education_only','Education-specific courses require the Education specialisation. Remove them from this plan.','electives');
  if(total<120)add('under120','error','The programme is '+round(120-total)+' EC short of 120. Complete the proposed curriculum.','TER 9.1','review');
  if(total>120){

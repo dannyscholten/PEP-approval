@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "ruleVersion": "DDS-2026-2027.12",
-  "id": "PEP-MVBMH9O8",
+  "ruleVersion": "DDS-2026-2027.13",
+  "id": "PEP-MVBMX2OJ",
   "student": {
     "firstName": "Fictional",
     "lastName": "Education student",
@@ -26,7 +26,7 @@
   ],
   "electives": [],
   "educationElectives": [
-    "O_PROZ"
+    "O_MLPROZ"
   ],
   "courseDetails": {},
   "major": {
@@ -55,8 +55,8 @@
   "exceptions": {},
   "notes": "",
   "coordinator": "",
-  "formVersion": "0.10.3",
-  "savedAt": "2026-10-16T23:52:27.704Z",
+  "formVersion": "0.10.4",
+  "savedAt": "2026-10-17T00:04:45.139Z",
   "courseSnapshot": {
     "snapshotVersion": 1,
     "rows": [
@@ -110,8 +110,8 @@
         "section": "Education compulsory courses"
       },
       {
-        "id": "O_MLDIDAC_2",
-        "code": "O_MLDIDAC_2",
+        "id": "O_MLDIDAC2",
+        "code": "O_MLDIDAC2",
         "name": "Didactiek 2",
         "ec": 9,
         "section": "Education compulsory courses"
@@ -166,8 +166,8 @@
         "section": "Major research project"
       },
       {
-        "id": "O_PROZ",
-        "code": "O_PROZ",
+        "id": "O_MLPROZ",
+        "code": "O_MLPROZ",
         "name": "Praktijkonderzoek",
         "ec": 6,
         "section": "Education electives"
