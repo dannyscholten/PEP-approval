@@ -1,4 +1,4 @@
-// These fixtures were exported by the actual PEP Builder 1.4.5 application.
+// These fixtures use explicitly fictional test details and were exported by PEP Builder 1.4.5.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('./rules.js');
 const fixture=JSON.parse(fs.readFileSync(path.join(__dirname,'draft-fixtures/builder-1.4.5.json')));
 for(const {name,expectedTotal,draft} of fixture.cases){
@@ -20,4 +20,4 @@ for(const {name,expectedTotal,draft} of fixture.cases){
 }
 assert.throws(()=>R.importDraft({kind:'DDS-planner-design-draft',schemaVersion:2}),/Export for approval/);
 const text=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');assert(text.includes('https://dannyscholten.github.io/PEP-builder/'));assert(!text.includes('dds-curriculum-planner/'));
-console.log('PASS saved-build guidance, current Builder link, unchanged approval gates and clean notes across '+fixture.cases.length+' real exports.');
+console.log('PASS saved-build guidance, current Builder link, unchanged approval gates and clean notes across '+fixture.cases.length+' synthetic exports.');
