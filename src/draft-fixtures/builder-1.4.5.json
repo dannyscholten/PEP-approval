@@ -1,0 +1,5308 @@
+{
+  "builderVersion": "1.4.5",
+  "targetFormVersion": "0.10.7",
+  "cases": [
+    {
+      "name": "01_BADD_standard_120.json major-year-1",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "BADD",
+          "path": "",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105",
+            "XM_0106"
+          ]
+        },
+        "constrained": [
+          "XM_0136",
+          "X_435609"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "split",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Melissa Bärenfänger",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:20.999Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0106",
+              "code": "XM_0106",
+              "name": "Principles of Drug Discovery",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0107",
+              "code": "XM_0107",
+              "name": "Advanced Bioanalytical Approaches",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "X_435609",
+              "code": "X_435609",
+              "name": "Separation Sciences",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR_PART1",
+              "code": "XM_0207",
+              "name": "Major Research Project DDS — Part 1",
+              "ec": 18,
+              "section": "Major research project"
+            },
+            {
+              "id": "MAJOR_PART2",
+              "code": "to be announced",
+              "name": "Major Research Project DDS — Part 2",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0106": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0107": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0108": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435609": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 4,
+              "pauseWeeks": 0,
+              "breakStart": "Y1-07-01",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "01_BADD_standard_120.json major-year-2",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "BADD",
+          "path": "",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105",
+            "XM_0106"
+          ]
+        },
+        "constrained": [
+          "XM_0136",
+          "X_435609"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "single",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Melissa Bärenfänger",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.031Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0106",
+              "code": "XM_0106",
+              "name": "Principles of Drug Discovery",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0107",
+              "code": "XM_0107",
+              "name": "Advanced Bioanalytical Approaches",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "X_435609",
+              "code": "X_435609",
+              "name": "Separation Sciences",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR",
+              "code": "to be announced",
+              "name": "Major Research Project DDS",
+              "ec": 48,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0106": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0107": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0108": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435609": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y2-09-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "02_DSDD_SMC_120.json major-year-1",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "DSDD",
+          "path": "SMC",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105",
+            "XM_0106"
+          ]
+        },
+        "constrained": [
+          "XM_0109",
+          "XM_0110"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "split",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Maikel Wijtmans",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.050Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0106",
+              "code": "XM_0106",
+              "name": "Principles of Drug Discovery",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "X_435663",
+              "code": "X_435663",
+              "name": "Physical Organic Chemistry",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0199",
+              "code": "XM_0199",
+              "name": "Computational Design and Synthesis of Drugs",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0109",
+              "code": "XM_0109",
+              "name": "Spectroscopic Approaches in Medicinal Chemistry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0110",
+              "code": "XM_0110",
+              "name": "Synthetic Approaches in Medicinal Chemistry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR_PART1",
+              "code": "XM_0207",
+              "name": "Major Research Project DDS — Part 1",
+              "ec": 18,
+              "section": "Major research project"
+            },
+            {
+              "id": "MAJOR_PART2",
+              "code": "to be announced",
+              "name": "Major Research Project DDS — Part 2",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0106": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435663": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0199": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0109": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0110": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 4,
+              "pauseWeeks": 0,
+              "breakStart": "Y1-07-01",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "02_DSDD_SMC_120.json major-year-2",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "DSDD",
+          "path": "SMC",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105",
+            "XM_0106"
+          ]
+        },
+        "constrained": [
+          "XM_0109",
+          "XM_0110"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "single",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Maikel Wijtmans",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.069Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0106",
+              "code": "XM_0106",
+              "name": "Principles of Drug Discovery",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "X_435663",
+              "code": "X_435663",
+              "name": "Physical Organic Chemistry",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0199",
+              "code": "XM_0199",
+              "name": "Computational Design and Synthesis of Drugs",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0109",
+              "code": "XM_0109",
+              "name": "Spectroscopic Approaches in Medicinal Chemistry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0110",
+              "code": "XM_0110",
+              "name": "Synthetic Approaches in Medicinal Chemistry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR",
+              "code": "to be announced",
+              "name": "Major Research Project DDS",
+              "ec": 48,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0106": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435663": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0199": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0109": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0110": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y2-09-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "03_PTDD_MP_one_Principles.json major-year-1",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "PTDD",
+          "path": "MP",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105"
+          ]
+        },
+        "constrained": [
+          "XM_0111",
+          "XM_0108"
+        ],
+        "electives": [
+          "X_405052"
+        ],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "split",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Reggie Bosma",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.089Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0112",
+              "code": "XM_0112",
+              "name": "Advanced Pharmacology",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0111",
+              "code": "XM_0111",
+              "name": "Drug Target Biochemistry & Signalling",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR_PART1",
+              "code": "XM_0207",
+              "name": "Major Research Project DDS — Part 1",
+              "ec": 18,
+              "section": "Major research project"
+            },
+            {
+              "id": "MAJOR_PART2",
+              "code": "to be announced",
+              "name": "Major Research Project DDS — Part 2",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            },
+            {
+              "id": "X_405052",
+              "code": "X_405052",
+              "name": "Fundamentals of Bioinformatics",
+              "ec": 6,
+              "section": "General electives"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0112": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0111": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0108": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 4,
+              "pauseWeeks": 0,
+              "breakStart": "Y1-07-01",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "X_405052": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "03_PTDD_MP_one_Principles.json major-year-2",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "PTDD",
+          "path": "MP",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105"
+          ]
+        },
+        "constrained": [
+          "XM_0111",
+          "XM_0108"
+        ],
+        "electives": [
+          "X_405052"
+        ],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "single",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Reggie Bosma",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.107Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0112",
+              "code": "XM_0112",
+              "name": "Advanced Pharmacology",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0111",
+              "code": "XM_0111",
+              "name": "Drug Target Biochemistry & Signalling",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR",
+              "code": "to be announced",
+              "name": "Major Research Project DDS",
+              "ec": 48,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            },
+            {
+              "id": "X_405052",
+              "code": "X_405052",
+              "name": "Fundamentals of Bioinformatics",
+              "ec": 6,
+              "section": "General electives"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0112": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0111": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0108": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y2-09-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "X_405052": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "04_BADD_three_projects_warning.json major-year-1",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "BADD",
+          "path": "",
+          "education": "VU_FW",
+          "institution": "Vrije Universiteit Amsterdam",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": false,
+          "required": []
+        },
+        "constrained": [
+          "XM_0136",
+          "X_435609"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "split",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": true,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Melissa Bärenfänger",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.129Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0107",
+              "code": "XM_0107",
+              "name": "Advanced Bioanalytical Approaches",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "X_435609",
+              "code": "X_435609",
+              "name": "Separation Sciences",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR_PART1",
+              "code": "XM_0207",
+              "name": "Major Research Project DDS — Part 1",
+              "ec": 18,
+              "section": "Major research project"
+            },
+            {
+              "id": "MAJOR_PART2",
+              "code": "to be announced",
+              "name": "Major Research Project DDS — Part 2",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            },
+            {
+              "id": "XM_0198",
+              "code": "XM_0198",
+              "name": "Literature Thesis DDS",
+              "ec": 12,
+              "section": "Literature thesis"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0107": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0108": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435609": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 4,
+              "pauseWeeks": 0,
+              "breakStart": "Y1-07-01",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "XM_0198": {
+              "start": "Y1-09-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "04_BADD_three_projects_warning.json major-year-2",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "BADD",
+          "path": "",
+          "education": "VU_FW",
+          "institution": "Vrije Universiteit Amsterdam",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": false,
+          "required": []
+        },
+        "constrained": [
+          "XM_0136",
+          "X_435609"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "single",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": true,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Melissa Bärenfänger",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.149Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0107",
+              "code": "XM_0107",
+              "name": "Advanced Bioanalytical Approaches",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "X_435609",
+              "code": "X_435609",
+              "name": "Separation Sciences",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR",
+              "code": "to be announced",
+              "name": "Major Research Project DDS",
+              "ec": 48,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            },
+            {
+              "id": "XM_0198",
+              "code": "XM_0198",
+              "name": "Literature Thesis DDS",
+              "ec": 12,
+              "section": "Literature thesis"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0107": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0108": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435609": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y2-09-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "XM_0198": {
+              "start": "Y1-09-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "05_BADD_external_122_request.json major-year-1",
+      "expectedTotal": 122,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "BADD",
+          "path": "",
+          "education": "VU_FW",
+          "institution": "Vrije Universiteit Amsterdam",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": false,
+          "required": []
+        },
+        "constrained": [
+          "XM_0136",
+          "X_435609"
+        ],
+        "electives": [
+          "X_405052"
+        ],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "split",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [
+          {
+            "uid": "CEXAMPLE",
+            "name": "Fictional unlisted course 1",
+            "code": "TEST-EXT-1",
+            "institution": "Fictional University",
+            "ec": "8",
+            "level": "500",
+            "category": "general",
+            "url": "https://example.org/course"
+          }
+        ],
+        "exceptions": {
+          "over120": {
+            "reason": "Fictional test exception request.",
+            "reference": "TEST-ONLY"
+          }
+        },
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Melissa Bärenfänger",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.168Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0107",
+              "code": "XM_0107",
+              "name": "Advanced Bioanalytical Approaches",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "X_435609",
+              "code": "X_435609",
+              "name": "Separation Sciences",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR_PART1",
+              "code": "XM_0207",
+              "name": "Major Research Project DDS — Part 1",
+              "ec": 18,
+              "section": "Major research project"
+            },
+            {
+              "id": "MAJOR_PART2",
+              "code": "to be announced",
+              "name": "Major Research Project DDS — Part 2",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            },
+            {
+              "id": "X_405052",
+              "code": "X_405052",
+              "name": "Fundamentals of Bioinformatics",
+              "ec": 6,
+              "section": "General electives"
+            },
+            {
+              "id": "CEXAMPLE",
+              "code": "TEST-EXT-1",
+              "name": "Fictional unlisted course 1",
+              "ec": 8,
+              "section": "General electives"
+            }
+          ],
+          "total": 122
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0107": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0108": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435609": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 4,
+              "pauseWeeks": 0,
+              "breakStart": "Y1-07-01",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "X_405052": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "CEXAMPLE": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "05_BADD_external_122_request.json major-year-2",
+      "expectedTotal": 122,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "BADD",
+          "path": "",
+          "education": "VU_FW",
+          "institution": "Vrije Universiteit Amsterdam",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": false,
+          "required": []
+        },
+        "constrained": [
+          "XM_0136",
+          "X_435609"
+        ],
+        "electives": [
+          "X_405052"
+        ],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "single",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [
+          {
+            "uid": "CEXAMPLE",
+            "name": "Fictional unlisted course 1",
+            "code": "TEST-EXT-1",
+            "institution": "Fictional University",
+            "ec": "8",
+            "level": "500",
+            "category": "general",
+            "url": "https://example.org/course"
+          }
+        ],
+        "exceptions": {
+          "over120": {
+            "reason": "Fictional test exception request.",
+            "reference": "TEST-ONLY"
+          }
+        },
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Melissa Bärenfänger",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.187Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0107",
+              "code": "XM_0107",
+              "name": "Advanced Bioanalytical Approaches",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "X_435609",
+              "code": "X_435609",
+              "name": "Separation Sciences",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR",
+              "code": "to be announced",
+              "name": "Major Research Project DDS",
+              "ec": 48,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            },
+            {
+              "id": "X_405052",
+              "code": "X_405052",
+              "name": "Fundamentals of Bioinformatics",
+              "ec": 6,
+              "section": "General electives"
+            },
+            {
+              "id": "CEXAMPLE",
+              "code": "TEST-EXT-1",
+              "name": "Fictional unlisted course 1",
+              "ec": 8,
+              "section": "General electives"
+            }
+          ],
+          "total": 122
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0107": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0108": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435609": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y2-09-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "X_405052": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "CEXAMPLE": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "06_DSDD_CADD_120.json major-year-1",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "DSDD",
+          "path": "CADD",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105",
+            "XM_0106"
+          ]
+        },
+        "constrained": [
+          "X_432673",
+          "XM_0201"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "split",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Maikel Wijtmans",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.207Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0106",
+              "code": "XM_0106",
+              "name": "Principles of Drug Discovery",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "X_435663",
+              "code": "X_435663",
+              "name": "Physical Organic Chemistry",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0199",
+              "code": "XM_0199",
+              "name": "Computational Design and Synthesis of Drugs",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "X_432673",
+              "code": "X_432673",
+              "name": "Computer-Aided Drug Design and Virtual Screening",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0201",
+              "code": "XM_0201",
+              "name": "Data Analysis in Drug Discovery",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR_PART1",
+              "code": "XM_0207",
+              "name": "Major Research Project DDS — Part 1",
+              "ec": 18,
+              "section": "Major research project"
+            },
+            {
+              "id": "MAJOR_PART2",
+              "code": "to be announced",
+              "name": "Major Research Project DDS — Part 2",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0106": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435663": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0199": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_432673": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0201": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 4,
+              "pauseWeeks": 0,
+              "breakStart": "Y1-07-01",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "06_DSDD_CADD_120.json major-year-2",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "DSDD",
+          "path": "CADD",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105",
+            "XM_0106"
+          ]
+        },
+        "constrained": [
+          "X_432673",
+          "XM_0201"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "single",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Maikel Wijtmans",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.226Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0106",
+              "code": "XM_0106",
+              "name": "Principles of Drug Discovery",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "X_435663",
+              "code": "X_435663",
+              "name": "Physical Organic Chemistry",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0199",
+              "code": "XM_0199",
+              "name": "Computational Design and Synthesis of Drugs",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "X_432673",
+              "code": "X_432673",
+              "name": "Computer-Aided Drug Design and Virtual Screening",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0201",
+              "code": "XM_0201",
+              "name": "Data Analysis in Drug Discovery",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR",
+              "code": "to be announced",
+              "name": "Major Research Project DDS",
+              "ec": 48,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0106": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435663": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0199": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_432673": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0201": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y2-09-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "07_PTDD_MT_120.json major-year-1",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "PTDD",
+          "path": "MT",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105",
+            "XM_0106"
+          ]
+        },
+        "constrained": [
+          "XM_0113",
+          "XM_0114"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "split",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Reggie Bosma",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.252Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0106",
+              "code": "XM_0106",
+              "name": "Principles of Drug Discovery",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0112",
+              "code": "XM_0112",
+              "name": "Advanced Pharmacology",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0113",
+              "code": "XM_0113",
+              "name": "Molecular and Cellular Toxicology",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0114",
+              "code": "XM_0114",
+              "name": "Advanced Course in Molecular Toxicology",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR_PART1",
+              "code": "XM_0207",
+              "name": "Major Research Project DDS — Part 1",
+              "ec": 18,
+              "section": "Major research project"
+            },
+            {
+              "id": "MAJOR_PART2",
+              "code": "to be announced",
+              "name": "Major Research Project DDS — Part 2",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0106": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0112": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0113": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0114": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 4,
+              "pauseWeeks": 0,
+              "breakStart": "Y1-07-01",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "07_PTDD_MT_120.json major-year-2",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "PTDD",
+          "path": "MT",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105",
+            "XM_0106"
+          ]
+        },
+        "constrained": [
+          "XM_0113",
+          "XM_0114"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "single",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Reggie Bosma",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.269Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0106",
+              "code": "XM_0106",
+              "name": "Principles of Drug Discovery",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0112",
+              "code": "XM_0112",
+              "name": "Advanced Pharmacology",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0113",
+              "code": "XM_0113",
+              "name": "Molecular and Cellular Toxicology",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0114",
+              "code": "XM_0114",
+              "name": "Advanced Course in Molecular Toxicology",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR",
+              "code": "to be announced",
+              "name": "Major Research Project DDS",
+              "ec": 48,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0106": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0112": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0113": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0114": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y2-09-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "08_Education_120.json major-year-1",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "EDU",
+          "path": "",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105",
+            "XM_0106"
+          ]
+        },
+        "constrained": [
+          "XM_0112"
+        ],
+        "electives": [],
+        "educationElectives": [
+          "O_MLPROZ"
+        ],
+        "courseDetails": {},
+        "major": {
+          "route": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": false,
+          "hostStatus": "",
+          "host": "",
+          "topicStatus": "",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "",
+          "host": "",
+          "topicStatus": "",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Daan Geerke",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.292Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0106",
+              "code": "XM_0106",
+              "name": "Principles of Drug Discovery",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0199",
+              "code": "XM_0199",
+              "name": "Computational Design and Synthesis of Drugs",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "O_MLDIDAC_1",
+              "code": "O_MLDIDAC_1",
+              "name": "Didactiek 1",
+              "ec": 6,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPRAK_1",
+              "code": "O_MLPRAK_1",
+              "name": "Praktijk 1",
+              "ec": 6,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPEERGR_1",
+              "code": "O_MLPEERGR_1",
+              "name": "Peergroup 1",
+              "ec": 0,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLDIDAC2",
+              "code": "O_MLDIDAC2",
+              "name": "Didactiek 2",
+              "ec": 9,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPRAK_2",
+              "code": "O_MLPRAK_2",
+              "name": "Praktijk 2",
+              "ec": 9,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPEERGR_2",
+              "code": "O_MLPEERGR_2",
+              "name": "Peergroup 2",
+              "ec": 0,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPRAK_3",
+              "code": "O_MLPRAK_3",
+              "name": "Praktijk 3",
+              "ec": 15,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MPEDIVER",
+              "code": "O_MPEDIVER",
+              "name": "Pedagogische Didactische Verdieping",
+              "ec": 9,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MSTARTSEP",
+              "code": "O_MSTARTSEP",
+              "name": "Startweek",
+              "ec": 0,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "XM_0112",
+              "code": "XM_0112",
+              "name": "Advanced Pharmacology",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0200",
+              "code": "XM_0200",
+              "name": "Major Research Project Education Specialisation",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "O_MLPROZ",
+              "code": "O_MLPROZ",
+              "name": "Praktijkonderzoek",
+              "ec": 6,
+              "section": "Education electives"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-09-01",
+              "end": "Y1-11-01"
+            },
+            "XM_0106": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-11-01",
+              "end": "Y1-01-01"
+            },
+            "XM_0136": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-09-01",
+              "end": "Y1-11-01"
+            },
+            "XM_0199": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-11-01",
+              "end": "Y1-01-01"
+            },
+            "O_MLDIDAC_1": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-09-01",
+              "end": "Y2-11-01"
+            },
+            "O_MLPRAK_1": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-09-01",
+              "end": "Y2-11-01"
+            },
+            "O_MLPEERGR_1": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-09-01",
+              "end": "Y2-02-01"
+            },
+            "O_MLDIDAC2": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-11-01",
+              "end": "Y2-02-01"
+            },
+            "O_MLPRAK_2": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-11-01",
+              "end": "Y2-02-01"
+            },
+            "O_MLPEERGR_2": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            },
+            "O_MLPRAK_3": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            },
+            "O_MPEDIVER": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            },
+            "O_MSTARTSEP": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-08-01",
+              "end": "Y2-09-01",
+              "marker": "late-August"
+            },
+            "XM_0112": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-01-01",
+              "end": "Y1-02-01"
+            },
+            "XM_0200": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-02-01",
+              "breakStart": ""
+            },
+            "O_MLPROZ": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "09_Education_VU_120.json major-year-1",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "EDU",
+          "path": "",
+          "education": "VU_FW",
+          "institution": "Vrije Universiteit Amsterdam",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": false,
+          "required": []
+        },
+        "constrained": [
+          "XM_0112"
+        ],
+        "electives": [
+          "XM_0108",
+          "X_435609"
+        ],
+        "educationElectives": [
+          "O_MLPROZ"
+        ],
+        "courseDetails": {},
+        "major": {
+          "route": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": false,
+          "hostStatus": "",
+          "host": "",
+          "topicStatus": "",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "",
+          "host": "",
+          "topicStatus": "",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Daan Geerke",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.312Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0199",
+              "code": "XM_0199",
+              "name": "Computational Design and Synthesis of Drugs",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "O_MLDIDAC_1",
+              "code": "O_MLDIDAC_1",
+              "name": "Didactiek 1",
+              "ec": 6,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPRAK_1",
+              "code": "O_MLPRAK_1",
+              "name": "Praktijk 1",
+              "ec": 6,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPEERGR_1",
+              "code": "O_MLPEERGR_1",
+              "name": "Peergroup 1",
+              "ec": 0,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLDIDAC2",
+              "code": "O_MLDIDAC2",
+              "name": "Didactiek 2",
+              "ec": 9,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPRAK_2",
+              "code": "O_MLPRAK_2",
+              "name": "Praktijk 2",
+              "ec": 9,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPEERGR_2",
+              "code": "O_MLPEERGR_2",
+              "name": "Peergroup 2",
+              "ec": 0,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPRAK_3",
+              "code": "O_MLPRAK_3",
+              "name": "Praktijk 3",
+              "ec": 15,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MPEDIVER",
+              "code": "O_MPEDIVER",
+              "name": "Pedagogische Didactische Verdieping",
+              "ec": 9,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MSTARTSEP",
+              "code": "O_MSTARTSEP",
+              "name": "Startweek",
+              "ec": 0,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "XM_0112",
+              "code": "XM_0112",
+              "name": "Advanced Pharmacology",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0200",
+              "code": "XM_0200",
+              "name": "Major Research Project Education Specialisation",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "General electives"
+            },
+            {
+              "id": "X_435609",
+              "code": "X_435609",
+              "name": "Separation Sciences",
+              "ec": 6,
+              "section": "General electives"
+            },
+            {
+              "id": "O_MLPROZ",
+              "code": "O_MLPROZ",
+              "name": "Praktijkonderzoek",
+              "ec": 6,
+              "section": "Education electives"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0136": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-09-01",
+              "end": "Y1-11-01"
+            },
+            "XM_0199": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-11-01",
+              "end": "Y1-01-01"
+            },
+            "O_MLDIDAC_1": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-09-01",
+              "end": "Y2-11-01"
+            },
+            "O_MLPRAK_1": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-09-01",
+              "end": "Y2-11-01"
+            },
+            "O_MLPEERGR_1": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-09-01",
+              "end": "Y2-02-01"
+            },
+            "O_MLDIDAC2": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-11-01",
+              "end": "Y2-02-01"
+            },
+            "O_MLPRAK_2": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-11-01",
+              "end": "Y2-02-01"
+            },
+            "O_MLPEERGR_2": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            },
+            "O_MLPRAK_3": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            },
+            "O_MPEDIVER": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            },
+            "O_MSTARTSEP": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-08-01",
+              "end": "Y2-09-01",
+              "marker": "late-August"
+            },
+            "XM_0112": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-01-01",
+              "end": "Y1-02-01"
+            },
+            "XM_0200": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-02-01",
+              "breakStart": ""
+            },
+            "XM_0108": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-09-01",
+              "end": "Y1-11-01"
+            },
+            "X_435609": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-09-01",
+              "end": "Y1-11-01"
+            },
+            "O_MLPROZ": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "Principles-0",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "DSDD",
+          "path": "SMC",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": []
+        },
+        "constrained": [
+          "XM_0109",
+          "XM_0110"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "single",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [
+          {
+            "uid": "PRINCIPLES-FILL",
+            "name": "Fictional unlisted course 1",
+            "code": "TEST-EXT-1",
+            "institution": "Fictional University",
+            "ec": "12",
+            "level": "500",
+            "category": "general",
+            "url": "https://example.org/course"
+          }
+        ],
+        "exceptions": {},
+        "notes": "",
+        "coordinator": "dr. Maikel Wijtmans",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.332Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "X_435663",
+              "code": "X_435663",
+              "name": "Physical Organic Chemistry",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0199",
+              "code": "XM_0199",
+              "name": "Computational Design and Synthesis of Drugs",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0109",
+              "code": "XM_0109",
+              "name": "Spectroscopic Approaches in Medicinal Chemistry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0110",
+              "code": "XM_0110",
+              "name": "Synthetic Approaches in Medicinal Chemistry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR",
+              "code": "to be announced",
+              "name": "Major Research Project DDS",
+              "ec": 48,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            },
+            {
+              "id": "PRINCIPLES-FILL",
+              "code": "TEST-EXT-1",
+              "name": "Fictional unlisted course 1",
+              "ec": 12,
+              "section": "General electives"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435663": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0199": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0109": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0110": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y2-09-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "PRINCIPLES-FILL": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "Principles-1",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "DSDD",
+          "path": "SMC",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105"
+          ]
+        },
+        "constrained": [
+          "XM_0109",
+          "XM_0110"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "single",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [
+          {
+            "uid": "PRINCIPLES-FILL",
+            "name": "Fictional unlisted course 1",
+            "code": "TEST-EXT-1",
+            "institution": "Fictional University",
+            "ec": "6",
+            "level": "500",
+            "category": "general",
+            "url": "https://example.org/course"
+          }
+        ],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Maikel Wijtmans",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.351Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "X_435663",
+              "code": "X_435663",
+              "name": "Physical Organic Chemistry",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0199",
+              "code": "XM_0199",
+              "name": "Computational Design and Synthesis of Drugs",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0109",
+              "code": "XM_0109",
+              "name": "Spectroscopic Approaches in Medicinal Chemistry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0110",
+              "code": "XM_0110",
+              "name": "Synthetic Approaches in Medicinal Chemistry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR",
+              "code": "to be announced",
+              "name": "Major Research Project DDS",
+              "ec": 48,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            },
+            {
+              "id": "PRINCIPLES-FILL",
+              "code": "TEST-EXT-1",
+              "name": "Fictional unlisted course 1",
+              "ec": 6,
+              "section": "General electives"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435663": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0199": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0109": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0110": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y2-09-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "PRINCIPLES-FILL": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "Principles-2",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "DSDD",
+          "path": "SMC",
+          "education": "WO",
+          "institution": "Fictional University",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": true,
+          "required": [
+            "XM_0105",
+            "XM_0106"
+          ]
+        },
+        "constrained": [
+          "XM_0109",
+          "XM_0110"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "single",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "proposed",
+          "host": "Fictional University",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Maikel Wijtmans",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.370Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0105",
+              "code": "XM_0105",
+              "name": "Principles of Drug Targets",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0106",
+              "code": "XM_0106",
+              "name": "Principles of Drug Discovery",
+              "ec": 6,
+              "section": "Principles courses"
+            },
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "X_435663",
+              "code": "X_435663",
+              "name": "Physical Organic Chemistry",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0199",
+              "code": "XM_0199",
+              "name": "Computational Design and Synthesis of Drugs",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0109",
+              "code": "XM_0109",
+              "name": "Spectroscopic Approaches in Medicinal Chemistry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0110",
+              "code": "XM_0110",
+              "name": "Synthetic Approaches in Medicinal Chemistry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR",
+              "code": "to be announced",
+              "name": "Major Research Project DDS",
+              "ec": 48,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0105": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0106": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435663": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0199": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0109": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0110": {
+              "start": "Y1-02-01",
+              "end": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y2-09-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "actual-build-work/workflow-130-build.json",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "",
+          "lastName": "",
+          "number": "",
+          "cohort": 2026,
+          "specialization": "BADD",
+          "path": "",
+          "education": "VU_FW",
+          "institution": "Vrije Universiteit Amsterdam",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": false,
+          "required": []
+        },
+        "constrained": [
+          "XM_0136",
+          "X_435609",
+          "X_435604"
+        ],
+        "electives": [],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "split",
+          "hostStatus": "unknown",
+          "host": "",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "unknown",
+          "host": "",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "",
+          "host": "",
+          "topicStatus": "",
+          "topic": ""
+        },
+        "custom": [
+          {
+            "uid": "CUSTOM_52a75bf6-47ab-41fe-82ce-5237295b1fde",
+            "name": "Fictional unlisted course 1",
+            "code": "TEST-EXT-1",
+            "institution": "Fictional University",
+            "ec": "6",
+            "level": "",
+            "category": "general",
+            "url": "https://example.org/course"
+          }
+        ],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Melissa Bärenfänger",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.388Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0107",
+              "code": "XM_0107",
+              "name": "Advanced Bioanalytical Approaches",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "X_435609",
+              "code": "X_435609",
+              "name": "Separation Sciences",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "X_435604",
+              "code": "X_435604",
+              "name": "Mass Spectrometry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR_PART1",
+              "code": "XM_0207",
+              "name": "Major Research Project DDS — Part 1",
+              "ec": 18,
+              "section": "Major research project"
+            },
+            {
+              "id": "MAJOR_PART2",
+              "code": "to be announced",
+              "name": "Major Research Project DDS — Part 2",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            },
+            {
+              "id": "CUSTOM_52a75bf6-47ab-41fe-82ce-5237295b1fde",
+              "code": "TEST-EXT-1",
+              "name": "Fictional unlisted course 1",
+              "ec": 6,
+              "section": "General electives"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0107": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0108": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435609": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435604": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 4,
+              "pauseWeeks": 0,
+              "breakStart": "Y1-07-01",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "CUSTOM_52a75bf6-47ab-41fe-82ce-5237295b1fde": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "actual-build-work/education-builder-build.json",
+      "expectedTotal": 120,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "",
+          "lastName": "",
+          "number": "",
+          "cohort": 2026,
+          "specialization": "EDU",
+          "path": "",
+          "education": "VU_FW",
+          "institution": "Vrije Universiteit Amsterdam",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": false,
+          "required": []
+        },
+        "constrained": [
+          "XM_0112"
+        ],
+        "electives": [
+          "XM_0108",
+          "X_435609"
+        ],
+        "educationElectives": [
+          "O_MLPROZ"
+        ],
+        "courseDetails": {},
+        "major": {
+          "route": "",
+          "hostStatus": "unknown",
+          "host": "",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": false,
+          "hostStatus": "",
+          "host": "",
+          "topicStatus": "",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "",
+          "host": "",
+          "topicStatus": "",
+          "topic": ""
+        },
+        "custom": [],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Daan Geerke",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.408Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0199",
+              "code": "XM_0199",
+              "name": "Computational Design and Synthesis of Drugs",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "O_MLDIDAC_1",
+              "code": "O_MLDIDAC_1",
+              "name": "Didactiek 1",
+              "ec": 6,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPRAK_1",
+              "code": "O_MLPRAK_1",
+              "name": "Praktijk 1",
+              "ec": 6,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPEERGR_1",
+              "code": "O_MLPEERGR_1",
+              "name": "Peergroup 1",
+              "ec": 0,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLDIDAC2",
+              "code": "O_MLDIDAC2",
+              "name": "Didactiek 2",
+              "ec": 9,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPRAK_2",
+              "code": "O_MLPRAK_2",
+              "name": "Praktijk 2",
+              "ec": 9,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPEERGR_2",
+              "code": "O_MLPEERGR_2",
+              "name": "Peergroup 2",
+              "ec": 0,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MLPRAK_3",
+              "code": "O_MLPRAK_3",
+              "name": "Praktijk 3",
+              "ec": 15,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MPEDIVER",
+              "code": "O_MPEDIVER",
+              "name": "Pedagogische Didactische Verdieping",
+              "ec": 9,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "O_MSTARTSEP",
+              "code": "O_MSTARTSEP",
+              "name": "Startweek",
+              "ec": 0,
+              "section": "Education compulsory courses"
+            },
+            {
+              "id": "XM_0112",
+              "code": "XM_0112",
+              "name": "Advanced Pharmacology",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "XM_0200",
+              "code": "XM_0200",
+              "name": "Major Research Project Education Specialisation",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "General electives"
+            },
+            {
+              "id": "X_435609",
+              "code": "X_435609",
+              "name": "Separation Sciences",
+              "ec": 6,
+              "section": "General electives"
+            },
+            {
+              "id": "O_MLPROZ",
+              "code": "O_MLPROZ",
+              "name": "Praktijkonderzoek",
+              "ec": 6,
+              "section": "Education electives"
+            }
+          ],
+          "total": 120
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0136": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-09-01",
+              "end": "Y1-11-01"
+            },
+            "XM_0199": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-11-01",
+              "end": "Y1-01-01"
+            },
+            "O_MLDIDAC_1": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-09-01",
+              "end": "Y2-11-01"
+            },
+            "O_MLPRAK_1": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-09-01",
+              "end": "Y2-11-01"
+            },
+            "O_MLPEERGR_1": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-09-01",
+              "end": "Y2-02-01"
+            },
+            "O_MLDIDAC2": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-11-01",
+              "end": "Y2-02-01"
+            },
+            "O_MLPRAK_2": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-11-01",
+              "end": "Y2-02-01"
+            },
+            "O_MLPEERGR_2": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            },
+            "O_MLPRAK_3": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            },
+            "O_MPEDIVER": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            },
+            "O_MSTARTSEP": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-08-01",
+              "end": "Y2-09-01",
+              "marker": "late-August"
+            },
+            "XM_0200": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-04-01",
+              "breakStart": ""
+            },
+            "XM_0112": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-01-01",
+              "end": "Y1-02-01"
+            },
+            "O_MLPROZ": {
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y2-02-01",
+              "end": "Y2-07-01"
+            },
+            "XM_0108": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-09-01",
+              "end": "Y1-11-01"
+            },
+            "X_435609": {
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "notes": "",
+              "start": "Y1-09-01",
+              "end": "Y1-11-01"
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    },
+    {
+      "name": "Didactics-126EC",
+      "expectedTotal": 126,
+      "draft": {
+        "schemaVersion": 2,
+        "ruleVersion": "DDS-2026-2027.13",
+        "id": "SYNTHETIC-BUILDER-TEST",
+        "student": {
+          "firstName": "Fictional",
+          "lastName": "Test Student",
+          "number": "TEST-ONLY",
+          "cohort": 2026,
+          "specialization": "BADD",
+          "path": "",
+          "education": "VU_FW",
+          "institution": "Vrije Universiteit Amsterdam",
+          "degree": "Fictional bachelor",
+          "graduated": "2026-07-01"
+        },
+        "principles": {
+          "override": false,
+          "required": []
+        },
+        "constrained": [
+          "XM_0136",
+          "X_435609",
+          "X_435604"
+        ],
+        "electives": [
+          "XM_0197"
+        ],
+        "educationElectives": [],
+        "courseDetails": {},
+        "major": {
+          "route": "split",
+          "hostStatus": "unknown",
+          "host": "",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "minor": {
+          "enabled": true,
+          "hostStatus": "unknown",
+          "host": "",
+          "topicStatus": "unknown",
+          "topic": ""
+        },
+        "literature": {
+          "enabled": false,
+          "code": "",
+          "hostStatus": "",
+          "host": "",
+          "topicStatus": "",
+          "topic": ""
+        },
+        "custom": [
+          {
+            "uid": "CUSTOM_52a75bf6-47ab-41fe-82ce-5237295b1fde",
+            "name": "Fictional unlisted course 1",
+            "code": "TEST-EXT-1",
+            "institution": "Fictional University",
+            "ec": "6",
+            "level": "",
+            "category": "general",
+            "url": "https://example.org/course"
+          }
+        ],
+        "exceptions": {},
+        "notes": "Fictional test explanation.",
+        "coordinator": "dr. Melissa Bärenfänger",
+        "formVersion": "0.10.7",
+        "savedAt": "2026-10-22T13:26:21.430Z",
+        "courseSnapshot": {
+          "snapshotVersion": 1,
+          "rows": [
+            {
+              "id": "XM_0196",
+              "code": "XM_0196",
+              "name": "Research and Academic Skills",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0107",
+              "code": "XM_0107",
+              "name": "Advanced Bioanalytical Approaches",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0108",
+              "code": "XM_0108",
+              "name": "Biopharmaceuticals & Biopharma Proteomics",
+              "ec": 6,
+              "section": "Compulsory courses"
+            },
+            {
+              "id": "XM_0136",
+              "code": "XM_0136",
+              "name": "ADME",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "X_435609",
+              "code": "X_435609",
+              "name": "Separation Sciences",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "X_435604",
+              "code": "X_435604",
+              "name": "Mass Spectrometry",
+              "ec": 6,
+              "section": "Constrained electives"
+            },
+            {
+              "id": "MAJOR_PART1",
+              "code": "XM_0207",
+              "name": "Major Research Project DDS — Part 1",
+              "ec": 18,
+              "section": "Major research project"
+            },
+            {
+              "id": "MAJOR_PART2",
+              "code": "to be announced",
+              "name": "Major Research Project DDS — Part 2",
+              "ec": 30,
+              "section": "Major research project"
+            },
+            {
+              "id": "MINOR",
+              "code": "to be announced",
+              "name": "Minor Research Project DDS",
+              "ec": 30,
+              "section": "Minor research project"
+            },
+            {
+              "id": "XM_0197",
+              "code": "XM_0197",
+              "name": "Didactics of Science Supervision",
+              "ec": 6,
+              "section": "General electives"
+            },
+            {
+              "id": "CUSTOM_52a75bf6-47ab-41fe-82ce-5237295b1fde",
+              "code": "TEST-EXT-1",
+              "name": "Fictional unlisted course 1",
+              "ec": 6,
+              "section": "General electives"
+            }
+          ],
+          "total": 126
+        },
+        "plannerTransfer": {
+          "targetFormVersion": "0.10.7",
+          "targetRuleVersion": "DDS-2026-2027.13",
+          "targetSchemaVersion": 2,
+          "version": "1.4.5",
+          "planningDates": "relative-academic-year",
+          "schedule": {
+            "XM_0196": {
+              "start": "Y1-09-01",
+              "end": "Y1-06-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0107": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0108": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "XM_0136": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435609": {
+              "start": "Y1-09-01",
+              "end": "Y1-11-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "X_435604": {
+              "start": "Y1-11-01",
+              "end": "Y1-01-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "MAJOR": {
+              "start": "Y1-04-01",
+              "year": 1,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 4,
+              "pauseWeeks": 0,
+              "breakStart": "Y1-07-01",
+              "notes": ""
+            },
+            "MINOR": {
+              "start": "Y2-01-01",
+              "year": 2,
+              "fte": 1,
+              "daysPerWeek": 5,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0,
+              "breakStart": "",
+              "notes": ""
+            },
+            "XM_0197": {
+              "year": 1,
+              "theoryPeriod": 1,
+              "practicePeriod": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            },
+            "CUSTOM_52a75bf6-47ab-41fe-82ce-5237295b1fde": {
+              "start": "Y1-01-01",
+              "end": "Y1-02-01",
+              "year": 1,
+              "fte": 1,
+              "leaveWeeks": 0,
+              "pauseWeeks": 0
+            }
+          },
+          "notice": "Curriculum selections for review. Complete personal details, project host/topic information and any exception requests in the PEP approval tool. No approval is granted by this export."
+        }
+      }
+    }
+  ]
+}
