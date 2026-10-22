@@ -191,6 +191,7 @@ function exportDraft(s){
  return saved;
 }
 function importDraft(raw){
+ if(raw?.kind==='DDS-planner-design-draft')throw Error('This is a saved PEP Builder build. In PEP Builder choose Export for approval, then use Import draft PEP here.');
  if(!raw||typeof raw!=='object'||Array.isArray(raw)||raw.schemaVersion!==2)throw Error('This is not a supported DDS PEP draft (format version 2).');
  if(raw.student?.cohort!==2026)throw Error('This form supports the 2026 intake only.');
  let base=fresh();const textKeys=['id','notes'];for(const k of textKeys)if(typeof raw[k]==='string')base[k]=raw[k].slice(0,k==='notes'?10000:200);
