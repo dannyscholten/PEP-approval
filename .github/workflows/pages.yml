@@ -26,7 +26,14 @@ jobs:
       - name: Build the website
         run: npm run build
       - name: Install test browser
-        run: npx playwright install --with-deps chromium
+        timeout-minutes: 5
+        run: |
+          # Avoid long retries against the intermittent Azure package mirror.
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            sudo sed -i 's/azure.archive.ubuntu.com/archive.ubuntu.com/g' /etc/apt/apt-mirrors.txt
+          fi
+          printf 'Acquire::Retries "1";\nAcquire::http::Timeout "15";\nAcquire::https::Timeout "15";\n' | sudo tee /etc/apt/apt.conf.d/99-pep-ci-timeouts >/dev/null
+          npx playwright install --with-deps chromium
       - name: Check form interactions, draft imports and PDF export
         run: npm run test:browser
       - name: Configure Pages
