@@ -1039,3 +1039,27 @@ details[open] summary{
 .review-panel .issue-actions{margin-top:6px}
 @media(max-width:650px){.check-grid{grid-template-columns:minmax(0,1fr)}.review-panel{padding:10px}.content .inset{padding:10px}}
 @media print{.unlisted-review-label{color:#b42318!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* Course picker: blue areas are the actual PEP; catalogue choices stay in dialogs. */
+.included-pep{background:#eef7fc;border:1px solid #c5e2f2;border-radius:7px;padding:10px 12px;margin:8px 0 10px;color:#003b64}
+.included-pep .included-label{font-size:12px;font-weight:600;margin:0 0 5px;color:#003b64}
+.included-pep .course-table-wrap{margin:0}
+.included-pep .course-table{background:transparent}
+.included-pep .course-table td,.included-pep .course-table th{background:transparent}
+.course-name,.included-pep .course-name,.available-course .course-name{color:#003b64!important;font-weight:600}
+.included-pep .course-table td{color:#203342}
+.included-pep .course-table .course-code{color:#475e6b}
+.project-summary{display:grid;gap:3px;margin-top:5px;font-size:12px;color:#405868;overflow-wrap:anywhere}
+.project-summary strong{font-weight:600}
+.project-additions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.add-course-button{margin:0 0 10px}
+.available-courses{border-top:1px solid var(--line);margin-top:12px}
+.available-course{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid var(--line);padding:12px 0}
+.available-course>div{min-width:0}.available-course button{flex:none}
+.unlisted-review-label{display:inline-block;vertical-align:middle;color:#b42318;background:#fff0ee;border:1px solid #e9a9a2;border-radius:4px;font-size:11px;padding:2px 5px;margin:3px 0 3px 5px;line-height:1.35}
+.status-messages{padding:8px 0 12px;border-bottom:1px solid #c9dce7;margin-bottom:12px}
+.aside .status-messages h3,.aside .aside-details>h3{font-size:14px;margin:0 0 8px;color:#003b64}
+.aside .status-messages .subtotal{align-items:baseline}
+#editor [hidden]{display:none!important}
+#print-area .unlisted-review-label{margin-left:0}
+@media print{.unlisted-review-label{background:#fff0ee!important;border-color:#e9a9a2!important}}

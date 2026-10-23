@@ -2,7 +2,7 @@
 
 [Open the PEP form](https://dannyscholten.github.io/pep-approval/) · [Cohort 2026 link](https://dannyscholten.github.io/pep-approval/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/pep-approval/actions)
 
-Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 1.0.0.
+Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 1.1.0.
 
 The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has a digital-signature field for the specialisation coordinator. Only a Principles deviation adds editable Admissions Board decision/name/date fields and its signature field. Academic decisions and exceptions still require the relevant board/coordinator.
 
@@ -134,3 +134,14 @@ The current Builder 1.4.5 export-to-import workflow was exercised through actual
 - Review uses compact check cards and equally prominent student/reviewer headings. Validation and approval rules are unchanged.
 - Sidebar credit total is red below 110 or above 120 EC, orange from 110 to below 120, and green at 120. Removed duplicate excess-credit and Alpha/gamma-limit sidebar messages.
 - Submission instructions explicitly require emailing the completed PDF to the coordinator. Native PDF review checkboxes and signature fields remain available.
+
+## Version 1.1.0
+
+- Course-picker dialogs replace course selection checkboxes and inline elective dropdowns. Light-blue tables contain only the courses included in the PEP; course names use dark VU blue.
+- Optional minor and literature projects are added using buttons. Registration route, host and topic details are edited transactionally in a popup and summarised under the project name. Cancelling does not change the PEP.
+- Education keeps its fixed 30 EC major, 60/60 component split, restricted DDS options and paired World citizenship courses. Principles defaults and path preselection are unchanged.
+- Curriculum checks, status-message counts, section credit totals and navigation have separate headings. The redundant incomplete banner is removed.
+- PDFs list compulsory course names, codes and EC within the curriculum checks. Red unlisted-course labels have a visible border.
+- Removed all PDF Reviewed checkboxes. Active justified exceptions share one required, initially blank coordinator explanation field; Principles omissions retain the separate Admissions Board decision/signature. Unlisted-course review alone adds no explanation field: its label and coordinator signature serve as preapproval. Final examination-board approval remains required.
+- Adobe Acrobat signing guidance and the distinction between preapproval and final approval are explicit. Coordinator signing still locks all fields; Admissions signing locks only Admissions fields.
+- No historical tool-version comparison was added. Current draft and Builder approval-export formats are validated and recalculated using the current curriculum rules.
