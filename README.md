@@ -2,7 +2,7 @@
 
 [Open the PEP form](https://dannyscholten.github.io/pep-approval/) · [Cohort 2026 link](https://dannyscholten.github.io/pep-approval/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/pep-approval/actions)
 
-Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 1.1.0.
+Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 1.2.0.
 
 The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has a digital-signature field for the specialisation coordinator. Only a Principles deviation adds editable Admissions Board decision/name/date fields and its signature field. Academic decisions and exceptions still require the relevant board/coordinator.
 
@@ -145,3 +145,14 @@ The current Builder 1.4.5 export-to-import workflow was exercised through actual
 - Removed all PDF Reviewed checkboxes. Active justified exceptions share one required, initially blank coordinator explanation field; Principles omissions retain the separate Admissions Board decision/signature. Unlisted-course review alone adds no explanation field: its label and coordinator signature serve as preapproval. Final examination-board approval remains required.
 - Adobe Acrobat signing guidance and the distinction between preapproval and final approval are explicit. Coordinator signing still locks all fields; Admissions signing locks only Admissions fields.
 - No historical tool-version comparison was added. Current draft and Builder approval-export formats are validated and recalculated using the current curriculum rules.
+
+## Version 1.2.0
+
+- Pickers remain open after adding courses, remove included options, announce additions, and provide top/bottom Close buttons plus Done. A completed Principles selection has no add button.
+- The compulsory major uses the same transactional add-details flow as optional projects. Research majors count their 48 EC after saving a route; Education counts its fixed 30 EC after saving the add popup. Removing a major restores the add button and blocks approval until the compulsory project is restored.
+- Current Builder Education exports retain their compulsory major on import without any release-version comparison. Explicit not-yet-added major state and SMC acknowledgement survive draft export/import.
+- Table actions use the Builder's double-cog and cross icons in real buttons. Action headers align with these controls; unlisted courses link safely to their public syllabus.
+- Credit breakdown precedes status messages, Principles warnings have padded borders, and entry/supervision help uses light grey.
+- Clicking a dialog backdrop closes it; uncommitted editor changes are discarded. Courses explicitly added through a picker remain in the PEP.
+- The SMC research-preparation reminder appears at the bottom of Review only when a major is included and can be acknowledged. Editing/removing the major or changing path resets the acknowledgement. This reminder does not replace internship-coordinator eligibility checks.
+- Displayed em/en dashes are replaced with regular hyphens. Academic course codes and credit rules are retained.

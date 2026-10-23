@@ -12,7 +12,7 @@ function fresh(){return {
  schemaVersion:2,ruleVersion:DATA.ruleVersion,id:'PEP-'+Date.now().toString(36).toUpperCase(),
  student:{firstName:'',lastName:'',number:'',cohort:2026,specialization:'',path:'',education:'',institution:'',degree:'',graduated:''},
  principles:{override:false,required:[]},constrained:[],electives:[],educationElectives:[],courseDetails:{},
- major:{route:'',hostStatus:'',host:'',topicStatus:'',topic:''},
+ major:{enabled:false,smcPreparationAcknowledged:false,route:'',hostStatus:'',host:'',topicStatus:'',topic:''},
  minor:{enabled:false,hostStatus:'',host:'',topicStatus:'',topic:''},
  literature:{enabled:false,code:'',hostStatus:'',host:'',topicStatus:'',topic:''},
  custom:[],exceptions:{},notes:'',coordinator:''
@@ -46,8 +46,8 @@ function components(s){
  const add=(code,section)=>{const c=map[code];if(c) rows.push({...c,id:code,section});};
  requiredCodes(s).forEach(c=>add(c,DATA.principles.includes(c)?'Principles courses':educationSpec().educationCompulsory.includes(c)?'Education compulsory courses':'Compulsory courses'));
  s.constrained.forEach(c=>add(c,'Constrained electives'));
- if(isEducation(s))rows.push({...map.XM_0200,id:'XM_0200',section:'Major research project',project:true});
- else if(DATA.specializations[s.student.specialization]&&['single','split'].includes(s.major.route)){
+ if(isEducation(s)&&s.major.enabled!==false)rows.push({...map.XM_0200,id:'XM_0200',section:'Major research project',project:true});
+ else if(!isEducation(s)&&DATA.specializations[s.student.specialization]&&['single','split'].includes(s.major.route)){
   const project={section:'Major research project',source:'TER 10.2, p. 20',project:true};
   if(s.major.route==='split')rows.push(
    {...project,id:'MAJOR_PART1',code:'XM_0207',name:'Major Research Project DDS — Part 1',ec:18},
@@ -95,12 +95,12 @@ function evaluate(s){
   if(!edu&&selected.length<2)add('constrained_min','error','Select at least two distinct courses from the six constrained electives for your specialisation (minimum 12 EC).','TER 10.2','constrained',true);
   const missing=pathCodes(s).filter(c=>!s.constrained.includes(c));
   if(missing.length)add('path_courses','error','Your path requires: '+missing.map(c=>map[c].name).join('; ')+'.','Specialisation FAQ, constrained choices','constrained',true);
-  if(!edu&&!['single','split'].includes(s.major.route))err('major_route','Choose the registration route for your 48 EC major project.','projects');
+  if(!edu&&!['single','split'].includes(s.major.route))err('major_route','Add the compulsory 48 EC major research project and complete its details.','projects');
  }
  for(const [key,title] of [['major','Major project'],['minor','Minor project'],['literature','Literature thesis']]){
   if(edu&&key!=='major')continue;
   if(key!=='major'&&!s[key].enabled)continue;
-  if(key==='major'&&!spec)continue;
+  if(key==='major'&&(!spec||(edu?s.major.enabled===false:!['single','split'].includes(s.major.route))))continue;
   for(const field of ['host','topic']){
    if(!(field==='host'?['proposed','confirmed']:['unknown','proposed','confirmed']).includes(s[key][field+'Status']))err(key+'_'+field+'_status','Choose a status for '+title.toLowerCase()+' '+field+'.','projects');
    if(['proposed','confirmed'].includes(s[key][field+'Status'])&&!clean(s[key][field]))err(key+'_'+field,title+' '+field+' needs details.'+(field==='topic'?' You may choose “Not yet known” for the topic.':''),'projects');
@@ -143,6 +143,7 @@ function evaluate(s){
  const unclassified=round(rows.filter(r=>r.section==='Electives awaiting classification').reduce((a,r)=>a+r.ec,0));
  const ddsTotal=round(rows.filter(r=>r.component==='dds').reduce((n,r)=>n+r.ec,0)),educationTotal=round(rows.filter(r=>r.component==='education').reduce((n,r)=>n+r.ec,0));
  if(edu){
+  if(s.major.enabled===false)err('education_major','Add the compulsory 30 EC major research project and complete its details.','projects');
   for(const [component,value] of [['DDS',ddsTotal],['Education',educationTotal]])if(value<60)err('education_'+component.toLowerCase()+'_total',component+' component totals '+value+' EC; at least 60 EC are required. Credits in the other component cannot cover this shortfall.','electives');
   if(s.minor.enabled)err('education_minor','Minor research projects are not allowed for Education. Remove the minor; no exception is available.','projects');
   if(s.literature.enabled)err('education_literature','Literature theses are not allowed for Education.','projects');
@@ -197,6 +198,7 @@ function importDraft(raw){
  let base=fresh();const textKeys=['id','notes'];for(const k of textKeys)if(typeof raw[k]==='string')base[k]=raw[k].slice(0,k==='notes'?10000:200);
  const obj=(target,source)=>{if(!source||typeof source!=='object'||Array.isArray(source))return;for(const k of Object.keys(target)){if(typeof target[k]==='string'&&typeof source[k]==='string')target[k]=source[k].slice(0,10000);if(typeof target[k]==='boolean')target[k]=source[k]===true;}};
  obj(base.student,raw.student);obj(base.principles,raw.principles);for(const k of (isEducation(base)?['major','minor']:['major','minor','literature']))obj(base[k],raw[k]);
+ if(isEducation(base)&&typeof raw.major?.enabled!=='boolean')base.major.enabled=true;
  for(const k of ['constrained','electives','educationElectives']){if(raw[k]!==undefined&&!Array.isArray(raw[k]))throw Error('Invalid '+k+' list.');base[k]=(raw[k]||[]).filter(v=>typeof v==='string').slice(0,200);}
  base.principles.required=Array.isArray(raw.principles?.required)?raw.principles.required.filter(v=>typeof v==='string').slice(0,4):[];
  if(raw.custom!==undefined&&!Array.isArray(raw.custom))throw Error('Invalid custom course list.');

@@ -1063,3 +1063,19 @@ details[open] summary{
 #editor [hidden]{display:none!important}
 #print-area .unlisted-review-label{margin-left:0}
 @media print{.unlisted-review-label{background:#fff0ee!important;border-color:#e9a9a2!important}}
+
+/* Multi-add pickers and consistent Builder-style table actions. */
+.dialog-close{float:right;min-height:36px;padding:7px 12px;margin:0 0 10px 12px;background:white;border:1px solid #9dbbce;border-radius:4px;color:#003b64;text-decoration:none;font-weight:600}
+.picker-footer{display:flex;justify-content:flex-end;gap:10px;margin-top:18px;padding-top:14px;border-top:1px solid #c9dce7}
+.picker-feedback{color:#246943;font-size:13px;margin:8px 0}
+.course-table th.actions,.course-table td.actions{text-align:center;width:94px;white-space:nowrap}
+.course-table .actions .row-action{display:inline-flex;align-items:center;justify-content:center;min-width:32px;min-height:32px;padding:5px;margin:2px;border:1px solid #9dbbce;border-radius:4px;background:#fff;color:#003b64;text-decoration:none}
+.row-action .double-cog{width:25px;height:22px}.row-action .action-icon:not(.double-cog){width:18px;height:18px}
+.principles-warning{padding:12px 14px;margin-top:12px;border:1px solid #e9b8b0;border-left:3px solid #b42318;border-radius:6px}
+.principles-warning p{margin:6px 0 9px;line-height:1.5}
+.content details.entry-reminders{background:#f3f4f5;border:1px solid #d5dade;color:#35454e}
+.content details.entry-reminders summary{color:#35454e}
+.syllabus-link{display:inline-block;font-size:12px;margin-top:4px;color:#005f91}
+.aside .aside-details{padding-top:12px;margin-bottom:15px}
+.aside .status-messages{padding-top:12px;border-top:1px solid #c9dce7}
+@media(pointer:coarse){.course-table .actions .row-action{min-width:42px;min-height:42px;margin:2px}.course-table .actions{width:104px}}

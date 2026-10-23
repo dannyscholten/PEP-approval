@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "ruleVersion": "DDS-2026-2027.13",
+  "ruleVersion": "DDS-2026-2027.14",
   "id": "PEP-DEMO-BADD",
   "student": {
     "firstName": "Example",
@@ -29,6 +29,8 @@
   "educationElectives": [],
   "courseDetails": {},
   "major": {
+    "enabled": false,
+    "smcPreparationAcknowledged": false,
     "route": "split",
     "hostStatus": "proposed",
     "host": "Example University",
@@ -54,8 +56,8 @@
   "exceptions": {},
   "notes": "FICTIONAL TEST EXAMPLE — replace all example student details before use.",
   "coordinator": "dr. Melissa Bärenfänger",
-  "formVersion": "1.1.0",
-  "savedAt": "2026-10-23T15:23:56.146Z",
+  "formVersion": "1.2.0",
+  "savedAt": "2026-10-23T16:07:44.546Z",
   "courseSnapshot": {
     "snapshotVersion": 1,
     "rows": [

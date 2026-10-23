@@ -11,7 +11,8 @@ for(const {name,expectedTotal,draft} of fixture.cases){
  assert.equal(s.notes,draft.notes||'',name+' explanation');
  assert(!Object.hasOwn(s,'plannerTransfer'),name+' does not copy timing metadata into the approval form');
  assert.equal(typeof draft.plannerTransfer.targetFormVersion,'string',name+' declares its original target form version');
- assert.equal(draft.plannerTransfer.targetRuleVersion,R.DATA.ruleVersion,name+' rule version');
+ // Target release metadata does not restrict import; current rules recalculate every plan.
+ assert.equal(typeof draft.plannerTransfer.targetRuleVersion,'string',name+' declares rule metadata');
  assert.equal(draft.plannerTransfer.targetSchemaVersion,s.schemaVersion,name+' schema version');
  if(R.isEducation(s)){assert.equal(v.ddsTotal,60,name+' DDS component');assert.equal(v.educationTotal,60,name+' Education component');}
  if(name.startsWith('actual-build-')){assert.equal(v.canExport,false,name+' still needs personal and host details for approval');assert(v.errors.length>0);}
