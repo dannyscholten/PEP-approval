@@ -1,8 +1,8 @@
 # DDS Personal Education Plan
 
-[Open the PEP form](https://dannyscholten.github.io/pep-approval/) · [Cohort 2026 link](https://dannyscholten.github.io/pep-approval/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/pep-approval/actions)
+[Open the PEP form](https://dannyscholten.github.io/PEP-approval/) · [Cohort 2026 link](https://dannyscholten.github.io/PEP-approval/2026/) · [Update guide](docs/UPDATING.md) · [Publishing status](https://github.com/dannyscholten/PEP-approval/actions)
 
-Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 1.2.0.
+Personal Education Plan for the VU Master Drug Discovery Sciences, cohort 2026: BADD, DSDD, PTDD and Education. Version 1.3.0.
 
 The form checks programme composition, credits and required information. Students export their JSON draft and download a PDF for the existing review/submission process. The downloaded PDF has a digital-signature field for the specialisation coordinator. Only a Principles deviation adds editable Admissions Board decision/name/date fields and its signature field. Academic decisions and exceptions still require the relevant board/coordinator.
 
@@ -32,7 +32,7 @@ Version 0.9.5 is the first intended student release (draft format 2). Earlier ve
 
 The application processes entries in the browser and does not upload student data. JSON drafts and PDFs are downloaded to the user's chosen location. GitHub hosts the public website and source; its normal website access logging applies. Never commit actual student drafts, signed PEPs, certificates or keys to this repository. All supplied fixtures/examples are fictional.
 
-The stable 2026 route is `/pep-approval/2026/`. Keep the 2026 programme available when a later cohort is introduced; do not silently replace its rules with another intake's requirements.
+The stable 2026 route is `/PEP-approval/2026/`. Keep the 2026 programme available when a later cohort is introduced; do not silently replace its rules with another intake's requirements.
 
 ## Local development
 
@@ -156,3 +156,11 @@ The current Builder 1.4.5 export-to-import workflow was exercised through actual
 - Clicking a dialog backdrop closes it; uncommitted editor changes are discarded. Courses explicitly added through a picker remain in the PEP.
 - The SMC research-preparation reminder appears at the bottom of Review only when a major is included and can be acknowledged. Editing/removing the major or changing path resets the acknowledgement. This reminder does not replace internship-coordinator eligibility checks.
 - Displayed em/en dashes are replaced with regular hyphens. Academic course codes and credit rules are retained.
+
+## Version 1.3.0
+
+- Combined research projects and literature thesis into one compact table, retaining host/topic details beneath every course name in the tool and PDF.
+- Removed repeated selected-course captions and the duplicate VU-FW Principles notice; made edit/remove controls equal size.
+- Linked sidebar status counts to the corresponding messages, underlined syllabus links and made draft help grey.
+- Grouped Admissions Board and coordinator decision fields before signatures; moved full warning and review statements into coloured cards in a final PDF appendix, with safe overflow pagination. Conditional required fields and signature locks are unchanged.
+- Verified domain rules, current Builder exports including Education, browser layout and editable PDF fields.

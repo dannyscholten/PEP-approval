@@ -41,7 +41,11 @@ async function create(source,state,logo){
    value.forEach((t,j)=>draw(t,M+ws[0]+pad,y-4-j*lh,8.5,font,ink));status.forEach((t,j)=>draw(t,M+ws[0]+ws[1]+pad,y-4-j*lh,8.5,bold,statusColour(row.dataset.status)));y-=h;
   }y-=6;
  }
- function reviewItem(el){ensure(65);paragraph('DECISION / VERIFICATION REQUIRED',{size:8.5,color:rgb(.55,.31,0)});for(const child of el.children)if(child.tagName==='P')walk(child);}
+ function messageCard(el){
+  const severity=el.classList.contains('review')?'review':'warning',accent=severity==='review'?rgb(.55,.31,0):red,bg=severity==='review'?rgb(1,.976,.925):rgb(1,.95,.94),pad=10,lh=12;
+  const rows=[];for(const child of el.children){const isTitle=child.tagName==='STRONG',f=isTitle?bold:font,color=isTitle?accent:child.classList.contains('exception-justification')?blue:ink;for(const text of lines(txt(child),8.7,width-pad*2-4,f))rows.push({text,f,color});rows.push({text:'',f:font,color:ink});}
+  let start=0;while(start<rows.length){if(y-bottom<70)newPage();const count=Math.min(rows.length-start,Math.floor((y-bottom-pad*2)/lh));if(count<1){newPage();continue;}const h=count*lh+pad*2;page.drawRectangle({x:M,y:y-h,width,height:h,color:bg,borderColor:line,borderWidth:.5});page.drawRectangle({x:M,y:y-h,width:3,height:h,color:accent});rows.slice(start,start+count).forEach((r,j)=>draw(r.text,M+pad+3,y-pad-j*lh,8.7,r.f,r.color));y-=h+10;start+=count;if(start<rows.length)newPage();}
+ }
  function label(text,x,top,required=false,size=8.5){draw(text,x,top,size,bold,navy);if(required)draw(' *',x+bold.widthOfTextAtSize(text,size),top,size,bold,red);}
  function field(name,text,value='',height=32,multiline=false){ensure(height+23);label(text,M,y,['admissions_decision','coordinator_exception_comment'].includes(name));y-=15;addField(name,value,M,y,width,height,multiline);y-=height+8;}
  function addField(name,value,x,top,w,h,multiline=false){const f=form.createTextField(name);if(multiline)f.enableMultiline();f.setText(clean(value));f.disableScrolling();f.addToPage(page,{x,y:top-h,width:w,height:h,borderWidth:.6,borderColor:line,backgroundColor:rgb(.975,.985,1),textColor:ink,font});f.setFontSize(9);if(name==='admissions_decision'||name==='coordinator_exception_comment'||name==='coordinator_date'||boardRequired&&['admissions_name','admissions_date'].includes(name))f.enableRequired();return f;}
@@ -74,13 +78,17 @@ async function create(source,state,logo){
   if(el.classList?.contains('print-total')){total(el);return;}
   if(el.classList?.contains('signature-table')){signatures();return;}
   if(el.classList?.contains('print-check-table')){checks(el);return;}
-  if(el.dataset?.reviewId){reviewItem(el);return;}
+  if(el.classList?.contains('print-review-appendix')){newPage();for(const child of el.children)walk(child);return;}
+  if(el.classList?.contains('print-message-card')){messageCard(el);return;}
   if(el.tagName==='TABLE'){table(el);return;}
   if(el.tagName==='H2'){if(root.PEPRules.isEducation(state)&&txt(el).includes('Review and'))ensure(570);if(txt(el).includes('Research projects')||root.PEPRules.isEducation(state)&&txt(el).includes('Major research project'))ensure(190);heading(txt(el),true);return;}
   if(el.tagName==='H3'){if(txt(el)==='Specialisation coordinator explanation for exceptions')ensure(210);if(['Major research project','Minor research project','Literature thesis'].includes(txt(el)))ensure(txt(el)==='Major research project'?170:120);const next=el.nextElementSibling;if(next?.tagName==='TABLE'&&next.rows.length<=4)ensure(24+next.rows.length*20);heading(txt(el));return;}
   if(el.tagName==='P'&&el.classList.contains('print-checks')&&txt(el).startsWith('*')){ensure(24);const top=y;paragraph(txt(el),{size:8,color:red});return;}
   if(el.tagName==='P'){paragraph(txt(el),{size:el.classList.contains('print-checks')?8:9,color:el.classList.contains('warning-text')||el.classList.contains('mandatory-note')?red:el.classList.contains('exception-justification')?rgb(0,.373,.569):ink});return;}
   if(el.tagName==='STRONG'){paragraph(txt(el),{size:8.5,color:navy});return;}
+  if(el.classList?.contains('print-decisions'))ensure(el.querySelectorAll('[data-pdf-field]').length===2?360:215);
+  if(el.classList?.contains('admissions-explanation'))ensure(145);
+  if(el.classList?.contains('coordinator-exceptions'))ensure(175);
   if(el.classList?.contains('print-approval'))ensure(198);
   if(el.classList?.contains('print-project'))ensure(70);
   for(const child of el.children)walk(child);

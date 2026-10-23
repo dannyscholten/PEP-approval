@@ -1,7 +1,7 @@
 # Updating the PEP in GitHub
 
-Website: https://dannyscholten.github.io/pep-approval/
-Repository: https://github.com/dannyscholten/pep-approval
+Website: https://dannyscholten.github.io/PEP-approval/
+Repository: https://github.com/dannyscholten/PEP-approval
 
 ## A small text or coordinator update
 

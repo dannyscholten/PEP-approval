@@ -1079,3 +1079,15 @@ details[open] summary{
 .aside .aside-details{padding-top:12px;margin-bottom:15px}
 .aside .status-messages{padding-top:12px;border-top:1px solid #c9dce7}
 @media(pointer:coarse){.course-table .actions .row-action{min-width:42px;min-height:42px;margin:2px}.course-table .actions{width:104px}}
+
+/* Compact selected-course tables and consistent action controls. */
+.course-table .actions .row-action{box-sizing:border-box;width:32px;height:32px;min-width:32px;min-height:32px;padding:4px;flex-shrink:0}
+.row-action .double-cog{width:22px;height:22px;flex-shrink:0}
+.syllabus-link{color:#0077b3;text-decoration:underline;text-underline-offset:2px}
+.draft-help,.toolbar .draft-help{background:#f3f4f5;border-color:#d5dade;color:#35454e}
+.draft-help summary,.toolbar .draft-help summary{color:#35454e}
+.status-messages .status-link{display:flex;gap:12px;align-items:baseline;justify-content:space-between;color:#003b64;text-decoration:none;border-radius:3px}
+.status-messages .status-link:hover,.status-messages .status-link:focus-visible{background:#dbeef7;text-decoration:underline}
+.review-panel[id],#smc-preparation-reminder{scroll-margin-top:24px}
+@media(pointer:coarse){.course-table .actions .row-action{width:42px;height:42px;min-width:42px;min-height:42px}}
+@media print{.print-review-appendix{break-before:page}.print-message-card{padding:10px;margin:10px 0;border:1px solid #d5dade;border-left:4px solid #a65a00;background:#fff8ec;break-inside:avoid}.print-message-card.error,.print-message-card.warning{border-left-color:#b42318;background:#fff3f1}.print-message-card>strong{color:#8c4f00}.print-message-card.warning>strong,.print-message-card.error>strong{color:#b42318}}
