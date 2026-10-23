@@ -18,6 +18,6 @@ for(const {name,expectedTotal,draft} of fixture.cases){
  const roundTrip=R.importDraft(R.exportDraft(s));assert.equal(R.evaluate(roundTrip).total,expectedTotal);assert.equal(roundTrip.notes,s.notes);
  console.log('PASS Builder import: '+name+' ('+v.total+' EC)');
 }
-assert.throws(()=>R.importDraft({kind:'DDS-planner-design-draft',schemaVersion:2}),/Export for approval/);
+assert.throws(()=>R.importDraft({kind:'DDS-planner-design-draft',schemaVersion:2}),/Export for approval, then use Open draft/);
 const text=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');assert(text.includes('https://dannyscholten.github.io/PEP-builder/'));assert(!text.includes('dds-curriculum-planner/'));
 console.log('PASS saved-build guidance, current Builder link, unchanged approval gates and clean notes across '+fixture.cases.length+' synthetic exports.');
