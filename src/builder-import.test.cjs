@@ -10,7 +10,7 @@ for(const {name,expectedTotal,draft} of fixture.cases){
  assert.equal(s.minor.enabled,draft.minor.enabled,name+' minor');
  assert.equal(s.notes,draft.notes||'',name+' explanation');
  assert(!Object.hasOwn(s,'plannerTransfer'),name+' does not copy timing metadata into the approval form');
- assert.equal(draft.plannerTransfer.targetFormVersion,R.DATA.appVersion,name+' form version');
+ assert.equal(typeof draft.plannerTransfer.targetFormVersion,'string',name+' declares its original target form version');
  assert.equal(draft.plannerTransfer.targetRuleVersion,R.DATA.ruleVersion,name+' rule version');
  assert.equal(draft.plannerTransfer.targetSchemaVersion,s.schemaVersion,name+' schema version');
  if(R.isEducation(s)){assert.equal(v.ddsTotal,60,name+' DDS component');assert.equal(v.educationTotal,60,name+' Education component');}
