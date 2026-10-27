@@ -36,6 +36,9 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Check form interactions, draft imports and PDF export
         run: npm run test:browser
+      - name: Add integrated DDS-PEP notice
+        if: github.event_name != 'pull_request'
+        run: node scripts/integration-notice.mjs
       - name: Configure Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
